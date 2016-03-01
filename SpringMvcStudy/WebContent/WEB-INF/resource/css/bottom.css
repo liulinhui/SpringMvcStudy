@@ -1,0 +1,59 @@
+/* CSS Document */
+/* css bottom of the page, above footer */
+.bottom{
+	overflow: hidden;
+	height:70px;
+	width:1200px;
+	margin:auto;
+}
+.bottom #pager{
+	height: 37px;
+	float: right;
+	padding-top:16px;
+}
+.bottom #pager a{
+	display: block;
+	float: left;
+	padding: 0 4px;
+	line-height: 34px;
+}
+.bottom #pager .p-prev,.bottom #pager .p-next{
+	width: 100px;
+	height: 34px;
+	border:1px solid #ddd;
+	border-radius: 5px;
+	color: #666;
+	text-align: center;
+	margin:0 12px;
+}
+.bottom #pager a.p-now{
+	font-weight: bold;
+}
+.bottom #pager p{
+	float: left;
+	font-size: 14px;
+	line-height: 34px;
+	padding-right: 12px;
+}
+.bottom #pager span.total{
+	width: 24px;
+	display: inline-block;
+}
+.bottom #pager input{
+	float: left;
+	display: block;
+	width: 50px;
+	height: 35px;
+	text-align: center;
+	border:1px solid #ddd;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+.bottom #pager a.jump{
+	border:1px solid #0080cc;
+	color: #0080cc;
+	width: 60px;
+	text-align: center;
+	border-radius: 5px;
+}
+
