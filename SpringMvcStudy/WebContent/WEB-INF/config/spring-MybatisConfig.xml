@@ -129,6 +129,7 @@
 			<tx:method name="query*" read-only="true" />
 			<tx:method name="count*" read-only="true" />
 			<tx:method name="read*" read-only="true" />
+			
 			<tx:method name="sync*" />
 			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
 		</tx:attributes>

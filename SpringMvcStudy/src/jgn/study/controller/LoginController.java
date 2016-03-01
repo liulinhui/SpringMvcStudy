@@ -31,10 +31,10 @@ public class LoginController {
 			returnUrl = "Login1.ftl";
 		}
 		if (name != null && password != null) {
-			User user1=new User();
-			user1.setName(name);
-			user1.setPassword(password);
-			userMapper.insert(user1);
+//			User user1=new User();
+//			user1.setName(name);
+//			user1.setPassword(password);
+//			userMapper.insert(user1);
 			User user = userMapper.selectByName(name);
 			if (password.equals(user.getPassword())) {
 				logger.info("用户：" + name + " 已登录！");

@@ -6,7 +6,7 @@
     <result column="user_password" jdbcType="VARCHAR" property="user_password"/>
     <result column="user_code" jdbcType="VARCHAR" property="user_code"/>
   </resultMap>
-  <sql id="Base_Column_List">name,password</sql>
+  <sql id="Base_Column_List">user_name,user_password,user_code</sql>
   
   <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
     select
@@ -18,7 +18,7 @@
   insert into realuser(user_name,user_password,user_code)
 	values (
 		#{user_name,jdbcType=VARCHAR},
-		#{user_password,jdbcType=VARCHAR}
+		#{user_password,jdbcType=VARCHAR},
 		#{user_code,jdbcType=VARCHAR}
 	)
 </insert>

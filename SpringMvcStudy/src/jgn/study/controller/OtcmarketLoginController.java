@@ -51,21 +51,28 @@ public class OtcmarketLoginController {
 	}
 	@RequestMapping(value = "/account_Reg")
 	public String account_Reg(Model model, HttpServletRequest request){
-		String user_name = request.getParameter("name");
+		String user_code = request.getParameter("user_name");
 		String user_password = request.getParameter("password");
 		String user_returnUrl = request.getParameter("returnUrl");
-		if (user_name == null | user_password == null) {
+		logger.info("啦啦啦啦啦啦啦啦啦");
+		if (user_code == null | user_password == null) {
 			user_returnUrl = "account_Reg.ftl";
+			logger.info("没有输名字");
 		}
 		else{
 			RealUser user1=new RealUser();
-			user1.setUser_name(user_name);
+			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
+			
+			user1.setUser_name("lalalala");
+			logger.info("操你大爷"+user1.getUser_code()+user1.getUser_name()+user1.getUser_password());
+			
 			realuserMapper.insert(user1);
-			user_returnUrl = "redirect:/otc";
+			logger.info("插入完成");
+			user_returnUrl = "redirect:/account_Login";
 		}
 			
-			
+		logger.info("他妈的");	
 				
 		return user_returnUrl;
 	}

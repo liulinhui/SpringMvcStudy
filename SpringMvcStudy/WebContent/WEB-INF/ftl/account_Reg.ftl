@@ -18,7 +18,7 @@
 	<div class="page-container">
 		<h1>注册新用户</h1>
 		<form action="account_Reg" method="post">
-			<input type="text" name="name" class="username"
+			<input type="text" name="user_name" class="username"
 				placeholder="用户名"> <input type="password"
 				name="password" class="password" placeholder="密码">
 			<div class="warning">

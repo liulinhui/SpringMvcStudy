@@ -117,32 +117,7 @@
 							<td class="status"><a href=""><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td>
               <td></td>
             </tr>
-            <tr>
-              <td></td>
-              <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">君柜宝二号<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-	      <td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-							<td class="status"><a href=""><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">君柜宝二号<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-	      <td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-							<td class="status"><a href=""><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td>
-              <td></td>
-            </tr>
+           
             <tr>
               <td></td>
               <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">君柜宝二号<p>(代码：15688)</p></td>
@@ -156,19 +131,7 @@
               <td class="status"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></td>
               <td></td>
             </tr>
-            <tr>
-              <td></td>
-              <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">君柜宝二号<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-	      <td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-							<td class="status"><a href=""><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td>
-              <td></td>
-            </tr>
+           
 
           </tbody>
         </table>

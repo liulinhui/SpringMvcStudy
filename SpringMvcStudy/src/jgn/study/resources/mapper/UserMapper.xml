@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="jgn.study.bean.User">
     <result column="name" jdbcType="VARCHAR" property="name"/>
     <result column="password" jdbcType="VARCHAR" property="password"/>
+ 
   </resultMap>
   <sql id="Base_Column_List">name,password</sql>
   

@@ -9,7 +9,7 @@ public class Product {
 	private int transfer_account;
 	private int transfer_capital;
 	private char risk;
-	private char pubilc_data;
+	private String pubilc_data;
 	private char state;
 	public String getProduct_code() {
 		return product_code;
@@ -59,10 +59,10 @@ public class Product {
 	public void setRisk(char risk) {
 		this.risk = risk;
 	}
-	public char getPubilc_data() {
+	public String getPubilc_data() {
 		return pubilc_data;
 	}
-	public void setPubilc_data(char pubilc_data) {
+	public void setPubilc_data(String pubilc_data) {
 		this.pubilc_data = pubilc_data;
 	}
 	public char getState() {

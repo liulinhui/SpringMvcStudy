@@ -17,7 +17,7 @@
 		<div class="input">
 			<div class="log">
 				<div class="name">
-					<h2 style="color:red ">用户名或密码错误，请重新输入</h2></br></br></br>
+					<h2 style="color:red ">异常信息：${errorMsg!""} }</h2></br></br></br>
 					<input type="submit" id="submit" class="submit" tabindex="3" value="返回登录页面">
 					<div class="check"></div>
 				</div>
