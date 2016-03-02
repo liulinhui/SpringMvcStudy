@@ -12,14 +12,6 @@
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
-  <!--[if lte IE 9]>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery.placeholder.js"></script>
-      <script type="text/javascript">
-        $(function(){
-          $('input, textarea').placeholder();
-        })
-      </script>
-  <![endif]-->
   <!--[if IE 6]>
   <script src="./js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
   <script type="text/javascript">
@@ -29,22 +21,19 @@
 </head>
 
 <body>
-  <div class="header-top">
+   <div class="header-top">
     <div class="h-inner">
-      
-      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
+     <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a href="">登录/注册</a>
-       
+        <a id="login" href="./account_Login">登录</a>
+        <a id="reg" href="./account_Reg">注册</a>
         <a href="">我的订单</a>
-      </div>
-      <div id="wx-qr"><img src="/SpringMvcStudy/resource/images/images/h_wx_qr.png"></div>
-      <div id="sj-qr"><img src="/SpringMvcStudy/resource/images/images/h_sj_qr.png"></div>
+      </div>     
     </div>
   </div>
   <div class="header-con">
     <div class="h-inner">
-      <a href="" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
       <div class="h-search">
         <input type="text" id="s-input" placeholder="名称/代码"/>
         <a href="" id="s-btn" title="搜索">搜索</a>
@@ -57,7 +46,7 @@
         </div>
       </div>    
       <div class="nav">
-        <a href="" class="active">首页</a><a href="">我要理财</a><a href="">我要借款</a><a href="">我的账户</a>
+        <a href="" class="active">首页</a><a href="">我要理财</a><a href="">我要转让</a><a href="">我的账户</a>
       </div>   
 			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a><a href="">>君得金优先级28天期</a></p>
     </div>
@@ -160,21 +149,13 @@
 						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
 					</li>
 				</ul>
-				<div class="pdf">
-					<img src="images2/pdf.png"></img>
-					<ul>
-						<li>产品说明书<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品合同<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品说明书<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-					</ul>
-				</div>
+				
 			</div>
 
 			<div class="blank"></div>
     </div>
   </div>
- 
- 
+  
  <div id="footer-nf">
     <div class="f-inner">
     

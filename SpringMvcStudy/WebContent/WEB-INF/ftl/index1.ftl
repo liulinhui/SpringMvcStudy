@@ -14,22 +14,7 @@
     <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
- <!--[if lte IE 9]>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery.placeholder.js"></script>
-      <script type="text/javascript">
-        $(function(){
-          $('input, textarea').placeholder();
-        })
-      </script>
-  <![endif]-->
-  <!--[if IE 6]>
-  <script src="./js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    DD_belatedPNG.fix('#wx-qr img,#sj-qr img,#footer-nf .img-box img,#float-bar .handle,#float-bar .btn-set li.ol-im a,#float-bar .btn-set li.buy a,#float-bar .back-top a,#s-btn,#header-nf .header-top .sns a,background');
-  </script>
-  <![endif]-->
-</head>
-
+ </head>
 <body>
   <div class="header-top">
     <div class="h-inner">
@@ -38,8 +23,7 @@
         <a id="login" href="./account_Login">登录</a>
         <a id="reg" href="./account_Reg">注册</a>
         <a href="">我的订单</a>
-      </div>
-      
+      </div>     
     </div>
   </div>
   <div class="header-con">
@@ -93,7 +77,7 @@
           <tbody id="otc">
             <tr>
               <td></td>
-							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>君得金优先级182天期<p>(代码：15688)</p></td>
+							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${product_name!" 君得金优先级182天期"}<p>(代码：15688)</p></td>
               <td class="id">6.65%</td>
 							<td class="rate">5,73<span class="per">%</span></td>
               <td class="period">61天</td>

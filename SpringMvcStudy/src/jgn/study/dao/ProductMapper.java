@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface ProductMapper {
-	Product selectByName(String name);
-	List<Product> selectAll(Product product);
-	void insert(Product product);
+	Product selectByProduct_code(String product_code);
+//	List<Product> selectAll(Product product);
+//	void insert(Product product);
 }

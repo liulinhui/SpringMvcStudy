@@ -6,14 +6,14 @@
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>国泰君安</title>
-  <link rel="stylesheet" type="text/css" href="css/confirm.css"/>
-  <link rel="stylesheet" type="text/css" href="css/headerfooter.css"/>
-  <link rel="stylesheet" type="text/css" href="css/table.css"/>
-  <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-  <script type="text/javascript" src="js/script.headerfooter.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/confirm.css"/>
+  <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
+  <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
   <!--[if lte IE 9]>
-    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery.placeholder.js"></script>
       <script type="text/javascript">
         $(function(){
           $('input, textarea').placeholder();
@@ -31,24 +31,17 @@
 <body>
   <div class="header-top">
     <div class="h-inner">
-      <div class="sns">
-        <a href="" class="qq">qq</a>
-        <a href="" class="wx qr-btn" rel="wx-qr">微信</a>
-      </div>
-      <div class="tel">咨询热线：<em>95521</em></div>
+     <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a href="">登录</a>
-        <a href="">网上开户</a>
-        <a href="javascript:;" class="qr-btn" rel="sj-qr">手机开户</a>
+        <a id="login" href="./account_Login">登录</a>
+        <a id="reg" href="./account_Reg">注册</a>
         <a href="">我的订单</a>
-      </div>
-      <div id="wx-qr"><img src="images/h_wx_qr.png"></div>
-      <div id="sj-qr"><img src="images/h_sj_qr.png"></div>
+      </div>     
     </div>
   </div>
   <div class="header-con">
     <div class="h-inner">
-      <a href="" id="logo"><img src="images2/logo.jpg"></a>
+      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
       <div class="h-search">
         <input type="text" id="s-input" placeholder="名称/代码"/>
         <a href="" id="s-btn" title="搜索">搜索</a>
@@ -69,13 +62,13 @@
     <div class="inner">
 			<div class="blank" id="head"></div>
 			<div class="confirm">
-				<img src="images2/check_icon.png" id="check"></img>
+				<img src="/SpringMvcStudy/resource/images/images2/check_icon.png" id="check"></img>
 				<h3>您的订单已提交成功</h3>
 				<div class="note">
 					<span>逛逛</span>
 					<a href="" class="excg"></a>
 					<span>或者查看</span>
-					<a href="" class="order"><img src="images2/order_button.png"></img></a>
+					<a href="" class="order"><img src="/SpringMvcStudy/resource/images/images2/order_button.png"></img></a>
 				</div>
 			</div>
 			<div class="blank" id="foot"></div>
