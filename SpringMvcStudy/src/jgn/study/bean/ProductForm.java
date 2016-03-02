@@ -1,6 +1,9 @@
 package jgn.study.bean;
 
-public class ProductForm {
+import java.io.Serializable;
+
+public class ProductForm implements Serializable {
+	private static final long serialVersionUID = 1L;
     private String name;
     private String description;
     private String price;
