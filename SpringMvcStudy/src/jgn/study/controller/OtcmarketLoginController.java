@@ -24,7 +24,9 @@ public class OtcmarketLoginController {
 			.getLogger(OtcmarketLoginController.class);
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
 	private RealUserMapper realuserMapper;
+	@Autowired
 	private ProductMapper productmapper;
 
 	@RequestMapping(value = "/buy")

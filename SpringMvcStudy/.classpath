@@ -42,6 +42,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/patchca.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxrs-api-3.0.4.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.2.5.jar"/>
-	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.67/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
