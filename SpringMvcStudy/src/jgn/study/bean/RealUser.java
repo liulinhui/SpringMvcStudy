@@ -1,6 +1,9 @@
 package jgn.study.bean;
 
-public class RealUser {
+import java.io.Serializable;
+
+public class RealUser implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String user_name;//用户名
 	private String user_code;//资金账号
 	private String user_password;//用户密码

@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="jgn.study.dao.RealUserMapper">
-  <resultMap id="BaseResultMap" type="jgn.study.bean.RealUser">
-    <result column="user_name" jdbcType="VARCHAR" property="user_name"/>
-    <result column="user_password" jdbcType="VARCHAR" property="user_password"/>
-    <result column="user_code" jdbcType="VARCHAR" property="user_code"/>
-  </resultMap>
-  <sql id="Base_Column_List">user_name,user_password,user_code</sql>
-  
-  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
-    select
-    <include refid="Base_Column_List"/>
-    from realuser where user_code = #{user_code,jdbcType=VARCHAR}
-  </select>
-  
-  <insert id="insert" parameterType="jgn.study.bean.RealUser">
-  insert into realuser(user_name,user_password,user_code)
-	values (
+	<resultMap id="BaseResultMap" type="jgn.study.bean.RealUser">
+		<result column="user_name" jdbcType="VARCHAR" property="user_name" />
+		<result column="user_password" jdbcType="VARCHAR" property="user_password" />
+		<result column="user_code" jdbcType="VARCHAR" property="user_code" />
+	</resultMap>
+	<sql id="Base_Column_List">user_name,user_password,user_code</sql>
+
+	<select id="selectByCode" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from realuser where user_code = #{user_code,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insert" parameterType="jgn.study.bean.RealUser">
+		insert into realuser(user_name,user_password,user_code)
+		values (
 		#{user_name,jdbcType=VARCHAR},
 		#{user_password,jdbcType=VARCHAR},
 		#{user_code,jdbcType=VARCHAR}
-	)
-</insert>
+		)
+	</insert>
 </mapper>
