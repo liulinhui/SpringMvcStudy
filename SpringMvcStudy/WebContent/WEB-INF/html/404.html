@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>找不到页面</title>
+    <title>Sweeper Sample</title>
     <style type="text/css">
         body
         {
@@ -101,12 +101,11 @@
         }
     </style>
     <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/InfoProcess.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/MineArea.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/Game.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/GameStorage.js"></script>
+    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/MineArea.js"></script>
+    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/Game.js"></script>
+    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/GameStorage.js"></script>
     <script type="text/javascript">
         //====Helper Functions==========
-        	
         function $(id) { return document.getElementById(id); }
         Function.prototype.CreateDelegate = function (instance, method) { return function () { return method.apply(instance, arguments); } }
         function checkInput(item, value) { var temp = parseInt(item.value); if (temp.toString() == "NaN" || temp <= 0) { item.value = value; } else { item.value = temp; } }
@@ -384,7 +383,10 @@
 <body>
     <div style="float:left;width:320px;">
         <div style="padding:0px 10px 0px 20px;padding-top:10px;">
-            
+            <div class="titleFont">
+            Welcome to MineSweeper! <br />
+            Today is: <script type="text/javascript">document.write(new Date().toDateString());</script>.
+            </div>
             <div class="line"></div>
             <div class="titleFont">
             Game Mode:
@@ -433,7 +435,7 @@
     </div>
     <div style="margin-left:320px;">
       <div style="padding:10px 10px 0px 20px;">
-        <div class="titleFont" style="text-align:left; padding-right:10px;">找不到页面就扫会儿雷</div>
+        <div class="titleFont" style="text-align:left; padding-right:10px;">Powered By ZhangSichu <br />Copyright © ZhangSichu.com</div>
         <div class="line"></div>
         <div>
           <a href="javascript:switchGame();" class="button" id="gameSwitcher">Pause</a>

@@ -17,7 +17,9 @@
 		<div class="input">
 			<div class="log">
 				<div class="name">
-					<h2 style="color:red ">异常信息：请退出或重新操作}</h2></br></br></br>
+					<h2 style="color:red ">特别提醒：您的操作不正确或是系统崩溃了，赶紧联系我！！！！！</h2></br>
+					<h5 style="color:blue ">联系方式：120</h5>
+					</br>
 					<input type="submit" id="submit" class="submit" onclick="javascript:history.go(-1);" value="返回上一页">
 					<div class="check"></div>
 				</div>

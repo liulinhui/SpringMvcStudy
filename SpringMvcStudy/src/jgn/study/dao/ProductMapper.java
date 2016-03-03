@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface ProductMapper {
 	Product selectByProduct_code(String product_code);
-//	List<Product> selectAll(Product product);
-//	void insert(Product product);
+	List<Product> selectAll(Product product);
+	void insert(Product product);
 }

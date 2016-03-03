@@ -17,7 +17,7 @@
 <body>
 	<div class="page-container">
 		<h1>登录</h1>
-		<form action="login" method="post">
+		<form action="account_Login" method="post">
 			<input type="text" name="user_code" class="usercode"
 				placeholder="账号"> <input type="password"
 				name="user_password" class="password" placeholder="密码">

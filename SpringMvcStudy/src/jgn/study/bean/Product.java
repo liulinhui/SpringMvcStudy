@@ -12,7 +12,13 @@ public class Product implements Serializable {
 	private int transfer_account;
 	private int transfer_capital;
 	private char risk;
-	private String pubilc_data;
+	private String public_date;
+	public String getPublic_date() {
+		return public_date;
+	}
+	public void setPublic_date(String public_date) {
+		this.public_date = public_date;
+	}
 	private char state;
 	public String getProduct_code() {
 		return product_code;
@@ -62,12 +68,7 @@ public class Product implements Serializable {
 	public void setRisk(char risk) {
 		this.risk = risk;
 	}
-	public String getPubilc_data() {
-		return pubilc_data;
-	}
-	public void setPubilc_data(String pubilc_data) {
-		this.pubilc_data = pubilc_data;
-	}
+	
 	public char getState() {
 		return state;
 	}
