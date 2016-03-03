@@ -1,110 +1,113 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Sweeper Sample</title>
-    <style type="text/css">
-        body
-        {
-            border: 0px;
-            margin: 0px;
-            padding: 0px;
-            background-image: url(/SpringMvcStudy/resource/images/404Error/background.jpg);
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 3px black;
-            font-family: Microsoft YaHei,Segoe UI,Helvetica,Arial,sans-serif;
-            font-weight: bold;
-            color: #C6DAFC;
-        }
-        div
-        {
-            border: 0px;
-        }
-        img
-        {
-            border: 0px;
-        }
-        a
-        {
-            height: 25px;
-            width: 160px;
-            padding-top: 5px;
-            margin: 7px;
-            background: #8092B3 none;
-            color: white;
-            font-weight: lighter;
-            letter-spacing: 3px;
-            display: inline-block;
-            line-height: normal;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -webkit-transition: all .3s;
-            text-decoration: none;
-            outline: 0;
-            text-align: center;
-            vertical-align: middle;
-        }
-        a:hover
-        {
-            background-color: #5C729A;
-        }
-        .titleFont
-        {
-            font-size: 17px;
-        }
-        .displayFont
-        {
-            color: white;
-            font-weight: lighter;
-            letter-spacing: 3px;
-            display: inline-block;
-            line-height: normal;
-            font-size: 18px;
-        }
-        .line
-        {
-            border: #43485F 1px solid;
-        }
-        .textSetting
-        {
-            width: 150px;
-            border: 1px solid #999999;
-            color: white;
-            font-weight: lighter;
-            background: #8092B3;
-        }
-        .winFont
-        {
-            color: #F47272;
-            font-size: 11px;
-        }
-        .loseFont
-        {
-            color: #7B94E5;
-            font-size: 11px;
-        }
-        .savedGame
-        {
-            float: left;
-            border: dotted 1px #999999;
-            margin: 3px;
-            padding: 3px;
-            background-color: #C8CFDA;
-        }
-        .savedGameMouseOver
-        {
-            float: left;
-            border: solid 1px #FF9999;
-            margin: 3px;
-            padding: 3px;
-            background-color: #C8CFDA;
-        }
-    </style>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/InfoProcess.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/MineArea.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/Game.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/404Error/js/GameStorage.js"></script>
-    <script type="text/javascript">
+<title>找不到页面</title>
+<style type="text/css">
+body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(/SpringMvcStudy/resource/404/image/background.jpg);
+	font-size: 13px;
+	letter-spacing: 2px;
+	text-shadow: 0 0 3px black;
+	font-family: Microsoft YaHei, Segoe UI, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color: #C6DAFC;
+}
+
+div {
+	border: 0px;
+}
+
+img {
+	border: 0px;
+}
+
+a {
+	height: 25px;
+	width: 160px;
+	padding-top: 5px;
+	margin: 7px;
+	background: #8092B3 none;
+	color: white;
+	font-weight: lighter;
+	letter-spacing: 3px;
+	display: inline-block;
+	line-height: normal;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-transition: all .3s;
+	text-decoration: none;
+	outline: 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+a:hover {
+	background-color: #5C729A;
+}
+
+.titleFont {
+	font-size: 17px;
+}
+
+.displayFont {
+	color: white;
+	font-weight: lighter;
+	letter-spacing: 3px;
+	display: inline-block;
+	line-height: normal;
+	font-size: 18px;
+}
+
+.line {
+	border: #43485F 1px solid;
+}
+
+.textSetting {
+	width: 150px;
+	border: 1px solid #999999;
+	color: white;
+	font-weight: lighter;
+	background: #8092B3;
+}
+
+.winFont {
+	color: #F47272;
+	font-size: 11px;
+}
+
+.loseFont {
+	color: #7B94E5;
+	font-size: 11px;
+}
+
+.savedGame {
+	float: left;
+	border: dotted 1px #999999;
+	margin: 3px;
+	padding: 3px;
+	background-color: #C8CFDA;
+}
+
+.savedGameMouseOver {
+	float: left;
+	border: solid 1px #FF9999;
+	margin: 3px;
+	padding: 3px;
+	background-color: #C8CFDA;
+}
+</style>
+<script type="text/javascript"
+	src="/SpringMvcStudy/resource/404/js/InfoProcess.js"></script>
+<script type="text/javascript"
+	src="/SpringMvcStudy/resource/404/js/MineArea.js"></script>
+<script type="text/javascript"
+	src="/SpringMvcStudy/resource/404/js/Game.js"></script>
+<script type="text/javascript"
+	src="/SpringMvcStudy/resource/404/js/GameStorage.js"></script>
+<script type="text/javascript">
         //====Helper Functions==========
         function $(id) { return document.getElementById(id); }
         Function.prototype.CreateDelegate = function (instance, method) { return function () { return method.apply(instance, arguments); } }
@@ -272,13 +275,13 @@
 
             switch (currentFace) {
                 case 0: //normal
-                    gameFace.src = "/SpringMvcStudy/resource/images/404Error/faceNormal.png";
+                    gameFace.src = "/SpringMvcStudy/resource/404/image/faceNormal.png";
                     break;
                 case 1: //win
-                    gameFace.src = "/SpringMvcStudy/resource/images/404Error/faceWin.png";
+                    gameFace.src = "/SpringMvcStudy/resource/404/image/faceWin.png";
                     break;
                 case 2: //lose
-                    gameFace.src = "/SpringMvcStudy/resource/images/404Error/faceLose.png";
+                    gameFace.src = "/SpringMvcStudy/resource/404/image/faceLose.png";
                     break;
                 default:
                     break;
@@ -367,7 +370,7 @@
 
         window.onload = main;
     </script>
-    <script type="text/javascript">
+<script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-22028503-1']);
         _gaq.push(['_setDomainName', '.zhangsichu.com']);
@@ -381,100 +384,133 @@
     </script>
 </head>
 <body>
-    <div style="float:left;width:320px;">
-        <div style="padding:0px 10px 0px 20px;padding-top:10px;">
-            <div class="titleFont">
-            Welcome to MineSweeper! <br />
-            Today is: <script type="text/javascript">document.write(new Date().toDateString());</script>.
-            </div>
-            <div class="line"></div>
-            <div class="titleFont">
-            Game Mode:
-            </div>
-            <div style="margin-left:80px; margin-top:5px;">
-                <a href="javascript:newGame(7,7,10);" class="button">Beginner</a> <br />
-                <a href="javascript:newGame(15,15,40);" class="button">Intermediate</a> <br />
-                <a href="javascript:newGame(30,15,99);" class="button">Expert</a> <br />
-                <a href="javascript:randomGame();" class="button">Random</a> <br />
-            </div>
-            <div class="line"></div>
-            <div class="titleFont">
-            Customer Setting:
-            </div>
-            <table style="margin-top:5px; font-size:12px;">
-                <tr><td>Game Height:</td>
-                    <td><input id="mineHeight" type="text" class="textSetting" value="15" onkeyup="javascript:checkInput(this,window.DefaultY);" onpaste="javascript:checkInput(this,window.DefaultY);" maxlength="2"/></td></tr>
-                <tr><td>Game Width:</td>
-                    <td><input id="mineWidth" type="text" class="textSetting" value="30" onkeyup="javascript:checkInput(this,window.DefaultX);" onpaste="javascript:checkInput(this,window.DefaultX);" maxlength="2"/></td></tr>
-                <tr><td>Number of Bombs:</td>
-                    <td><input id="mineNumber" type="text" class="textSetting" value="99"onkeyup="javascript:checkInput(this,window.DefaultMine);" onpaste="javascript:checkInput(this,window.DefaultMine);" maxlength="2"/></td></tr>
-            </table>
-            <div style="margin-left:80px;">
-                <a href="javascript:customerGame($('mineWidth').value,$('mineHeight').value,$('mineNumber').value);" class="button">New Game</a>
-            </div>
-            <div class="line"></div>
-            <div class="titleFont">
-            Performace Test:
-            </div>
-            <table style="margin-top:5px; font-size:12px;">
-                <tr>
-                    <td>Times:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td><input id="testTimes" type="text" class="textSetting" value="10" onkeyup="javascript:checkInput(this,window.DefaultTestTimes);" onpaste="javascript:checkInput(this,window.DefaultTestTimes);" maxlength="3"/></td>
-                </tr>
-            </table>
-            <div style="margin-left:80px; margin-top:5px;">
-                <a href="javascript:testPerformance($('testTimes').value);" class="button">GO</a>
-            </div>
-            <div class="line"></div>
-            <div class="titleFont">
-            Game Record(s): <span id="recordCount">0</span>
-            </div>
-            <ul id="recordList" style="margin-top:5px; line-height:140%">
-            </ul>
-        </div>
-    </div>
-    <div style="margin-left:320px;">
-      <div style="padding:10px 10px 0px 20px;">
-        <div class="titleFont" style="text-align:left; padding-right:10px;">Powered By ZhangSichu <br />Copyright © ZhangSichu.com</div>
-        <div class="line"></div>
-        <div>
-          <a href="javascript:switchGame();" class="button" id="gameSwitcher">Pause</a>
-          <a href="javascript:saveGame();" class="button">Save</a>
-          
-          <div id="gamePanel" style="background-image:url(/SpringMvcStudy/resource/images/404Error/panelbackground.gif); width:700px; height:400px; text-align:center; vertical-align:middle; border: solid 1px #B6BCCC;">
-            <div style="text-align:center; height:25px;"></div>
-            <div id="mineAreaPanel" style="border: solid 1px #818BAA; width:600px; height:300px; margin-left:50px;"><canvas id="theCanvas"></canvas></div>
-            <div style="margin-top:10px;">
-                <div id="costTimePanel" style="float:left; margin-left:70px; width:142px; height:55px; background-image:url(/SpringMvcStudy/resource/images/404Error/timeBackground.png)"><br /><span style="margin-left:55px;" class="displayFont" id="gameTimeCost">000</span></div>
-                <div style="float:left;margin-left:110px;"><img id="gameFace" src="/SpringMvcStudy/resource/images/404Error/faceNormal.png" alt="" onclick="javascript:resetGame();" /></div>
-                <div id="currentMinePanel" style="float:right; margin-right:70px; width:142px; height:53px; background-image:url(/SpringMvcStudy/resource/images/404Error/mineBackground.png)"><br /><span style="margin-right:55px;" class="displayFont" id="gameCurrentMine">000</span></div>
-            </div>
-          </div>
+	<div style="float: left; width: 320px;">
+		<div style="padding: 0px 10px 0px 20px; padding-top: 160px;">
+			<div class="titleFont">
+				找不到页面就来扫雷吧，搞起来! <br /> 今天是:
+				<script type="text/javascript">document.write(new Date().toDateString());</script>
+				.
+			</div>
+			<div class="line"></div>
+			<div class="titleFont">游戏模式:</div>
+			<div style="margin-left: 80px; margin-top: 5px;">
+				<a href="javascript:newGame(7,7,10);" class="button">菜鸟</a> <br />
+				<a href="javascript:newGame(15,15,40);" class="button">有点屌</a>
+				<br /> <a href="javascript:newGame(30,15,99);" class="button">相当牛逼</a>
+				<br /> <a href="javascript:randomGame();" class="button">随机一把</a>
+				<br />
+			</div>
+			<div class="line"></div>
+			<div class="titleFont">用户设置:</div>
+			<table style="margin-top: 5px; font-size: 12px;">
+				<tr>
+					<td>界面高度:</td>
+					<td><input id="mineHeight" type="text" class="textSetting"
+						value="15" onkeyup="javascript:checkInput(this,window.DefaultY);"
+						onpaste="javascript:checkInput(this,window.DefaultY);"
+						maxlength="2" /></td>
+				</tr>
+				<tr>
+					<td>界面宽度:</td>
+					<td><input id="mineWidth" type="text" class="textSetting"
+						value="30" onkeyup="javascript:checkInput(this,window.DefaultX);"
+						onpaste="javascript:checkInput(this,window.DefaultX);"
+						maxlength="2" /></td>
+				</tr>
+				<tr>
+					<td>炸弹数量:</td>
+					<td><input id="mineNumber" type="text" class="textSetting"
+						value="99"
+						onkeyup="javascript:checkInput(this,window.DefaultMine);"
+						onpaste="javascript:checkInput(this,window.DefaultMine);"
+						maxlength="2" /></td>
+				</tr>
+			</table>
+			<div style="margin-left: 80px;">
+				<a
+					href="javascript:customerGame($('mineWidth').value,$('mineHeight').value,$('mineNumber').value);"
+					class="button">新开一把</a>
+			</div>
+			<div class="line"></div>
+			
+			
+			
+			<div class="line"></div>
+			<div class="titleFont">
+				游戏记录(s): <span id="recordCount">0</span>
+			</div>
+			<ul id="recordList" style="margin-top: 5px; line-height: 140%">
+			</ul>
+		</div>
+	</div>
+	<div style="margin-left: 320px;">
+		<div style="padding: 10px 10px 0px 20px;">
+			<div class="titleFont" style="text-align: center; padding-right: 10px;">
+				<p style="color:red; font-size:80px;margin-top:0px;margin-bottom:0px;">404</p><br /><p style="color:yellow; font-size:20px;margin-top:0px;margin-bottom:0px">sorry!您要的网页弄丢了</p>
+			</div>
+			<div class="line"></div>
+			<div>
+				<a href="javascript:switchGame();" class="button" id="gameSwitcher">Pause</a>
+				<a href="javascript:saveGame();" class="button">Save</a>
 
-        </div>
-        <br />
-        <div class="line"></div>
-        <b>Game Storage:</b><br />
-        <div id="savePanel"></div>
-      </div>
-    </div>
-    <div style="display:none">
-        <img src="/SpringMvcStudy/resource/images/404Error/flag.gif" alt="" id="flag" />
-        <img src="/SpringMvcStudy/resource/images/404Error/ask.gif" alt="" id="ask" />
-        <img src="/SpringMvcStudy/resource/images/404Error/mine.gif" alt="" id="mine" />
-        <img src="/SpringMvcStudy/resource/images/404Error/explodedMine.gif" alt="" id="explodedMine" />
-        <img src="/SpringMvcStudy/resource/images/404Error/normal.gif" alt="" id="normal" />
-        <img src="/SpringMvcStudy/resource/images/404Error/highlight.gif" alt="" id="highlight" />
-        <img src="/SpringMvcStudy/resource/images/404Error/one.gif" alt="" id="one" />
-        <img src="/SpringMvcStudy/resource/images/404Error/two.gif" alt="" id="two" />
-        <img src="/SpringMvcStudy/resource/images/404Error/three.gif" alt="" id="three" />
-        <img src="/SpringMvcStudy/resource/images/404Error/four.gif" alt="" id="four" />
-        <img src="/SpringMvcStudy/resource/images/404Error/five.gif" alt="" id="five" />
-        <img src="/SpringMvcStudy/resource/images/404Error/six.gif" alt="" id="six" />
-        <img src="/SpringMvcStudy/resource/images/404Error/seven.gif" alt="" id="seven" />
-        <img src="/SpringMvcStudy/resource/images/404Error/eight.gif" alt="" id="eight" />                        
-    </div>
-    <script type="text/javascript">
+				<div id="gamePanel"
+					style="background-image: url(/SpringMvcStudy/resource/404/image/panelbackground.gif); width: 700px; height: 400px; text-align: center; vertical-align: middle; border: solid 1px #B6BCCC;">
+					<div style="text-align: center; height: 25px;"></div>
+					<div id="mineAreaPanel"
+						style="border: solid 1px #818BAA; width: 600px; height: 300px; margin-left: 50px;">
+						<canvas id="theCanvas"></canvas>
+					</div>
+					<div style="margin-top: 10px;">
+						<div id="costTimePanel"
+							style="float: left; margin-left: 70px; width: 142px; height: 55px; background-image: url(/SpringMvcStudy/resource/404/image/timeBackground.png)">
+							<br />
+							<span style="margin-left: 55px;" class="displayFont"
+								id="gameTimeCost">000</span>
+						</div>
+						<div style="float: left; margin-left: 110px;">
+							<img id="gameFace"
+								src="/SpringMvcStudy/resource/404/image/faceNormal.png" alt=""
+								onclick="javascript:resetGame();" />
+						</div>
+						<div id="currentMinePanel"
+							style="float: right; margin-right: 70px; width: 142px; height: 53px; background-image: url(/SpringMvcStudy/resource/404/image/mineBackground.png)">
+							<br />
+							<span style="margin-right: 55px;" class="displayFont"
+								id="gameCurrentMine">000</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<br />
+			<div class="line"></div>
+			<b>Game Storage:</b><br />
+			<div id="savePanel"></div>
+		</div>
+	</div>
+	<div style="display: none">
+		<img src="/SpringMvcStudy/resource/404/image/flag.gif" alt=""
+			id="flag" /> <img src="/SpringMvcStudy/resource/404/image/ask.gif"
+			alt="" id="ask" /> <img
+			src="/SpringMvcStudy/resource/404/image/mine.gif" alt="" id="mine" />
+		<img src="/SpringMvcStudy/resource/404/image/explodedMine.gif" alt=""
+			id="explodedMine" /> <img
+			src="/SpringMvcStudy/resource/404/image/normal.gif" alt=""
+			id="normal" /> <img
+			src="/SpringMvcStudy/resource/404/image/highlight.gif" alt=""
+			id="highlight" /> <img
+			src="/SpringMvcStudy/resource/404/image/one.gif" alt="" id="one" />
+		<img src="/SpringMvcStudy/resource/404/image/two.gif" alt="" id="two" />
+		<img src="/SpringMvcStudy/resource/404/image/three.gif" alt=""
+			id="three" /> <img src="/SpringMvcStudy/resource/404/image/four.gif"
+			alt="" id="four" /> <img
+			src="/SpringMvcStudy/resource/404/image/five.gif" alt="" id="five" />
+		<img src="/SpringMvcStudy/resource/404/image/six.gif" alt="" id="six" />
+		<img src="/SpringMvcStudy/resource/404/image/seven.gif" alt=""
+			id="seven" /> <img
+			src="/SpringMvcStudy/resource/404/image/eight.gif" alt="" id="eight" />
+	</div>
+	<script type="text/javascript">
         //==========Static Data==========
         window.DefaultX = 30;
         window.DefaultY = 15;
