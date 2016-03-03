@@ -20,8 +20,7 @@ import jgn.study.dao.UserMapper;
 
 @Controller
 public class OtcmarketLoginController {
-	private static final Logger logger = LoggerFactory
-			.getLogger(OtcmarketLoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OtcmarketLoginController.class);
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
@@ -46,13 +45,16 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/otc")
 	public String otc(Model model, HttpServletRequest request) {
+//		if (request.getSession().getAttribute(name)) {
+//			
+//		}
 		logger.info("lalalala");
-		 Product product=productmapper.selectByProduct_code("2431242");
-		 logger.info("h哈哈哈哈");
-		 String product_name=product.getProduct_name();
-		
-		 model.addAttribute("product_name",product_name);
-		 logger.info(product_name+"查询成功");
+		Product product = productmapper.selectByProduct_code("2431242");
+		logger.info("h哈哈哈哈");
+		String product_name = product.getProduct_name();
+
+		model.addAttribute("product_name", product_name);
+		logger.info(product_name + "查询成功");
 		return "index1.ftl";
 	}
 
@@ -69,10 +71,10 @@ public class OtcmarketLoginController {
 			logger.info("lalalalala");
 			if (user_password.equals(realuser.getUser_password())) {
 				logger.info("用户：" + user_code + " 已登录！");
-				 request.getSession().setAttribute("user_code", user_code);
+				request.getSession().setAttribute("user_code", user_code);
 				user_returnUrl = "redirect:/otc";
-			}else if (!user_password.equals(realuser.getUser_password())) {
-				user_returnUrl="Error.ftl";
+			} else if (!user_password.equals(realuser.getUser_password())) {
+				user_returnUrl = "Error.ftl";
 			}
 		}
 		return user_returnUrl;
