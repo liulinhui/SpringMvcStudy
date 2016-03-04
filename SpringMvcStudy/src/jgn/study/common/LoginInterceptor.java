@@ -33,10 +33,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession(false);
 		log.info("==============执行顺序: 1、preHandle================");
-		if (session != null && session.getAttribute("name") != null) {
+		if (session != null && session.getAttribute("user_code") != null) {
 			return true;
 		} else {
-			request.getRequestDispatcher("login").forward(request, response);
+			request.getRequestDispatcher("account_Login").forward(request, response);
 			return false;
 		}
 

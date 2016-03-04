@@ -41,7 +41,7 @@
         </div>
       </div>    
       <div class="nav">
-        <a href="/otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
+        <a href="./otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
       </div>   
 			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a></p>
     </div>
@@ -121,7 +121,7 @@
         </table>
       </div>
 			<!--<div class="scroll" ><img src="/SpringMvcStudy/resource/images/images2/scrolldown.gif"></img></div> -->
-			<a style=" text-align:center;">加载更多</a>
+			<p style=" text-align:center;">加载更多</p>
   </div>
   
   <div id="footer-nf">

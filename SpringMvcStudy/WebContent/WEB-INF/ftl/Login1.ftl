@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form commandName="product" action="login" method="post">
+<form commandName="product" action="index" method="post">
 <div class="login">
     <div class="box png">
 		<div class="logo png"></div>

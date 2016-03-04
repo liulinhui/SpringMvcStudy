@@ -19,10 +19,8 @@
 		<h1>注册新用户</h1>
 		<form action="account_Reg" method="post">
 			<input type="text" name="user_name" class="username"
-				placeholder="用户名">
-			<input type="text" name="user_code" class="usercode"
-				placeholder="账号">
-			<input type="password"
+				placeholder="用户名"> <input type="text" name="user_code"
+				class="usercode" placeholder="账号"> <input type="password"
 				name="user_password" class="password" placeholder="密码">
 			<div class="warning">
 				<button type="submit" id="submit" class="submit">注册</button>

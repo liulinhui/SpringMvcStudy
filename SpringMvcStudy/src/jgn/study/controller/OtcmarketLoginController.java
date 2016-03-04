@@ -1,6 +1,8 @@
 package jgn.study.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mysql.jdbc.StringUtils;
+import com.sun.net.httpserver.HttpContext;
 
 import jgn.study.bean.Product;
 import jgn.study.bean.RealUser;
@@ -35,7 +38,9 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
-		return "otc_sell.html";
+		
+			return "otc_sell.html";
+		
 	}
 
 	@RequestMapping(value = "/protocol")
@@ -45,9 +50,10 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/otc")
 	public String otc(Model model, HttpServletRequest request) {
-//		if (request.getSession().getAttribute(name)) {
-//			
-//		}
+		//取到session值，
+//		HttpSession session=request.getSession();
+//		logger.info(session.getAttribute("user_code").toString());
+//		session.getAttribute("user_code");
 		logger.info("lalalala");
 		Product product = productmapper.selectByProduct_code("2431242");
 		logger.info("h哈哈哈哈");

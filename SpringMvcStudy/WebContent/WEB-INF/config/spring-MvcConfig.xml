@@ -59,10 +59,10 @@
 			<mvc:exclude-mapping path="/resource/**" />
 			<mvc:exclude-mapping path="/jgnCode" />
 			<mvc:exclude-mapping path="/" />
-			<mvc:exclude-mapping path="/login" />
-			<mvc:exclude-mapping path="/otc" />
+			<mvc:exclude-mapping path="/index" />
+		<mvc:exclude-mapping path="/otc" />
 			<mvc:exclude-mapping path="/buy" />
-		    <mvc:exclude-mapping path="/sell" />
+		 
 		    <mvc:exclude-mapping path="/protocol" />
 		    <mvc:exclude-mapping path="/account_Login" />
 		    <mvc:exclude-mapping path="/account_Reg" />

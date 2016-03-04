@@ -21,7 +21,7 @@ public class LoginController {
 	@Autowired
 	private UserMapper userMapper;
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/index")
 	public String login(Model model, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
@@ -38,7 +38,7 @@ public class LoginController {
 			User user = userMapper.selectByName(name);
 			if (password.equals(user.getPassword())) {
 				logger.info("用户：" + name + " 已登录！");
-				request.getSession().setAttribute("name", name);
+//				request.getSession().setAttribute("name", name);
 				returnUrl = "redirect:/otc";
 			}
 		}
