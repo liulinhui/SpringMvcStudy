@@ -51,9 +51,13 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/otc")
 	public String otc(Model model, HttpServletRequest request) {
 		//取到session值，
-//		HttpSession session=request.getSession();
-//		logger.info(session.getAttribute("user_code").toString());
-//		session.getAttribute("user_code");
+		if (request.getSession()!=null) {
+			HttpSession session=request.getSession();
+			logger.info(session.getAttribute("user_code").toString());
+			String username=session.getAttribute("user_code").toString();
+			
+		}
+
 		logger.info("lalalala");
 		Product product = productmapper.selectByProduct_code("2431242");
 		logger.info("h哈哈哈哈");

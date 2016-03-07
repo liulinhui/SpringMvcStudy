@@ -48,6 +48,7 @@
 	<!-- 静态文件访问控制 -->
 	<mvc:resources mapping="/resource/**" location="/WEB-INF/resource/" />
 	<mvc:resources mapping="/*.html" location="/WEB-INF/html/" />
+	<mvc:default-servlet-handler/>
 
 	<!--配置拦截器, 多个拦截器,顺序执行 -->
 	<mvc:interceptors>
@@ -66,7 +67,7 @@
 		    <mvc:exclude-mapping path="/protocol" />
 		    <mvc:exclude-mapping path="/account_Login" />
 		    <mvc:exclude-mapping path="/account_Reg" />
-		    <mvc:exclude-mapping path="/myproduct" />
+		   <mvc:exclude-mapping path="/myproduct" />
 			<!-- 自定义的Interceptor -->
 			<bean id="LoginInterceptor" class="jgn.study.common.LoginInterceptor"></bean>
 		</mvc:interceptor>
