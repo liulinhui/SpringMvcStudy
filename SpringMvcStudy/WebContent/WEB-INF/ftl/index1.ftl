@@ -20,8 +20,8 @@
     <div class="h-inner">
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a id="login" href="./account_Login" style="display:black">登录/注册</a>
-        <a id="reg" href=""  style="display:none">注销：【${username!"测试" }】</a>
+        <a id="login" href="./account_Login" style="display:none">登录/注册</a>
+        <a id="reg" href=""  style="display:black">注销：【${reg!"测试" }】</a>
         <a href="">我的订单</a>
       </div>     
     </div>

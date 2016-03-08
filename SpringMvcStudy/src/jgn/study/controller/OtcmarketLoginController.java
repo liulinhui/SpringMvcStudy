@@ -52,9 +52,8 @@ public class OtcmarketLoginController {
 	public String otc(Model model, HttpServletRequest request) {
 		//取到session值，
 		if (request.getSession()!=null) {
+			model.addAttribute("reg", request.getSession().getAttribute("user_code"));
 			HttpSession session=request.getSession();
-			logger.info(session.getAttribute("user_code").toString());
-			String username=session.getAttribute("user_code").toString();
 			
 		}
 
