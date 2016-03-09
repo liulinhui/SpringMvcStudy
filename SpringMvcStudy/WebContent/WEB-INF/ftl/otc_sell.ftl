@@ -41,7 +41,7 @@
         </div>
       </div>    
       <div class="nav">
-        <a href="./otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
+        <a href="./otc" >首页</a><a href="./sell" class="active">我要转让</a><a href="">我的账户</a>
       </div>   
 			<p class="breadcrumb"><a href="">君弘金融商城</a><a href="">>OTC转让专区</a></p>
     </div>
