@@ -89,7 +89,7 @@ public class OtcmarketLoginController {
 			if (user_password.equals(realuser.getUser_password())) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
-				user_returnUrl = "redirect:/otc";
+				user_returnUrl = "forward:/otc";
 			} else if (!user_password.equals(realuser.getUser_password())) {
 				user_returnUrl = "Error.ftl";
 			}

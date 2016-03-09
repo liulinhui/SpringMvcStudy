@@ -28,6 +28,14 @@ public class OtcController {
 	public String myOrder(Model model, HttpServletRequest request) {
 		return "myOrder.ftl";
 	}
+	@RequestMapping(value = "/confirm")
+	public String confirm(Model model, HttpServletRequest request) {
+		return "confirm.ftl";
+	}
+	@RequestMapping(value = "/transfer_confirm")
+	public String transfer_confirm(Model model, HttpServletRequest request) {
+		return "transfer_confirm.ftl";
+	}
 
 
 }

@@ -84,7 +84,7 @@
 					<div class="tip">
 						<img src="/SpringMvcStudy/resource/images/images2/tip.png"></img>
 						<h5>买家预期年化收益率=（持有期之和/转让价格）</h5>
-						<h6>(参考年化收益率仅供参考，以实际持有期收入情况为准）</h6>
+						
 					</div>
 				</div>
 				<div class="confirm">
@@ -94,39 +94,11 @@
 						</div>
 						<div class="warn">
 							<h5>当前可用资金：<span id="amount">13,000,000</span>元</h5>
-							<span id="recharge"></span>
 						</div>
-						<a href=""><div class="button" id="conbuy">	</div></a>
+						<a href="./confirm"><div class="button" id="conbuy">	</div></a>
 				</div>
 			</div>
-			<div class="similar pro-table">
-				<div class="header">
-					<div class="bar"></div>
-					<h4>原始产品信息介绍</h4>
-				</div>
-        <table>
-          <thead>
-            <tr>
-              <th>产品名称</th>
-              <th>预期年化收益率</th>
-							<th>产品性质</th>
-              <th>风险等级</th>    
-							<th>期限</th>
-							<th>起购金额</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>国泰君安君得金优先级</td>
-              <td>5.63%</td>
-              <td>债券型</td>
-							<td>低</td>
-              <td>61天</td>
-              <td>1,327,900</td>
-            </tr>
-          </tbody>
-        </table>
-			</div>
+			
 			<div class="instr">
 				<ul>
 					<li>
@@ -153,9 +125,9 @@
 				<div class="pdf">
 					<img src="/SpringMvcStudy/resource/images/images2/PDF.png"></img>
 					<ul>
-						<li>产品说明书<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品合同<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品说明书<a href=""><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品说明书<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品合同<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品说明书<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
 					</ul>
 				</div>
 			</div>

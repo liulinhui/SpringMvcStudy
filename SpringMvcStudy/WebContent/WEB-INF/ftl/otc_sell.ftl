@@ -85,7 +85,7 @@
 								<p class="read">我已阅读<a href="./protocol">相关协议</a>并同意开通OTC交易权限</p>
 							</li>
 							<li>
-								<a href=""><div class="button"></div></a>
+								<a href="./transfer_confirm"><div class="button"></div></a>
 							</li>
 						</ul>
 						<div class="info">
@@ -100,47 +100,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="similar pro-table">
-				<div class="header">
-					<div class="bar"></div>
-					<h4>同类产品参考报价(君享通宝17号报价转让）</h4>
-				</div>
-        <table>
-          <thead>
-            <tr>
-              <th>报价日期</th>
-              <th>原产品到期日</th>
-							<th>转让份数</th>
-              <th>买入后年化收益率</th>    
-							<th>成交状态</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2015/01/08</td>
-              <td>2015/10/08</td>
-              <td>13,799,000</td>
-							<td>5,73<span>%</span></td>
-              <td>正在转让</td>
-            </tr>
-            <tr>
-              <td>2015/01/08</td>
-              <td>2015/10/08</td>
-              <td>13,799,000</td>
-							<td>5,73<span>%</span></td>
-              <td>正在转让</td>
-            </tr>
-            <tr>
-              <td>2015/01/08</td>
-              <td>2015/10/08</td>
-              <td>13,799,000</td>
-							<td>5,73<span>%</span></td>
-              <td>正在转让</td>
-            </tr>
-
-          </tbody>
-        </table>
-			</div>
+	
 			<div class="blank"></div>
     </div>
   </div>

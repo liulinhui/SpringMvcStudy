@@ -118,7 +118,7 @@
 					</div>
 					<div class="warn">
 						<h5>
-							当前可用资金：<a href=""><span id="text">登录</span></a>可见
+							当前可用资金：<a href="./account_Login"><span id="text">登录</span></a>可见
 						</h5>
 					</div>
 					<a href=""><div class="button" id="conbuy"></div></a>
