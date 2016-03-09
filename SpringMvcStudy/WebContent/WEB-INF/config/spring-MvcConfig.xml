@@ -17,7 +17,7 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	</bean>
-	
+
 	<!-- 避免浏览器执行AJAX时,返回JSON出现下载文件 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -48,7 +48,7 @@
 	<!-- 静态文件访问控制 -->
 	<mvc:resources mapping="/resource/**" location="/WEB-INF/resource/" />
 	<mvc:resources mapping="/*.html" location="/WEB-INF/html/" />
-	<mvc:default-servlet-handler/>
+	<mvc:default-servlet-handler />
 
 	<!--配置拦截器, 多个拦截器,顺序执行 -->
 	<mvc:interceptors>
@@ -61,13 +61,12 @@
 			<mvc:exclude-mapping path="/jgnCode" />
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/index" />
-		<mvc:exclude-mapping path="/otc" />
+			<mvc:exclude-mapping path="/otc" />
 			<mvc:exclude-mapping path="/buy" />
-		 
-		    <mvc:exclude-mapping path="/protocol" />
-		    <mvc:exclude-mapping path="/account_Login" />
-		    <mvc:exclude-mapping path="/account_Reg" />
-		   <mvc:exclude-mapping path="/myproduct" />
+
+			<mvc:exclude-mapping path="/protocol" />
+			<mvc:exclude-mapping path="/account_Login" />
+			<mvc:exclude-mapping path="/account_Reg" />
 			<!-- 自定义的Interceptor -->
 			<bean id="LoginInterceptor" class="jgn.study.common.LoginInterceptor"></bean>
 		</mvc:interceptor>

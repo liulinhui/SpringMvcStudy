@@ -18,7 +18,16 @@ public class OtcController {
 	@RequestMapping(value = "/myproduct")
 	public String myproduct(Model model, HttpServletRequest request) {
 		logger.info("连上了");
-		return "myproduct1.html";
+		return "myproduct1.ftl";
 	}
+	@RequestMapping(value = "/myAsset")
+	public String myAsset(Model model, HttpServletRequest request) {
+		return "myAsset.ftl";
+	}
+	@RequestMapping(value = "/myOrder")
+	public String myOrder(Model model, HttpServletRequest request) {
+		return "myOrder.ftl";
+	}
+
 
 }

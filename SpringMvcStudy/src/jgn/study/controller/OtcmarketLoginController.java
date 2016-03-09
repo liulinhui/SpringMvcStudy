@@ -23,7 +23,8 @@ import jgn.study.dao.UserMapper;
 
 @Controller
 public class OtcmarketLoginController {
-	private static final Logger logger = LoggerFactory.getLogger(OtcmarketLoginController.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(OtcmarketLoginController.class);
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
@@ -33,14 +34,20 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request) {
-		return "otc_buy_2.html";
+		String returnUrl;
+		if (request.getSession().getAttribute("user_code")!= null) {
+			returnUrl="otc_buy_3.ftl";
+		} else {
+			returnUrl="otc_buy_2.ftl";
+		}
+		return returnUrl;
 	}
 
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
-		
-			return "otc_sell.html";
-		
+
+		return "otc_sell.ftl";
+
 	}
 
 	@RequestMapping(value = "/protocol")
@@ -50,11 +57,12 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/otc")
 	public String otc(Model model, HttpServletRequest request) {
-		//取到session值，
-		if (request.getSession()!=null) {
-			model.addAttribute("reg", request.getSession().getAttribute("user_code"));
-			HttpSession session=request.getSession();
-			
+		// 取到session值，
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		
+
 		}
 
 		logger.info("lalalala");

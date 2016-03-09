@@ -22,7 +22,7 @@
       <div class="links">
         <a id="login" href="./account_Login" style="display:none">登录/注册</a>
         <a id="reg" href=""  style="display:black">注销：【${reg!"测试" }】</a>
-        <a href="">我的订单</a>
+        <a href="./myOrder">我的订单</a>
       </div>     
     </div>
   </div>
@@ -41,7 +41,7 @@
         </div>
       </div>    
       <div class="nav">
-        <a href="./otc" class="active">首页</a><a href="./myproduct">我要转让</a><a href="">我的账户</a>
+        <a href="./otc" class="active">首页</a><a href="./myproduct">我要转让</a><a href="./myAsset">我的账户</a>
       </div>   
 			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a></p>
     </div>
