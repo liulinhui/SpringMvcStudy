@@ -75,53 +75,36 @@
             </tr>
           </thead>
           <tbody id="otc">
-            <tr>
+          <a href="./buy">
+          <#if products??>
+          <#list products as item>
+            <tr >
               <td></td>
-							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${product_name!" 君得金优先级182天期"}<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-							<td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-							<td class="status"><a href="./buy"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">不长的君柜宝二号<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-	      <td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-							<td class="status"><a href=""><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td>
+							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${item.product_name!" 君得金优先级182天期"}<p>(代码：${item.product_code!"" })</p></td>
+              <td class="id">${item.plan_income!"6.65" }%</td>
+							<td class="rate">${item.reference_income!"" }<span class="per">%</span></td>
+              <td class="period">${item.surplus_days!"" }天</td>
+              <td class="amount">${item.transfer_account!"13,799,000" }</td>
+              <td class="amount">${item.transfer_capital!"13,799,000" }</td>
+              <td class="risk">${item.risk!"低" }</td>
+              <td class="start">${item.public_date!"2015/01/08"}</td>
+                            <#if item.state=="0">
+							<td class="status"><a href="./buy/?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<#if item.state=="1">
+							<td class="status"><a href="./buy/?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
+							<#if item.state=="2"><td class="status"><a href="javascript:void(0)"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>
+							
+							
               <td></td>
             </tr>
-           
-            <tr>
-              <td></td>
-              <td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png">君柜宝二号<p>(代码：15688)</p></td>
-              <td class="id">6.65%</td>
-	      <td class="rate">5,73<span class="per">%</span></td>
-              <td class="period">61天</td>
-              <td class="amount">13,799,000</td>
-              <td class="amount">13,799,000</td>
-              <td class="risk">低</td>
-              <td class="start">2015/01/08</td>
-              <td class="status"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></td>
-              <td></td>
-            </tr>
-           
-
+            </#list>
+          </#if>
+          </a>
           </tbody>
         </table>
       </div>
 			<!--<div class="scroll" ><img src="/SpringMvcStudy/resource/images/images2/scrolldown.gif"></img></div> -->
-			<p style=" text-align:center;">加载更多</p>
+			<!--<p style=" text-align:center;">加载更多</p>  -->
   </div>
   
   <div id="footer-nf">

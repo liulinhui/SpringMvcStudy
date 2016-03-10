@@ -34,7 +34,7 @@
   </div>
   <div class="header-con">
     <div class="h-inner">
-      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+      <a href="../otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
       <div class="h-search">
         <input type="text" id="s-input" placeholder="名称/代码"/>
         <a href="" id="s-btn" title="搜索">搜索</a>
@@ -47,7 +47,7 @@
         </div>
       </div>    
       <div class="nav">
-       <a href="./otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
+       <a href="../otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
       </div>   
 			<p class="breadcrumb"><a href="./otc">毕业设计</a><a href="./otc">>OTC转让系统</a><a href="">>君得金优先级28天期</a></p>
     </div>
@@ -55,6 +55,7 @@
   <div id="main">
     <div class="inner">
 			<div class="blank"></div>
+			<#if product??>
 			<div class="bill">
 				<div class="header">
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
@@ -98,6 +99,7 @@
 						<a href="./confirm"><div class="button" id="conbuy">	</div></a>
 				</div>
 			</div>
+			</#if>
 			
 			<div class="instr">
 				<ul>

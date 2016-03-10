@@ -41,7 +41,7 @@
 	</div>
 	<div class="header-con">
 		<div class="h-inner">
-			<a href="./otc" id="logo"><img
+			<a href="../otc" id="logo"><img
 				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
 			<div class="h-search">
 				<input type="text" id="s-input" placeholder="名称/代码" /> <a
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<div class="nav">
-				<a href="./otc" class="active">首页</a><a href="./sell">我要转让</a><a
+				<a href="../otc" class="active">首页</a><a href="../sell">我要转让</a><a
 					href="">我的账户</a>
 			</div>
 			<p class="breadcrumb">
@@ -66,17 +66,18 @@
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>
+		    <#if product??>
 			<div class="bill">
 				<div class="header">
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
 					<h3>
-						君得金28天期优先级<span>代码：S32424</span>
+						${product.product_name!"君得金28天期优先级" }<span>代码：${product.product_code!"S32424" }</span>
 					</h3>
 				</div>
 				<div class="info">
 					<div class="rate">
 						<h2>
-							11.43<span>%</span>
+							${product.reference_income!"11.43" }<span>%</span>
 						</h2>
 						<h6>参考年化收益率</h6>
 						<p>
@@ -86,7 +87,7 @@
 					</div>
 					<div class="rate">
 						<h2>
-							102<span>天</span>
+							${product.surplus_days!"102" }<span>天</span>
 						</h2>
 						<h6>剩余期限</h6>
 						<p>
@@ -100,7 +101,7 @@
 						</h2>
 						<h6>转让份额</h6>
 						<p>
-							<span>转让日期</span> 2015-05-11
+							<span>转让日期</span>${product.public_date!"2015-05-11" } 
 						</p>
 					</div>
 					<div class="tip">
@@ -118,12 +119,13 @@
 					</div>
 					<div class="warn">
 						<h5>
-							当前可用资金：<a href="./account_Login"><span id="text">登录</span></a>可见
+							当前可用资金：<a href="../account_Login"><span id="text">登录</span></a>可见
 						</h5>
 					</div>
 					<a href=""><div class="button" id="conbuy"></div></a>
 				</div>
 			</div>
+			</#if>
 			<div class="similar pro-table">
 				<div class="header">
 					<div class="bar"></div>

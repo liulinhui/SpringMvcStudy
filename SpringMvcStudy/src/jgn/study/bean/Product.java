@@ -4,22 +4,30 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String product_code;
-	private String product_name;
-	private double plan_income;
-	private double reference_income;
-	private int surplus_days;
-	private int transfer_account;
-	private int transfer_capital;
-	private char risk;
-	private String public_date;
+	private String user_code;//用户代码
+	private String product_code;//产品代码
+	private String product_name;//产品名称
+	private double plan_income;//原预期年化收益率
+	private double reference_income;//买入后参考年化收益率
+	private int surplus_days;//剩余期限
+	private int transfer_account;//转让份额
+	private int transfer_capital;//转让金额
+	private char risk;//风险
+	private String public_date;//发布时间
+	private char state;//购买状态
+	public String getUser_codeString() {
+		return user_code;
+	}
+	public void setUser_codeString(String user_code) {
+		this.user_code = user_code;
+	}
 	public String getPublic_date() {
 		return public_date;
 	}
 	public void setPublic_date(String public_date) {
 		this.public_date = public_date;
 	}
-	private char state;
+	
 	public String getProduct_code() {
 		return product_code;
 	}
