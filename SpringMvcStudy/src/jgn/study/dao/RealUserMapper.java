@@ -9,5 +9,6 @@ import org.springframework.stereotype.Component;
 public interface RealUserMapper {
 	RealUser selectByCode(String user_code);
 	void insert(RealUser realuser);
+	void update(RealUser realuser);
 	
 }
