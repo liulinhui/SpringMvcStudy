@@ -58,7 +58,6 @@
 			<!-- 需排除拦截的地址 -->
 			<mvc:exclude-mapping path="/*.html" />
 			<mvc:exclude-mapping path="/resource/**" />
-			<mvc:exclude-mapping path="/jgnCode" />
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/index" />
 			<mvc:exclude-mapping path="/otc" />
