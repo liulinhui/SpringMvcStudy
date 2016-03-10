@@ -86,7 +86,12 @@
               <td class="period">${item.surplus_days!"" }天</td>
               <td class="amount">${item.transfer_account!"13,799,000" }</td>
               <td class="amount">${item.transfer_capital!"13,799,000" }</td>
-              <td class="risk">${item.risk!"低" }</td>
+              <#if item.risk=="1">
+              <td class="risk">低</td>
+              </#if>
+              <#if item.risk=="2">
+              <td class="risk">高</td>
+              </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
 							<td class="status"><a href="./buy/?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>

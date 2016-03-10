@@ -55,32 +55,43 @@
   <div id="main">
     <div class="inner">
 			<div class="blank"></div>
-			<#if product??>
+		 <#if product??>
 			<div class="bill">
 				<div class="header">
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
-					<h3>君得金28天期优先级<span>代码：S32424</span></h3>
+					<h3>
+						${product.product_name!"君得金28天期优先级" }<span>代码：${product.product_code!"S32424" }</span>
+					</h3>
 				</div>
 				<div class="info">
 					<div class="rate">
-						<h2>11.43<span>%</span></h2>
+						<h2>
+							${product.reference_income!"11.43" }<span>%</span>
+						</h2>
 						<h6>参考年化收益率</h6>
-						<p><span>单位面值</span> 1.00元/份</p>
+						<p>
+							<span>单位面值</span> 1.00元/份
+						</p>
 						<div class="line"></div>
 					</div>
 					<div class="rate">
-						<h2>102<span>天</span></h2>
+						<h2>
+							${product.surplus_days!"102" }<span>天</span>
+						</h2>
 						<h6>剩余期限</h6>
-						<p><span>转让价格</span> 1.003元/份</p>
+						<p>
+							<span>转让价格</span> 1.003元/份
+						</p>
 						<div class="line"></div>
 					</div>
 					<div class="rate">
-						<h2>1000<span>份</span></h2>
+						<h2>
+							1000<span>份</span>
+						</h2>
 						<h6>转让份额</h6>
-						<p><span>转让日期</span> 2015-05-11</p>
-					</div>
-					<div class="warning">
-						<img src="/SpringMvcStudy/resource/images/images2/warning.png"><img>
+						<p>
+							<span>转让日期</span>${product.public_date!"2015-05-11" } 
+						</p>
 					</div>
 					<div class="tip">
 						<img src="/SpringMvcStudy/resource/images/images2/tip.png"></img>
@@ -89,10 +100,12 @@
 					</div>
 				</div>
 				<div class="confirm">
-						<div class="amount">
-							<h2>120,023,000<span>元</span></h2>
-							<h5>投资金额</h5>
-						</div>
+					<div class="amount">
+						<h2>
+							120,023,000<span>元</span>
+						</h2>
+						<h5>投资金额</h5>
+					</div>
 						<div class="warn">
 							<h5>当前可用资金：<span id="amount">13,000,000</span>元</h5>
 						</div>
@@ -127,9 +140,9 @@
 				<div class="pdf">
 					<img src="/SpringMvcStudy/resource/images/images2/PDF.png"></img>
 					<ul>
-						<li>产品说明书<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品合同<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品说明书<a href="ftp://10.176.64.80/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品说明书<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品合同<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
+						<li>产品说明书<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
 					</ul>
 				</div>
 			</div>
