@@ -108,6 +108,7 @@
 					</div>
 						<div class="warn">
 							<h5>当前可用资金：<span id="amount">13,000,000</span>元</h5>
+							<a href="../AccountRecharge"><span id="recharge"></span></a>
 						</div>
 						<a href="./confirm"><div class="button" id="conbuy">	</div></a>
 				</div>

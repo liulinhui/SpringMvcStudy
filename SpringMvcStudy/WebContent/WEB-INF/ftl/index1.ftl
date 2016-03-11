@@ -14,14 +14,15 @@
     <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
+ 
  </head>
 <body>
   <div class="header-top">
     <div class="h-inner">
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a id="login" href="./account_Login" style="display:none">登录/注册</a>
-        <a id="reg" href=""  style="display:black">注销：【${reg!"测试" }】</a>
+        <a id="login" href="./account_Login" style="display:black">登录/注册</a>
+        <a id="reg" class="${reg!''}" style="display:none">注销：【${reg!"测试" }】</a>
         <a href="./myOrder">我的订单</a>
       </div>     
     </div>
@@ -111,7 +112,6 @@
 			<!--<div class="scroll" ><img src="/SpringMvcStudy/resource/images/images2/scrolldown.gif"></img></div> -->
 			<!--<p style=" text-align:center;">加载更多</p>  -->
   </div>
-  
   <div id="footer-nf">
     <div class="f-inner">
     

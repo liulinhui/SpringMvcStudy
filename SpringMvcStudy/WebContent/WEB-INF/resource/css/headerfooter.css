@@ -26,7 +26,7 @@
 .header-con .h-search #s-result {display:none;width: 100px;padding: 5px 10px;border:1px solid #ddd;border-top:0 none;border-radius: 0 0 3px 3px;background: #fff;position: absolute;right: 2px;top: 31px;z-index: 99;}
 .header-con .h-search #s-result li {line-height: 24px;}
 .header-con .h-search #s-result li a{color: #666;font-size: 12px;}
-#footer-nf {width: 100%;background: #5d5d5d;padding: 60px 0 30px;}
+#footer-nf {width: 100%;background: #5d5d5d;padding: 0 0 10px;}
 #footer-nf a:hover{text-decoration: underline;}
 #footer-nf .f-inner{width: 1000px;margin: 0 auto;}
 #footer-nf .links li {float: left;width: 110px;margin-right: 39px;*margin-right: 38px;}

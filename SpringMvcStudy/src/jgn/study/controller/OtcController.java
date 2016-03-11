@@ -1,16 +1,8 @@
 package jgn.study.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
-
-
-
-
-
-
 import jgn.study.bean.RealUser;
 import jgn.study.dao.RealUserMapper;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,16 +41,20 @@ public class OtcController {
 	public String AccountRecharge(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
-		String amount = request.getParameter("amount");
+		
+		
 		String user_returnUrl = request.getParameter("returnUrl");
 		if (user_code == null | user_password == null) {
 			
 			user_returnUrl = "AccountRecharge.ftl";
 		}else {
+			Integer amount = Integer.parseInt(request.getParameter("amount"),10);
+			System.out.println("输入充值的数量为："+amount);
 			RealUser user1 = new RealUser();
+			int oldAsset=realuserMapper.selectByCode(user_code).getUser_asset();
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
-			user1.setUser_asset(amount);
+			user1.setUser_asset(amount+oldAsset);
 			realuserMapper.update(user1);
 			user_returnUrl = "redirect:/myAsset";
 		}

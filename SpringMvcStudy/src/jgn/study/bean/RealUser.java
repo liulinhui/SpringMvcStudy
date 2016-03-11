@@ -7,14 +7,14 @@ public class RealUser implements Serializable{
 	private String user_name;//用户名
 	private String user_code;//资金账号
 	private String user_password;//用户密码
-	private String user_asset;
+	private int user_asset;//用户资产
 
 
-	public String getUser_asset() {
+	public int getUser_asset() {
 		return user_asset;
 	}
 
-	public void setUser_asset(String user_asset) {
+	public void setUser_asset(int user_asset) {
 		this.user_asset = user_asset;
 	}
 

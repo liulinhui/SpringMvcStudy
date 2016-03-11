@@ -38,24 +38,22 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request) {
 		String returnUrl;
-		String product_code=request.getParameter("product_code");
-		Product product=productmapper.selectByProduct_code(product_code);
-		logger.info("啦啦啦啦啦阿里"+product.getProduct_name());
-		model.addAttribute("product",product);
+		String product_code = request.getParameter("product_code");
+		Product product = productmapper.selectByProduct_code(product_code);
+		logger.info("啦啦啦啦啦阿里" + product.getProduct_name());
+		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null) {
 			returnUrl = "otc_buy.ftl";
 		} else {
 			returnUrl = "otc_buy_login.ftl";
 		}
-		
+
 		return returnUrl;
 	}
 
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
-
 		return "otc_sell.ftl";
-
 	}
 
 	@RequestMapping(value = "/protocol")
@@ -70,15 +68,15 @@ public class OtcmarketLoginController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
-//		Product product = productmapper.selectByProduct_code("2431242");
-//		logger.info("h哈哈哈哈");
-//		String product_name = product.getProduct_name();
+		// Product product = productmapper.selectByProduct_code("2431242");
+		// logger.info("h哈哈哈哈");
+		// String product_name = product.getProduct_name();
 
-//		model.addAttribute("product_name", product_name);
-//		logger.info(product_name + "查询成功");
-        List<Product>products=new ArrayList<Product>();
-        products=productmapper.selectAll();
-        model.addAttribute("products",products);
+		// model.addAttribute("product_name", product_name);
+		// logger.info(product_name + "查询成功");
+		List<Product> products = new ArrayList<Product>();
+		products = productmapper.selectAll();
+		model.addAttribute("products", products);
 		return "index1.ftl";
 	}
 

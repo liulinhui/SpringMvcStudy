@@ -21,12 +21,13 @@
 		values (
 		#{user_name,jdbcType=VARCHAR},
 		#{user_password,jdbcType=VARCHAR},
-		#{user_code,jdbcType=VARCHAR},
+		#{user_code,jdbcType=VARCHAR}
+	
 		
 		)
 	</insert>
 	<update id="update" parameterType="jgn.study.bean.RealUser">
-	    update realuser set user_asset={#user_asset,#user_name,#user_password,#user_code} where user_code= #{user_code,jdbcType=VARCHAR}
+	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}
 	    
 	</update>
 </mapper>
