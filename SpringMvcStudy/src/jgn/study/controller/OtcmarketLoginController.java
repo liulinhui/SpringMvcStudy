@@ -37,6 +37,10 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		String returnUrl;
 		String product_code = request.getParameter("product_code");
 		Product product = productmapper.selectByProduct_code(product_code);
@@ -53,11 +57,19 @@ public class OtcmarketLoginController {
 
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "otc_sell.ftl";
 	}
 
 	@RequestMapping(value = "/protocol")
 	public String protocol(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "permission.html";
 	}
 
@@ -85,7 +97,7 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String user_returnUrl = request.getParameter("returnUrl");
-		if (user_code == null | user_password == null) {
+		if (user_code == null || user_password == null) {
 			logger.info("啦啦啦啦啦啦");
 			user_returnUrl = "account_Login.ftl";
 		} else {
@@ -94,7 +106,7 @@ public class OtcmarketLoginController {
 			if (user_password.equals(realuser.getUser_password())) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
-				user_returnUrl = "forward:/otc";
+				user_returnUrl = "redirect:/otc";
 			} else if (!user_password.equals(realuser.getUser_password())) {
 				user_returnUrl = "Error.ftl";
 			}
@@ -109,7 +121,7 @@ public class OtcmarketLoginController {
 		String user_code = request.getParameter("user_code");
 		String user_returnUrl = request.getParameter("returnUrl");
 		logger.info(user_name + user_password + user_code);
-		if (user_code == null | user_password == null | user_name == null) {
+		if (user_code == null || user_password == null || user_name == null) {
 			user_returnUrl = "account_Reg.ftl";
 		} else {
 			RealUser user1 = new RealUser();

@@ -22,41 +22,40 @@
 </head>
 
 <body>
-	<div class="header-top">
-		<div class="h-inner">
-			<div class="tel">
-				毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em>
-			</div>
-			<div class="links">
-				<a id="login" href="./account_Login">登录</a> <a id="reg"
-					href="./account_Reg">注册</a> <a href="">我的订单</a>
-			</div>
-		</div>
-	</div>
-	<div class="header-con">
-		<div class="h-inner">
-			<a href="./otc" id="logo"><img
-				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
-			<div class="h-search">
-				<input type="text" id="s-input" placeholder="名称/代码" /> <a href=""
-					id="s-btn" title="搜索">搜索</a>
-				<div id="s-result">
-					<ul>
-						<li><a href="">我想理财马上开户</a></li>
-						<li><a href="">我想理财马上开户</a></li>
-						<li><a href="">我想理财马上开户</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="nav">
-				<a href="./otc" >首页</a><a href="./myproduct" >我要转让</a><a
-					href="" class="active">我的账户</a>
-			</div>
-			<p class="breadcrumb">
-				<a href="">君弘金融商城</a><a href="">>OTC转让专区</a>
-			</p>
-		</div>
-	</div>
+	  <div class="header-top">
+    <div class="h-inner">
+     <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
+      <div class="links">
+        <#if !reg??>      
+        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
+        </#if>  
+        <#if reg??>         
+        <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>
+        </#if>              
+        <a href="./myOrder">我的订单</a>
+      </div>     
+    </div>
+  </div>
+  <div class="header-con">
+    <div class="h-inner">
+      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+      <div class="h-search">
+        <input type="text" id="s-input" placeholder="名称/代码"/>
+        <a href="" id="s-btn" title="搜索">搜索</a>
+        <div id="s-result">
+          <ul>
+            <li><a href="">我想理财马上开户</a></li>
+            <li><a href="">我想理财马上开户</a></li>
+            <li><a href="">我想理财马上开户</a></li>
+          </ul>
+        </div>
+      </div>    
+      <div class="nav">
+        <a href="./otc" >首页</a><a href="./myproduct">我要转让</a><a href="./myAsset" class="active">我的账户</a>
+      </div>   
+			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a></p>
+    </div>
+  </div>
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>

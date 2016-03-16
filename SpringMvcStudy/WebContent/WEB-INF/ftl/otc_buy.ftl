@@ -22,19 +22,23 @@
 </head>
 
 <body>
- <div class="header-top">
+   <div class="header-top">
     <div class="h-inner">
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a id="login" href="./account_Login">登录</a>
-        <a id="reg" href="./account_Reg">注册</a>
-        <a href="">我的订单</a>
+        <#if !reg??>      
+        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
+        </#if>  
+        <#if reg??>         
+        <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>
+        </#if>              
+        <a href="./myOrder">我的订单</a>
       </div>     
     </div>
   </div>
   <div class="header-con">
     <div class="h-inner">
-      <a href="../otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
       <div class="h-search">
         <input type="text" id="s-input" placeholder="名称/代码"/>
         <a href="" id="s-btn" title="搜索">搜索</a>
@@ -47,9 +51,9 @@
         </div>
       </div>    
       <div class="nav">
-       <a href="../otc" class="active">首页</a><a href="./sell">我要转让</a><a href="">我的账户</a>
+        <a href="./otc" class="">首页</a><a href="./myproduct">我要转让</a><a href="./myAsset">我的账户</a>
       </div>   
-			<p class="breadcrumb"><a href="./otc">毕业设计</a><a href="./otc">>OTC转让系统</a><a href="">>君得金优先级28天期</a></p>
+			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a></p>
     </div>
   </div>
   <div id="main">
@@ -108,7 +112,7 @@
 					</div>
 						<div class="warn">
 							<h5>当前可用资金：<span id="amount">13,000,000</span>元</h5>
-							<a href="../AccountRecharge"><span id="recharge"></span></a>
+							<a href="./AccountRecharge"><span id="recharge"></span></a>
 						</div>
 						<a href="./confirm"><div class="button" id="conbuy">	</div></a>
 				</div>

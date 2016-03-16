@@ -1,8 +1,11 @@
 package jgn.study.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import jgn.study.bean.RealUser;
 import jgn.study.dao.RealUserMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,23 +21,52 @@ public class OtcController {
 	private RealUserMapper realuserMapper;
 	@RequestMapping(value = "/myproduct")
 	public String myproduct(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		logger.info("连上了");
 		return "myproduct1.ftl";
 	}
 	@RequestMapping(value = "/myAsset")
 	public String myAsset(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "myAsset.ftl";
 	}
 	@RequestMapping(value = "/myOrder")
 	public String myOrder(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "myOrder.ftl";
 	}
 	@RequestMapping(value = "/confirm")
 	public String confirm(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "confirm.ftl";
+	}
+	@RequestMapping(value = "/logout")
+	public String logout(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			String user_code=null;
+			request.getSession().setAttribute("user_code",user_code);
+			
+		}
+		return "redirect:/otc";
 	}
 	@RequestMapping(value = "/transfer_confirm")
 	public String transfer_confirm(Model model, HttpServletRequest request) {
+		if (request.getSession() != null) {
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
+		}
 		return "transfer_confirm.ftl";
 	}
 	@RequestMapping(value = "/AccountRecharge")

@@ -41,7 +41,7 @@
 	</div>
 	<div class="header-con">
 		<div class="h-inner">
-			<a href="../otc" id="logo"><img
+			<a href="./otc" id="logo"><img
 				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
 			<div class="h-search">
 				<input type="text" id="s-input" placeholder="名称/代码" /> <a
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<div class="nav">
-				<a href="../otc" class="active">首页</a><a href="../sell">我要转让</a><a
+				<a href="./otc" class="">首页</a><a href="./sell">我要转让</a><a
 					href="">我的账户</a>
 			</div>
 			<p class="breadcrumb">
@@ -119,7 +119,7 @@
 					</div>
 					<div class="warn">
 						<h5>
-							当前可用资金：<a href="../account_Login"><span id="text">登录</span></a>可见
+							当前可用资金：<a href="./account_Login"><span id="text">登录</span></a>可见
 						</h5>
 					</div>
 					<a href=""><div class="button" id="conbuy"></div></a>

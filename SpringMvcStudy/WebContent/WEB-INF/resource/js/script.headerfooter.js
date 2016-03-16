@@ -1,4 +1,27 @@
 $(function() {
+//	//用户注销
+//	$(".header-top #reg").click(function(){
+//	    
+//            $.ajax({
+//                url: "./count",
+//                async: false,
+//                data:{},
+//                type: 'POST',
+//                success: function (data) {
+//                    if (data < 0) {
+//                        hint("<spam style='font-weight:bold'>买家预期年化收益率小于零!</spam><br>&emsp;");
+//                        $("input[name='price']").val(priceMinValue);
+//                    }
+//                    var rate1 = (parseFloat(data) * 100).toFixed(2);
+//                    $("#rate").text(rate1);
+//                    countnum();
+//                    setTotal();
+//                }
+//            });
+//        
+//		
+//		
+//	})
 
 	$("#float-bar .back-top").click(function() {
 		$('html,body').animate({

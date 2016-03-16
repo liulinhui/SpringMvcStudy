@@ -21,8 +21,12 @@
     <div class="h-inner">
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
-        <a id="login" href="./account_Login" style="display:black">登录/注册</a>
-        <a id="reg" class="${reg!''}" style="display:none">注销：【${reg!"测试" }】</a>
+        <#if !reg??>      
+        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
+        </#if>  
+        <#if reg??>         
+        <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>
+        </#if>              
         <a href="./myOrder">我的订单</a>
       </div>     
     </div>
@@ -95,9 +99,9 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status"><a href="./buy/?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status"><a href="./buy?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
-							<td class="status"><a href="./buy/?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
+							<td class="status"><a href="./buy?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
 							<#if item.state=="2"><td class="status"><a href="javascript:void(0)"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>
 							
 							
