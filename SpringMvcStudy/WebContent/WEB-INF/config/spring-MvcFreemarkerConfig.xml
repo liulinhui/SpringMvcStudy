@@ -21,17 +21,12 @@
 		<property name="templateLoaderPath">
 			<value>/WEB-INF/ftl/</value>
 		</property>
-		<property name="freemarkerVariables">
-			<map>
-				<entry key="xml_escape" value-ref="fmXmlEscape" />
-				<entry key="page" value-ref="pageDirective"/>
-			</map>
-		</property>
+		
 	</bean>
 	
 	<!-- 自定义标签添加类 -->
 	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
-	<bean id="pageDirective" class="jgn.study.directive.PageDirective" />
+	
 	
 	<!-- 配置freeMarker视图解析器 -->
 	<bean id="ftlViewResolver"
