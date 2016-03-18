@@ -15,7 +15,8 @@
 .header-top #wx-qr {position: absolute;left: -12px; top: 23px;z-index: 999;display: none;}
 .header-top #sj-qr {position: absolute;right: 38px; top: 23px;z-index: 999;display: none;}
 .header-con {padding: 25px 0;border-bottom: 1px solid #cacaca;height: 54px;background: #fff;position: relative;z-index: 1;width: 100%;font-size: 12px;}
-.header-con #logo {float: left;*z-index: 1;*position: relative;}
+.header-con #logo {float: left;*z-index: 1;*position: relative;height:70px;weight:240px}
+.header-con #logo img{float: left;*z-index: 1;*position: relative;height:70px;weight:240px}
 .header-con .nav {float: right;line-height: 54px;height: 54px;}
 .header-con .nav a{color: #666666;font-size: 16px;margin-right: 45px;}
 .header-con .nav a:hover{color: #1f567c}

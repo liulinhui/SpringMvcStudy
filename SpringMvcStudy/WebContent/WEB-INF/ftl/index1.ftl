@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="zh-CN" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>国泰君安</title>
+  <title>转让市场首页</title>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/index.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
@@ -22,7 +22,7 @@
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
         <#if !reg??>      
-        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
+        <a id="login" href="./account_Login?returnUrl=/otc" style="display:black">登录/注册</a> 
         </#if>  
         <#if reg??>         
         <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>

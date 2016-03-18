@@ -36,6 +36,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (session != null && session.getAttribute("user_code") != null) {
 			return true;
 		} else {
+			session.setAttribute("returnUrl", url);
 			request.getRequestDispatcher("account_Login").forward(request, response);
 			return false;
 		}
@@ -62,5 +63,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		log.info("==============执行顺序: 3、afterCompletion================");
+		HttpSession session = request.getSession(false);
+		session.setAttribute("returnUrl", null);
 	}
 }

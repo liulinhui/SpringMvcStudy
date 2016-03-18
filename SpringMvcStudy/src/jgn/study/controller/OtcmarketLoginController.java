@@ -96,22 +96,28 @@ public class OtcmarketLoginController {
 	public String account_Login(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
-		String user_returnUrl = request.getParameter("returnUrl");
+		String returnUrl = request.getParameter("returnUrl");
+		logger.info("lfgrjngkjmvklerngnknfd"+returnUrl);
+		String user_returnUrl = (String)request.getSession().getAttribute("returnUrl");
+		if (request.getSession().getAttribute("returnUrl")==null) {
+			user_returnUrl=returnUrl;
+		}
+		logger.info("wwwww:"+request.getSession(false).getAttribute("returnUrl"));
 		if (user_code == null || user_password == null) {
 			logger.info("啦啦啦啦啦啦");
-			user_returnUrl = "account_Login.ftl";
+			return "account_Login.ftl"; 
 		} else {
 			RealUser realuser = realuserMapper.selectByCode(user_code);
 			logger.info("lalalalala");
 			if (user_password.equals(realuser.getUser_password())) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
-				user_returnUrl = "redirect:/otc";
+//				user_returnUrl = "redirect:/otc";
 			} else if (!user_password.equals(realuser.getUser_password())) {
 				user_returnUrl = "Error.ftl";
 			}
 		}
-		return user_returnUrl;
+		return "redirect:"+user_returnUrl;
 	}
 
 	@RequestMapping(value = "/account_Reg")

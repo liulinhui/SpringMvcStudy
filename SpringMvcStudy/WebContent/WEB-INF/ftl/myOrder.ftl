@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="zh-CN" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>国泰君安</title>
+  <title>我的订单</title>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/otc_sell.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
