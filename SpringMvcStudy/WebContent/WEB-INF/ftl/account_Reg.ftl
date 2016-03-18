@@ -5,6 +5,8 @@
 <title>注册页面</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS -->
+  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
+
 <link rel="stylesheet"
 	href="/SpringMvcStudy/resource/assets/css/reset.css">
 <link rel="stylesheet"

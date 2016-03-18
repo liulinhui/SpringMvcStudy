@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>确认购买</title>
+    <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/confirm.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
