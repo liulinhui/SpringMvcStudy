@@ -87,7 +87,7 @@
 							<li>
 								<input type="checkbox" class="hidden-input" checked="checked" />
 								<span class="checkbox" ></span>
-								<p class="read">我已阅读<a href="./protocol">相关协议</a>并同意开通OTC交易权限</p>
+								<p class="read">我已阅读<a href="./protocol" target="_blank">相关协议</a>并同意开通OTC交易权限</p>
 							</li>
 							<li>
 								<a href="./transfer_confirm"><div class="button"></div></a>

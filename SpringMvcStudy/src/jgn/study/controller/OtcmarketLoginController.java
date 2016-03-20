@@ -70,7 +70,7 @@ public class OtcmarketLoginController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
-		return "permission.html";
+		return "permission.ftl";
 	}
 
 	@RequestMapping(value = "/otc")

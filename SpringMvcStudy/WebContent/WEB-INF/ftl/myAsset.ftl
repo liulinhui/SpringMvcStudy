@@ -6,69 +6,143 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>我的资产</title>
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/otc_sell.css" />
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/headerfooter.css" />
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/table.css" />
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/index.js"></script>
+<link rel="shortcut icon"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico"
+	type="image/x-icon">
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/otc_sell.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/headerfooter.css" />
+		<link rel="stylesheet" type="text/css" media="screen"
+		href="/SpringMvcStudy/resource/css/myAsset.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/table.css" />
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/index.js"></script>
 
 </head>
 
 <body>
-	  <div class="header-top">
-    <div class="h-inner">
-     <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
-      <div class="links">
-        <#if !reg??>      
-        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
-        </#if>  
-        <#if reg??>         
-        <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>
-        </#if>              
-        <a href="./myOrder">我的订单</a>
-      </div>     
-    </div>
-  </div>
-  <div class="header-con">
-    <div class="h-inner">
-      <a href="./otc" id="logo"><img src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
-      <div class="h-search">
-        <input type="text" id="s-input" placeholder="名称/代码"/>
-        <a href="" id="s-btn" title="搜索">搜索</a>
-        <div id="s-result">
-          <ul>
-            <li><a href="">我想理财马上开户</a></li>
-            <li><a href="">我想理财马上开户</a></li>
-            <li><a href="">我想理财马上开户</a></li>
-          </ul>
-        </div>
-      </div>    
-      <div class="nav">
-        <a href="./otc" >首页</a><a href="./myproduct">我要转让</a><a href="./myAsset" class="active">我的账户</a>
-      </div>   
-			<p class="breadcrumb"><a href="">毕业设计</a><a href="">>OTC转让专区</a></p>
-    </div>
-  </div>
+	<div class="header-top">
+		<div class="h-inner">
+			<div class="tel">
+				毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em>
+			</div>
+			<div class="links">
+				<#if !reg??> <a id="login" href="./account_Login"
+					style="display: black">登录/注册</a> </#if> <#if reg??> <a id="reg"
+					href="./logout" class="${reg!''}" style="display: black">注销：【${reg!"测试" }】</a>
+				</#if> <a href="./myOrder">我的订单</a>
+			</div>
+		</div>
+	</div>
+	<div class="header-con">
+		<div class="h-inner">
+			<a href="./otc" id="logo"><img
+				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+			<div class="h-search">
+				<input type="text" id="s-input" placeholder="名称/代码" /> <a href=""
+					id="s-btn" title="搜索">搜索</a>
+				<div id="s-result">
+					<ul>
+						<li><a href="">我想理财马上开户</a></li>
+						<li><a href="">我想理财马上开户</a></li>
+						<li><a href="">我想理财马上开户</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav">
+				<a href="./otc">首页</a><a href="./myproduct">我要转让</a><a
+					href="./myAsset" class="active">我的账户</a>
+			</div>
+			<p class="breadcrumb">
+				<a href="">毕业设计</a><a href="">>OTC转让专区</a>
+			</p>
+		</div>
+	</div>
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>
 			<div class="bill">
-				<div class="header">
+				<div class="header" style="height:50px">
 					<h3>您当前拥有的产品</h3>
 				</div>
-				<div class="header">
-					<a href="./sell"><h3>
-							您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span>
-						</h3></a>
-				</div>
+				<ul class="pricing_table">
+					<li class="price_block">
+						<h3>S1232</h3>
+						<div class="price">
+							<div class="price_figure">
+								<span class="price_number">主题宝一号</span>
+							</div>
+						</div>
+						<ul class="features">
+							<li>876586份</li>
+							<li>Unlimited Clients</li>
+							<li>Unlimited Projects</li>
+							
+						</ul>
+						<div class="footer">
+							<a href="#" class="action_button">Buy Now</a>
+						</div>
+					</li>
+					<li class="price_block">
+						<h3>S1232</h3>
+						<div class="price">
+							<div class="price_figure">
+								<span class="price_number">主题宝一号</span>
+							</div>
+						</div>
+						<ul class="features">
+							<li>876586份</li>
+							<li>Unlimited Clients</li>
+							<li>Unlimited Projects</li>
+							
+						</ul>
+						<div class="footer">
+							<a href="#" class="action_button">Buy Now</a>
+						</div>
+					</li>
+					<li class="price_block">
+						<h3>S1232</h3>
+						<div class="price">
+							<div class="price_figure">
+								<span class="price_number">主题宝一号</span>
+							</div>
+						</div>
+						<ul class="features">
+							<li>876586份</li>
+							<li>Unlimited Clients</li>
+							<li>Unlimited Projects</li>
+							
+						</ul>
+						<div class="footer">
+							<a href="#" class="action_button">Buy Now</a>
+						</div>
+					</li>
+					<li class="price_block">
+						<h3>S1232</h3>
+						<div class="price">
+							<div class="price_figure">
+								<span class="price_number">主题宝一号</span>
+							</div>
+						</div>
+						<ul class="features">
+							<li>876586份</li>
+							<li>Unlimited Clients</li>
+							<li>Unlimited Projects</li>
+							
+						</ul>
+						<div class="footer">
+							<a href="#" class="action_button">Buy Now</a>
+						</div>
+					</li>
+					
+					
+				</ul>
 			</div>
 		</div>
 		<div class="blank"></div>
