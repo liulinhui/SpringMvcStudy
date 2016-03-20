@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>我的订单</title>
 <link rel="shortcut icon"
-	href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico"
+	href="/SpringMvcStudy/resource/images/images2/war.ico"
 	type="image/x-icon">
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/otc_sell.css" />
@@ -123,13 +123,11 @@
 	</div>
 	<script>
 		$(document).ready(function() {
-
 			$('tbody tr').hover(function() {
 				$(this).addClass('odd');
 			}, function() {
 				$(this).removeClass('odd');
 			});
-
 		});
 	</script>
 	<div id="footer-nf">

@@ -13,7 +13,7 @@
 		href="/SpringMvcStudy/resource/css/otc_sell.css" />
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/headerfooter.css" />
-		<link rel="stylesheet" type="text/css" media="screen"
+	<link rel="stylesheet" type="text/css" media="screen"
 		href="/SpringMvcStudy/resource/css/myAsset.css" />
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/table.css" />
@@ -23,7 +23,6 @@
 		src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
 	<script type="text/javascript"
 		src="/SpringMvcStudy/resource/js/index.js"></script>
-
 </head>
 
 <body>
@@ -66,87 +65,100 @@
 	</div>
 	<div id="main">
 		<div class="inner">
-			<div class="blank"></div>
+			<div class="blank">
+			</div>
 			<div class="bill">
-				<div class="header" style="height:50px">
-					<h3>您当前拥有的产品</h3>
+				<div class="header" style="height: 45px">
+					<a ><h3>当前账户信息:</h3></a>
 				</div>
-				<ul class="pricing_table">
-					<li class="price_block">
-						<h3>S1232</h3>
-						<div class="price">
-							<div class="price_figure">
-								<span class="price_number">主题宝一号</span>
+				<div class="header xianshi" style="height: 50px">
+					<a href="javascript:void(0);"><h3>您当前拥有的产品</h3></a>
+				</div>
+				<div class="display" style="display: none">
+					<ul class="pricing_table">
+						<li class="price_block">
+							<h3>S1232</h3>
+							<div class="price">
+								<div class="price_figure">
+									<span class="price_number">主题宝一号</span>
+								</div>
 							</div>
-						</div>
-						<ul class="features">
-							<li>876586份</li>
-							<li>Unlimited Clients</li>
-							<li>Unlimited Projects</li>
-							
-						</ul>
-						<div class="footer">
-							<a href="#" class="action_button">Buy Now</a>
-						</div>
-					</li>
-					<li class="price_block">
-						<h3>S1232</h3>
-						<div class="price">
-							<div class="price_figure">
-								<span class="price_number">主题宝一号</span>
+							<ul class="features">
+								<li>876586份</li>
+								<li>Unlimited Clients</li>
+								<li>Unlimited Projects</li>
+
+							</ul>
+							<div class="footer">
+								<a href="#" class="action_button">Buy Now</a>
 							</div>
-						</div>
-						<ul class="features">
-							<li>876586份</li>
-							<li>Unlimited Clients</li>
-							<li>Unlimited Projects</li>
-							
-						</ul>
-						<div class="footer">
-							<a href="#" class="action_button">Buy Now</a>
-						</div>
-					</li>
-					<li class="price_block">
-						<h3>S1232</h3>
-						<div class="price">
-							<div class="price_figure">
-								<span class="price_number">主题宝一号</span>
+						</li>
+						<li class="price_block">
+							<h3>S1232</h3>
+							<div class="price">
+								<div class="price_figure">
+									<span class="price_number">主题宝一号</span>
+								</div>
 							</div>
-						</div>
-						<ul class="features">
-							<li>876586份</li>
-							<li>Unlimited Clients</li>
-							<li>Unlimited Projects</li>
-							
-						</ul>
-						<div class="footer">
-							<a href="#" class="action_button">Buy Now</a>
-						</div>
-					</li>
-					<li class="price_block">
-						<h3>S1232</h3>
-						<div class="price">
-							<div class="price_figure">
-								<span class="price_number">主题宝一号</span>
+							<ul class="features">
+								<li>876586份</li>
+								<li>Unlimited Clients</li>
+								<li>Unlimited Projects</li>
+
+							</ul>
+							<div class="footer">
+								<a href="#" class="action_button">Buy Now</a>
 							</div>
-						</div>
-						<ul class="features">
-							<li>876586份</li>
-							<li>Unlimited Clients</li>
-							<li>Unlimited Projects</li>
-							
-						</ul>
-						<div class="footer">
-							<a href="#" class="action_button">Buy Now</a>
-						</div>
-					</li>
-					
-					
-				</ul>
+						</li>
+						<li class="price_block">
+							<h3>S1232</h3>
+							<div class="price">
+								<div class="price_figure">
+									<span class="price_number">主题宝一号</span>
+								</div>
+							</div>
+							<ul class="features">
+								<li>876586份</li>
+								<li>Unlimited Clients</li>
+								<li>Unlimited Projects</li>
+
+							</ul>
+							<div class="footer">
+								<a href="#" class="action_button">Buy Now</a>
+							</div>
+						</li>
+						<li class="price_block">
+							<h3>S1232</h3>
+							<div class="price">
+								<div class="price_figure">
+									<span class="price_number">主题宝一号</span>
+								</div>
+							</div>
+							<ul class="features">
+								<li>876586份</li>
+								<li>Unlimited Clients</li>
+								<li>Unlimited Projects</li>
+
+							</ul>
+							<div class="footer">
+								<a href="#" class="action_button">Buy Now</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div class="blank"></div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$('.xianshi').toggle(function() {
+				$('.display').show();
+			}, function() {
+				$('.display').hide();
+			});
+		});
+	</script>
 	<div id="footer-nf">
 		<div class="f-inner">
 			<div class="logos">

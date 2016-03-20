@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>理财产品转让平台</title>
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/favicon.ico" type="image/x-icon">
 <link href="/SpringMvcStudy/resource/css/login.css" rel="stylesheet" type="text/css" />
 
 </head>
