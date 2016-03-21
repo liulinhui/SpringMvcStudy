@@ -79,9 +79,8 @@
 								<th scope="col">用户名</th>
 								<th scope="col">用户账号</th>
 								<th scope="col">可用资金</th>
-								<th scope="col"></th>
-								<th scope="col"></th>
-								<th scope="col"></th>
+								<th scope="col">注册日期</th>
+								<th scope="col">充值</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -89,9 +88,8 @@
 								<th scope="row">小鸡吧</th>
 								<td>12312</td>
 								<td>3123123</td>
-								<td>25</td>
-								<td>29</td>
-								<td>20</td>
+								<td>2016/03/21</td>
+								<td><a href="./AccountRecharge"><img src="/SpringMvcStudy/resource/images/images2/recharge.png"/></a></td>								
 							</tr>
 						</tbody>
 					</table>
