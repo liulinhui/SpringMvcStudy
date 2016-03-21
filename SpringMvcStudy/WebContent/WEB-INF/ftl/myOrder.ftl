@@ -67,7 +67,7 @@
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>
-			<div class="bill">
+			<div class="bill" style="-moz-user-select:-moz-none;"  onselectstart="return false;">
 				<div class="header" style="height: 50px">
 					<h3>您的订单详情</h3>
 				</div>

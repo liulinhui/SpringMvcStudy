@@ -72,7 +72,7 @@
 				<div class="header user-info" style="height: 45px">
 					<a><h3>当前账户信息:</h3></a>
 				</div>
-				<div id="table">
+				<div id="table" style="-moz-user-select:-moz-none;"  onselectstart="return false;">
 					<table id="travel">
 						<thead>
 							<tr>
@@ -97,7 +97,7 @@
 				<div class="header xianshi" style="height: 50px">
 					<a href="javascript:void(0);"><h3>您当前拥有的产品:</h3></a>
 				</div>
-				<div class="display" style="display: black">
+				<div class="display" style="display: black;-moz-user-select:-moz-none;" onselectstart="return false;">
 					<div style="float: left; padding-top: 100px; padding-left: 30px">
 						<a href="javascript:void(0)"><img
 							src="/SpringMvcStudy/resource/images/mfrL.jpg" /></a>
