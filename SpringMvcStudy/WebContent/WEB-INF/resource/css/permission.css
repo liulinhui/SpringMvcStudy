@@ -8,7 +8,7 @@ h3{color:#666; font-size:16px;}
 h5{color:#666; font-size:14px;}
 ul li{list-style:none;}
 div#main{ background:#f1f1f1; width:100%;}
-div.inner{ width:1000px; height:1200px; margin:auto;}
+div.inner{ width:1000px; height:1050px; margin:auto;}
 div.inner div.blank#head{ height:35px;}
 
 div.inner ul#tab li {width:250px; height:70px; border-top:1px solid #dadada; }

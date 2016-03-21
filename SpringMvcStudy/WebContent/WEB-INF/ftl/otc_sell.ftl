@@ -105,8 +105,6 @@
 					</div>
 				</div>
 			</div>
-	
-			<div class="blank"></div>
     </div>
   </div>
    <div id="footer-nf">

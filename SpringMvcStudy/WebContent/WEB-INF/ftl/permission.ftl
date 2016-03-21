@@ -65,9 +65,9 @@
 			<div class="blank" id="head">
 			</div>
 			<ul id="tab">
-				<li class="current"><span class="icon"></span><p>《xxxx证券股份有限公司柜台交易客户协议》</p><div></div></li>
-				<li><span class="icon"></span><p>《xxxx证券股份有限公司柜台交易风险提示函》</p><div></div></li>
-				<li><span class="icon"></span><p>《xxxx证券股份有限公司柜台交易电子签名约定书》</p><div></div></li>
+				<li class="current"><span class="icon"></span><a href="javascript:void(0);"><p>《xxxx证券股份有限公司柜台交易客户协议》</p></a><div></div></li>
+				<li><span class="icon"></span><a href="javascript:void(0);"><p>《xxxx证券股份有限公司柜台交易风险提示函》</p></a><div></div></li>
+				<li><span class="icon"></span><a href="javascript:void(0);"><p>《xxxx证券股份有限公司柜台交易电子签名约定书》</p></a><div></div></li>
 			</ul>
 			<div id="content">
 					<ul style="display:block;">

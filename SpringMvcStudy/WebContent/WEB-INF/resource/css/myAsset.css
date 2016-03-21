@@ -78,7 +78,8 @@ body {
 
 .features li {
 	padding: 8px 15px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #4F4F4F;
+	border-left: 1px solid #4F4F4F;
 	font-size: 11px;
 	list-style-type: none;
 }
@@ -86,6 +87,8 @@ body {
 .footer {
 	padding: 15px;
 	background: #DEF0F4;
+	border-left: 1px solid #4F4F4F;
+	border-bottom: 1px solid #4F4F4F;
 }
 
 .action_button {

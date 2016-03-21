@@ -14,8 +14,7 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/bottom.css"/>
     <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
-  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
- 
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script> 
  </head>
 <body>
   <div class="header-top">
@@ -103,9 +102,7 @@
 							<td class="status"><a href="./buy?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
 							<td class="status"><a href="./buy?product_code=${item.product_code!'' }"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
-							<#if item.state=="2"><td class="status"><a href="javascript:void(0)"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>
-							
-							
+							<#if item.state=="2"><td class="status"><a href="javascript:void(0)"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>							
               <td></td>
             </tr>
             </#list>

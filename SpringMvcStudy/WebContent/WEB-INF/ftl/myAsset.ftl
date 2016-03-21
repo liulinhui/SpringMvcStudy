@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/otc_sell.css" />
 	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/myAsset-css-table.css" />
+	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/headerfooter.css" />
 	<link rel="stylesheet" type="text/css" media="screen"
 		href="/SpringMvcStudy/resource/css/myAsset.css" />
@@ -65,22 +67,49 @@
 	</div>
 	<div id="main">
 		<div class="inner">
-			<div class="blank">
-			</div>
+			<div class="blank"></div>
 			<div class="bill">
-				<div class="header" style="height: 45px">
-					<a ><h3>当前账户信息:</h3></a>
+				<div class="header user-info" style="height: 45px">
+					<a><h3>当前账户信息:</h3></a>
+				</div>
+				<div id="table">
+					<table id="travel">
+						<thead>
+							<tr>
+								<th scope="col">用户名</th>
+								<th scope="col">用户账号</th>
+								<th scope="col">可用资金</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">小鸡吧</th>
+								<td>12312</td>
+								<td>3123123</td>
+								<td>25</td>
+								<td>29</td>
+								<td>20</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				<div class="header xianshi" style="height: 50px">
-					<a href="javascript:void(0);"><h3>您当前拥有的产品</h3></a>
+					<a href="javascript:void(0);"><h3>您当前拥有的产品:</h3></a>
 				</div>
-				<div class="display" style="display: none">
+				<div class="display" style="display: black">
+					<div style="float: left; padding-top: 100px; padding-left: 30px">
+						<a href="javascript:void(0)"><img
+							src="/SpringMvcStudy/resource/images/mfrL.jpg" /></a>
+					</div>
 					<ul class="pricing_table">
-						<li class="price_block">
+						<li class="price_block" style="">
 							<h3>S1232</h3>
 							<div class="price">
 								<div class="price_figure">
-									<span class="price_number">主题宝一号</span>
+									<span class="price_number">主题宝号</span>
 								</div>
 							</div>
 							<ul class="features">
@@ -145,17 +174,20 @@
 							</div>
 						</li>
 					</ul>
+					<div style="float:right; padding-top: 100px; padding-right: 30px">
+						<a href="javascript:void(0)"><img
+							src="/SpringMvcStudy/resource/images/mfrR.jpg" /></a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="blank"></div>
 	</div>
 	<script>
 		$(document).ready(function() {
 			$('.xianshi').toggle(function() {
-				$('.display').show();
-			}, function() {
 				$('.display').hide();
+			}, function() {
+				$('.display').show();
 			});
 		});
 	</script>

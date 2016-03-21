@@ -44,7 +44,7 @@ public class OtcmarketLoginController {
 		String returnUrl;
 		String product_code = request.getParameter("product_code");
 		Product product = productmapper.selectByProduct_code(product_code);
-		logger.info("啦啦啦啦啦阿里" + product.getProduct_name());
+		logger.info("查询" + product.getProduct_name()+"相应信息");
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null) {
 			returnUrl = "otc_buy.ftl";
@@ -58,8 +58,7 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
-			model.addAttribute("reg",
-					request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
 		}
 		return "otc_sell.ftl";
 	}
@@ -67,8 +66,7 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/protocol")
 	public String protocol(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
-			model.addAttribute("reg",
-					request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
 		}
 		return "permission.ftl";
 	}
@@ -77,8 +75,7 @@ public class OtcmarketLoginController {
 	public String otc(Model model, HttpServletRequest request) {
 		// 取到session值，
 		if (request.getSession() != null) {
-			model.addAttribute("reg",
-					request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
 		}
 		// Product product = productmapper.selectByProduct_code("2431242");
 		// logger.info("h哈哈哈哈");
@@ -97,27 +94,31 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String returnUrl = request.getParameter("returnUrl");
-		logger.info("lfgrjngkjmvklerngnknfd"+returnUrl);
-		String user_returnUrl = (String)request.getSession().getAttribute("returnUrl");
-		if (request.getSession().getAttribute("returnUrl")==null) {
-			user_returnUrl=returnUrl;
+		logger.info("下一个跳转的地址" + returnUrl);
+		String user_returnUrl = (String) request.getSession().getAttribute(
+				"returnUrl");
+		if (user_returnUrl == null) {
+			request.getSession().setAttribute("returnUrl", returnUrl);
+			user_returnUrl = (String) request.getSession().getAttribute(
+					"returnUrl");
 		}
-		logger.info("wwwww:"+request.getSession(false).getAttribute("returnUrl"));
+		logger.info("session里存入的地址："
+				+ request.getSession(false).getAttribute("returnUrl"));
 		if (user_code == null || user_password == null) {
-			logger.info("啦啦啦啦啦啦");
-			return "account_Login.ftl"; 
+			logger.info("-----------没有输入用户名密码");
+			return "account_Login.ftl";
 		} else {
 			RealUser realuser = realuserMapper.selectByCode(user_code);
-			logger.info("lalalalala");
+			logger.info("-----后台取到用户数据，检验用户登录");
 			if (user_password.equals(realuser.getUser_password())) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
-//				user_returnUrl = "redirect:/otc";
+				// user_returnUrl = "redirect:/otc";
 			} else if (!user_password.equals(realuser.getUser_password())) {
 				user_returnUrl = "Error.ftl";
 			}
 		}
-		return "redirect:"+user_returnUrl;
+		return "redirect:" + user_returnUrl;
 	}
 
 	@RequestMapping(value = "/account_Reg")
@@ -126,7 +127,8 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String user_returnUrl = request.getParameter("returnUrl");
-		logger.info(user_name + user_password + user_code);
+		logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"
+				+ user_code);
 		if (user_code == null || user_password == null || user_name == null) {
 			user_returnUrl = "account_Reg.ftl";
 		} else {

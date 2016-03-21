@@ -55,7 +55,7 @@
     <div class="inner">
 			<div class="blank"></div>
 			<div class="bill">
-				<div class="header">
+				<div class="header" style="height:50px">
 					<h3>请选择您需要转让的产品</h3>
 				</div>
 				<div class="header">
@@ -75,16 +75,7 @@
 				</div>	
 				<div class="header">
 					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>	
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>	
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>	
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>				
+				</div>			
 			</div>		
 			</div>
 			<div class="blank"></div>

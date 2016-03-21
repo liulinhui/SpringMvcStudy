@@ -25,7 +25,6 @@ public class OtcController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
-		logger.info("连上了");
 		return "myproduct1.ftl";
 	}
 	@RequestMapping(value = "/myAsset")
@@ -57,7 +56,8 @@ public class OtcController {
 		if (request.getSession() != null) {
 			String user_code=null;
 			request.getSession().setAttribute("user_code",user_code);
-			
+			request.getSession().setAttribute("returnUrl",user_code);
+			logger.info("----登录信息已经被清除----");
 		}
 		return "redirect:/otc";
 	}
@@ -81,7 +81,7 @@ public class OtcController {
 			user_returnUrl = "AccountRecharge.ftl";
 		}else {
 			Integer amount = Integer.parseInt(request.getParameter("amount"),10);
-			System.out.println("输入充值的数量为："+amount);
+			System.out.println("----------输入充值的数量为："+amount);
 			RealUser user1 = new RealUser();
 			int oldAsset=realuserMapper.selectByCode(user_code).getUser_asset();
 			user1.setUser_code(user_code);
