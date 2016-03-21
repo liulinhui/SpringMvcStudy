@@ -80,6 +80,7 @@
             </tr>
           </thead>
           <tbody id="otc">
+          <div>
           <a href="./buy">
           <#if products??>
           <#list products as item>
@@ -108,6 +109,7 @@
             </#list>
           </#if>
           </a>
+          </div>
           </tbody>
         </table>
       </div>
@@ -115,8 +117,7 @@
 			<!--<p style=" text-align:center;">加载更多</p>  -->
   </div>
   <div id="footer-nf">
-    <div class="f-inner">
-    
+    <div class="f-inner">    
       <div class="logos">
         <a target="_blank" href="http://www.csrc.gov.cn"><img src="/SpringMvcStudy/resource/images/images/f_logos_1.png"></a>
         <a target="_blank" href="http://www.sac.net.cn"><img src="/SpringMvcStudy/resource/images/images/f_logos_2.png"></a>
