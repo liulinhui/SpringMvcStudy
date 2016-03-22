@@ -42,16 +42,17 @@ public class OtcmarketLoginController {
 		}
 		String returnUrl;
 		String product_code = request.getParameter("product_code");
+		String user_code = request.getParameter("id");
 		Product product = productmapper.selectByProduct_code(product_code);
 		//解密
-		byte[] result = des.encrypt(product.getUser_codeString().getBytes());
+//		byte[] result = des.encrypt(product.getUser_codeString().getBytes());
 //		try {
-//			byte[] decryResult = DES.decrypt(result);
+//			byte[] decryResult = des.decrypt((byte[]) user_code);
 //			System.out.println("解密后：" + new String(decryResult));
 //		} catch (Exception e1) {
 //			e1.printStackTrace();
 //		}
-		product.setUser_codeString(new String(result));		
+//		product.setUser_codeString(new String(decryResult));		
 		logger.info("查询" + product.getProduct_name() + "相应信息===用户代码："+product.getUser_codeString());
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null) {
@@ -102,6 +103,7 @@ public class OtcmarketLoginController {
 			//加密
 			byte[] result = des.encrypt(product.getUser_codeString().getBytes());
 			product.setUser_codeString(new String(result));	
+			logger.info("========遍历选出撤销单=============="+product.getUser_codeString());
 			if (product.getUser_codeString().equals(
 					request.getSession().getAttribute("user_code"))) {
 				product.setState('0');
