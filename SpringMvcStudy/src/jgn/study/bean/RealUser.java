@@ -8,7 +8,16 @@ public class RealUser implements Serializable{
 	private String user_code;//资金账号
 	private String user_password;//用户密码
 	private int user_asset;//用户资产
+	private String reg_time;//注册时间
 
+
+	public String getReg_time() {
+		return reg_time;
+	}
+
+	public void setReg_time(String reg_time) {
+		this.reg_time = reg_time;
+	}
 
 	public int getUser_asset() {
 		return user_asset;

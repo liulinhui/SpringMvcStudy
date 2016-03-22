@@ -88,7 +88,7 @@
 					</div>
 					<div class="rate">
 						<h2>
-							${product.surplus_days!"102" }<span>天</span>
+							${product.limit_time!"102" }<span>天</span>
 						</h2>
 						<h6>剩余期限</h6>
 						<p>

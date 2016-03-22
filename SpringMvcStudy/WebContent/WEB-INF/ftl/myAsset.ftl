@@ -84,13 +84,15 @@
 							</tr>
 						</thead>
 						<tbody>
+						<#if user??>
 							<tr>
-								<th scope="row">小鸡吧</th>
-								<td>12312</td>
-								<td>3123123</td>
-								<td>2016/03/21</td>
+								<td>${user.user_name!'---'}</td>
+								<td>${user.user_code!'---'}</td>
+								<td>${user.user_asset!'---'}￥</td>
+								<td>${user.reg_time!'---'}</td>
 								<td><a href="./AccountRecharge"><img src="/SpringMvcStudy/resource/images/images2/recharge.png"/></a></td>								
-							</tr>
+							</tr>						
+						</#if>
 						</tbody>
 					</table>
 				</div>

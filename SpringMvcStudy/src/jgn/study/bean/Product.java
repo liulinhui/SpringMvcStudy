@@ -9,12 +9,18 @@ public class Product implements Serializable {
 	private String product_name;//产品名称
 	private double plan_income;//原预期年化收益率
 	private double reference_income;//买入后参考年化收益率
-	private int surplus_days;//剩余期限
+	private String limit_time;//剩余期限	
 	private int transfer_account;//转让份额
 	private int transfer_capital;//转让金额
 	private char risk;//风险
 	private String public_date;//发布时间
 	private char state;//购买状态
+	public String getLimit_time() {
+		return limit_time;
+	}
+	public void setLimit_time(String limit_time) {
+		this.limit_time = limit_time;
+	}
 	public String getUser_codeString() {
 		return user_code;
 	}
@@ -51,12 +57,6 @@ public class Product implements Serializable {
 	}
 	public void setReference_income(double reference_income) {
 		this.reference_income = reference_income;
-	}
-	public int getSurplus_days() {
-		return surplus_days;
-	}
-	public void setSurplus_days(int surplus_days) {
-		this.surplus_days = surplus_days;
 	}
 	public int getTransfer_account() {
 		return transfer_account;

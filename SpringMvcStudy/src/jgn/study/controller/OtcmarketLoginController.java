@@ -1,11 +1,10 @@
 package jgn.study.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,15 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mysql.jdbc.StringUtils;
-import com.sun.net.httpserver.HttpContext;
-
 import jgn.study.bean.Product;
 import jgn.study.bean.RealUser;
-import jgn.study.bean.User;
 import jgn.study.dao.ProductMapper;
 import jgn.study.dao.RealUserMapper;
 import jgn.study.dao.UserMapper;
+import jgn.study.common.DES;
+import jgn.study.controller.ControllerHelp;
 
 @Controller
 public class OtcmarketLoginController {
@@ -34,6 +31,8 @@ public class OtcmarketLoginController {
 	private RealUserMapper realuserMapper;
 	@Autowired
 	private ProductMapper productmapper;
+	ControllerHelp controllerhellp = new ControllerHelp();
+	DES des = new DES();
 
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request) {
@@ -44,7 +43,16 @@ public class OtcmarketLoginController {
 		String returnUrl;
 		String product_code = request.getParameter("product_code");
 		Product product = productmapper.selectByProduct_code(product_code);
-		logger.info("查询" + product.getProduct_name()+"相应信息");
+		//解密
+		byte[] result = des.encrypt(product.getUser_codeString().getBytes());
+//		try {
+//			byte[] decryResult = DES.decrypt(result);
+//			System.out.println("解密后：" + new String(decryResult));
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
+		product.setUser_codeString(new String(result));		
+		logger.info("查询" + product.getProduct_name() + "相应信息===用户代码："+product.getUser_codeString());
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null) {
 			returnUrl = "otc_buy.ftl";
@@ -58,7 +66,8 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/sell")
 	public String sell(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
-			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
 		}
 		return "otc_sell.ftl";
 	}
@@ -66,25 +75,39 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/protocol")
 	public String protocol(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
-			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
 		}
 		return "permission.ftl";
 	}
 
 	@RequestMapping(value = "/otc")
-	public String otc(Model model, HttpServletRequest request) {
+	public String otc(Model model, HttpServletRequest request)
+			throws ParseException {
 		// 取到session值，
 		if (request.getSession() != null) {
-			model.addAttribute("reg",request.getSession().getAttribute("user_code"));
+			model.addAttribute("reg",
+					request.getSession().getAttribute("user_code"));
 		}
-		// Product product = productmapper.selectByProduct_code("2431242");
-		// logger.info("h哈哈哈哈");
-		// String product_name = product.getProduct_name();
-
-		// model.addAttribute("product_name", product_name);
-		// logger.info(product_name + "查询成功");
 		List<Product> products = new ArrayList<Product>();
 		products = productmapper.selectAll();
+		for (Product product : products) {
+			// 获取剩余到期时间
+			String smdate = controllerhellp.Reg_time_();
+			String bdate = product.getLimit_time();
+			String lasttime = controllerhellp.daysBetween(smdate, bdate);
+			product.setLimit_time(lasttime);
+			logger.info("===" + product.getProduct_name() + "的剩余时间为："
+					+ product.getLimit_time());
+			//加密
+			byte[] result = des.encrypt(product.getUser_codeString().getBytes());
+			product.setUser_codeString(new String(result));	
+			if (product.getUser_codeString().equals(
+					request.getSession().getAttribute("user_code"))) {
+				product.setState('0');
+				logger.info("========遍历选出撤销单==============");
+			}
+		}
 		model.addAttribute("products", products);
 		return "index1.ftl";
 	}
@@ -127,8 +150,9 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String user_returnUrl = request.getParameter("returnUrl");
+		String reg_time = controllerhellp.Reg_time();
 		logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"
-				+ user_code);
+				+ user_code + "注册时间" + reg_time);
 		if (user_code == null || user_password == null || user_name == null) {
 			user_returnUrl = "account_Reg.ftl";
 		} else {
@@ -136,6 +160,7 @@ public class OtcmarketLoginController {
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
 			user1.setUser_name(user_name);
+			user1.setReg_time(reg_time);
 			realuserMapper.insert(user1);
 			logger.info("注册好了");
 			user_returnUrl = "redirect:/account_Login";

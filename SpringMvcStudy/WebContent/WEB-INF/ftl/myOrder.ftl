@@ -75,16 +75,18 @@
 					<thead>
 						<tr style="font-size:30px;font-family:Verdana;color:#6C6C6C;font-weight:bold">
 							<th scope="col" rowspan="2">产品名称</th>
-							<th scope="col" colspan="6">详细信息</th>
+							<th scope="col" colspan="8">详细信息</th>
 						</tr>
 
 						<tr>
 							<th scope="col">产品代码</th>
-							<th scope="col">Rest of Inner London</th>
-							<th scope="col">Outer London</th>
-							<th scope="col">All London</th>
-							<th scope="col">Rest of Great Britain</th>
-							<th scope="col">Great Britain</th>
+							<th scope="col">预计年化收益率</th>
+							<th scope="col">剩余期限</th>
+							<th scope="col">买入份额</th>
+							<th scope="col">买入价格</th>
+							<th scope="col">买入时间</th>
+							<th scope="col">风险</th>
+							<th scope="col">状态</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -96,6 +98,8 @@
 							<td>29</td>
 							<td>20</td>
 							<td>20</td>
+							<td>20</td>
+							<td>已付</td>
 						</tr>
 						<tr>
 							<th scope="row">主题宝1号</th>
@@ -105,15 +109,8 @@
 							<td>29</td>
 							<td>20</td>
 							<td>20</td>
-						</tr>
-						<tr>
-							<th scope="row">主题宝1号</th>
-							<td>48</td>
-							<td>32</td>
-							<td>25</td>
-							<td>29</td>
 							<td>20</td>
-							<td>20</td>
+							<td>待付</td>
 						</tr>
 					</tbody>
 				</table>

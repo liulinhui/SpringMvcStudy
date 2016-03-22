@@ -8,14 +8,14 @@
 		<result column="product_name" jdbcType="VARCHAR" property="product_name" />
 		<result column="plan_income" jdbcType="DOUBLE" property="plan_income" />
 		<result column="reference_income" jdbcType="DOUBLE" property="reference_income" />
-		<result column="surplus_days" jdbcType="DECIMAL" property="surplus_days" />
+		<result column="limit_time" jdbcType="DATE" property="limit_time" />
 		<result column="transfer_account" jdbcType="DECIMAL" property="transfer_account" />
 		<result column="transfer_capital" jdbcType="DECIMAL" property="transfer_capital" />
         <result column="risk" jdbcType="CHAR" property="risk" />
       
         <result column="state" jdbcType="CHAR" property="state" />
 	</resultMap>
-	<sql id="Base_Column_List">user_code,product_code,public_date,product_name,plan_income,reference_income,surplus_days,transfer_account,transfer_capital,risk,state</sql>
+	<sql id="Base_Column_List">user_code,product_code,public_date,product_name,plan_income,reference_income,limit_time,transfer_account,transfer_capital,risk,state</sql>
 
 	<select id="selectByProduct_code" resultMap="BaseResultMap"
 		parameterType="java.lang.String">

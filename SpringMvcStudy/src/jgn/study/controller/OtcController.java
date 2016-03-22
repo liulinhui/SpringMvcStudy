@@ -33,6 +33,13 @@ public class OtcController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
+		RealUser user=new RealUser();
+		user=realuserMapper.selectByCode((String)request.getSession().getAttribute("user_code"));
+		String time=user.getReg_time().substring(0, 19);
+		user.setReg_time(time);
+		logger.info("========注册时间："+user.getReg_time()+"===========");
+		model.addAttribute("user",user);
+		logger.info("------用户"+user.getUser_name()+"信息采集成功------");
 		return "myAsset.ftl";
 	}
 	@RequestMapping(value = "/myOrder")
@@ -72,9 +79,7 @@ public class OtcController {
 	@RequestMapping(value = "/AccountRecharge")
 	public String AccountRecharge(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");
-		String user_code = request.getParameter("user_code");
-		
-		
+		String user_code = request.getParameter("user_code");		
 		String user_returnUrl = request.getParameter("returnUrl");
 		if (user_code == null | user_password == null) {
 			

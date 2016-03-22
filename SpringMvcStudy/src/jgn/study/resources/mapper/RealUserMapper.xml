@@ -6,8 +6,9 @@
 		<result column="user_password" jdbcType="VARCHAR" property="user_password" />
 		<result column="user_code" jdbcType="VARCHAR" property="user_code" />
 		<result column="user_asset" jdbcType="VARCHAR" property="user_asset" />
+		<result column="reg_time" jdbcType="VARCHAR" property="reg_time" />
 	</resultMap>
-	<sql id="Base_Column_List">user_name,user_password,user_code,user_asset</sql>
+	<sql id="Base_Column_List">user_name,user_password,user_code,user_asset,reg_time</sql>
 
 	<select id="selectByCode" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
@@ -17,17 +18,15 @@
 	</select>
 
 	<insert id="insert" parameterType="jgn.study.bean.RealUser">
-		insert into realuser(user_name,user_password,user_code)
+		insert into realuser(user_name,user_password,user_code,reg_time)
 		values (
 		#{user_name,jdbcType=VARCHAR},
 		#{user_password,jdbcType=VARCHAR},
-		#{user_code,jdbcType=VARCHAR}
-	
-		
+		#{user_code,jdbcType=VARCHAR},
+		#{reg_time,jdbcType=VARCHAR}		
 		)
 	</insert>
 	<update id="update" parameterType="jgn.study.bean.RealUser">
-	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}
-	    
+	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}    
 	</update>
 </mapper>
