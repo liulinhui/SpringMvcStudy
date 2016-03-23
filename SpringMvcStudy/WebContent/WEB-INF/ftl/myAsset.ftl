@@ -72,7 +72,8 @@
 				<div class="header user-info" style="height: 45px">
 					<a><h3>当前账户信息:</h3></a>
 				</div>
-				<div id="table" style="-moz-user-select:-moz-none;"  onselectstart="return false;">
+				<div id="table" style="-moz-user-select: -moz-none;"
+					onselectstart="return false;">
 					<table id="travel">
 						<thead>
 							<tr>
@@ -84,24 +85,27 @@
 							</tr>
 						</thead>
 						<tbody>
-						<#if user??>
+							<#if user??>
 							<tr>
 								<td>${user.user_name!'---'}</td>
 								<td>${user.user_code!'---'}</td>
 								<td>${user.user_asset!'---'}￥</td>
 								<td>${user.reg_time!'---'}</td>
-								<td><a href="./AccountRecharge"><img src="/SpringMvcStudy/resource/images/images2/recharge.png"/></a></td>								
-							</tr>						
-						</#if>
+								<td><a href="./AccountRecharge"><img
+										src="/SpringMvcStudy/resource/images/images2/recharge.png" /></a></td>
+							</tr>
+							</#if>
 						</tbody>
 					</table>
 				</div>
 				<div class="header xianshi" style="height: 50px">
-					<a href="javascript:void(0);"><h3>您当前拥有的产品:</h3></a>
+					<a href="javascript:void(0);"><h3>您当前拥有的产品:<span>123<span>件</span></span></h3></a>
 				</div>
-				<div class="display" style="display: black;-moz-user-select:-moz-none;" onselectstart="return false;">
-					<div style="float: left; padding-top: 100px; padding-left: 30px">
-						<a href="javascript:void(0)"><img
+				<div class="display"
+					style="display: black; -moz-user-select: -moz-none;"
+					onselectstart="return false;">
+					<div  style="float: left; padding-top: 100px; padding-left: 30px;">
+						<a class="imgLeft" href="javascript:void(0)" style="backgroung-color:#000079"><img
 							src="/SpringMvcStudy/resource/images/mfrL.jpg" /></a>
 					</div>
 					<ul class="pricing_table">
@@ -174,8 +178,8 @@
 							</div>
 						</li>
 					</ul>
-					<div style="float:right; padding-top: 100px; padding-right: 30px">
-						<a href="javascript:void(0)"><img
+					<div style="float: right; padding-top: 100px; padding-right: 30px">
+						<a class="imgRight" href="javascript:void(0)"><img
 							src="/SpringMvcStudy/resource/images/mfrR.jpg" /></a>
 					</div>
 				</div>

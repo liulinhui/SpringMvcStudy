@@ -6,21 +6,23 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>交易页面</title>
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/otc_buy.css" />
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/headerfooter.css" />
-<link rel="stylesheet" type="text/css"
-	href="/SpringMvcStudy/resource/css/table.css" />
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
-<script type="text/javascript"
-	src="/SpringMvcStudy/resource/js/index.js"></script>
+<link rel="shortcut icon"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico"
+	type="image/x-icon">
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/otc_buy.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/headerfooter.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/table.css" />
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
+	<script type="text/javascript"
+		src="/SpringMvcStudy/resource/js/index.js"></script>
 
-<!--[if IE 6]>
+	<!--[if IE 6]>
   <script src="./js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
   <script type="text/javascript">
     DD_belatedPNG.fix('#wx-qr img,#sj-qr img,#footer-nf .img-box img,#float-bar .handle,#float-bar .btn-set li.ol-im a,#float-bar .btn-set li.buy a,#float-bar .back-top a,#s-btn,#header-nf .header-top .sns a,background');
@@ -35,8 +37,8 @@
 				毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em>
 			</div>
 			<div class="links">
-				<a id="login" href="./account_Login">登录</a> <a id="reg"
-					href="./account_Reg">注册</a> <a href="">我的订单</a>
+				<a id="login" href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}">登录/注册</a> 
+			    <a href="./myOrder">我的订单</a>
 			</div>
 		</div>
 	</div>
@@ -45,8 +47,8 @@
 			<a href="./otc" id="logo"><img
 				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
 			<div class="h-search">
-				<input type="text" id="s-input" placeholder="名称/代码" /> <a
-					href="" id="s-btn" title="搜索">搜索</a>
+				<input type="text" id="s-input" placeholder="名称/代码" /> <a href=""
+					id="s-btn" title="搜索">搜索</a>
 				<div id="s-result">
 					<ul>
 						<li><a href="">我想理财马上开户</a></li>
@@ -57,7 +59,7 @@
 			</div>
 			<div class="nav">
 				<a href="./otc" class="">首页</a><a href="./sell">我要转让</a><a
-					href="">我的账户</a>
+					href="./myAsset">我的账户</a>
 			</div>
 			<p class="breadcrumb">
 				<a href="">毕业设计</a><a href="">>OTC转让系统</a><a href="">>君得金优先级28天期</a>
@@ -67,7 +69,7 @@
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>
-		    <#if product??>
+			<#if product??>
 			<div class="bill">
 				<div class="header">
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
@@ -102,13 +104,13 @@
 						</h2>
 						<h6>转让份额</h6>
 						<p>
-							<span>转让日期</span>${product.public_date!"2015-05-11" } 
+							<span>转让日期</span>${product.public_date!"2015-05-11" }
 						</p>
 					</div>
 					<div class="tip">
 						<img src="/SpringMvcStudy/resource/images/images2/tip.png"></img>
 						<h5>买家预期年化收益率=（持有期之和/转让价格）</h5>
-						
+
 					</div>
 				</div>
 				<div class="confirm">
@@ -120,10 +122,14 @@
 					</div>
 					<div class="warn">
 						<h5>
-							当前可用资金：<a href="./account_Login?returnUrl=/buy?product_code=${product.product_code!""}"><span id="text">登录</span></a>可见
+							当前可用资金：<a
+								href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><span
+								id="text">登录</span></a>可见
 						</h5>
 					</div>
-					<a href="./account_Login?returnUrl=/buy?product_code=${product.product_code!""}"><div class="button" id="conbuy"></div></a>
+					<a
+						href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><div
+							class="button" id="conbuy"></div></a>
 				</div>
 			</div>
 			</#if>
@@ -155,32 +161,6 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="instr">
-				<ul>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-				</ul>
-
-			</div>
-
 			<div class="blank"></div>
 		</div>
 	</div>
@@ -206,8 +186,7 @@
 					href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action"><img
 					src="/SpringMvcStudy/resource/images/images/f_logos_6.png"></a>
 			</div>
-			<p class="copyright">哈哈哈哈 copyright © 2016 苗灿
-				大孙子</p>
+			<p class="copyright">哈哈哈哈 copyright © 2016 苗灿 大孙子</p>
 		</div>
 	</div>
 </body>

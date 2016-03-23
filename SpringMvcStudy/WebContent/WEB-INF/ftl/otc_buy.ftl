@@ -119,41 +119,6 @@
 				</div>
 			</div>
 			</#if>
-			
-			<div class="instr">
-				<ul>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-					<li>
-						<p class="title">投资门槛:</p>
-						<div class="cont">100万起，追加最低为1万元的整数倍。</div>
-					</li>
-				</ul>
-				<div class="pdf">
-					<img src="/SpringMvcStudy/resource/images/images2/PDF.png"></img>
-					<ul>
-						<li>产品说明书<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品合同<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-						<li>产品说明书<a href="ftp://10.176.64.110/"><img src="/SpringMvcStudy/resource/images/images2/download_square.png"></img></a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="blank"></div>
     </div>
   </div>
 

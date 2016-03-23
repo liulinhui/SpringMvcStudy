@@ -39,7 +39,7 @@ public class OtcController {
 		user.setReg_time(time);
 		logger.info("========注册时间："+user.getReg_time()+"===========");
 		model.addAttribute("user",user);
-		logger.info("------用户"+user.getUser_name()+"信息采集成功------");
+		logger.info("=================用户"+user.getUser_name()+"信息采集成功===============");
 		return "myAsset.ftl";
 	}
 	@RequestMapping(value = "/myOrder")

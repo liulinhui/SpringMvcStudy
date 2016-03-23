@@ -35,25 +35,30 @@ public class OtcmarketLoginController {
 	DES des = new DES();
 
 	@RequestMapping(value = "/buy")
-	public String otc_buy(Model model, HttpServletRequest request) {
-		if (request.getSession() != null) {
+	public String otc_buy(Model model, HttpServletRequest request)
+			throws Exception {
+		if (request.getSession() != null) { // 判断是否登录
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
 		String returnUrl;
 		String product_code = request.getParameter("product_code");
-		String user_code = request.getParameter("id");
-		Product product = productmapper.selectByProduct_code(product_code);
-		//解密
-//		byte[] result = des.encrypt(product.getUser_codeString().getBytes());
-//		try {
-//			byte[] decryResult = des.decrypt((byte[]) user_code);
-//			System.out.println("解密后：" + new String(decryResult));
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//		}
-//		product.setUser_codeString(new String(decryResult));		
-		logger.info("查询" + product.getProduct_name() + "相应信息===用户代码："+product.getUser_codeString());
+		String user_code = des.decrypt("dfwefrvsefadfereqfdbs",
+				request.getParameter("id"));
+
+		System.out.println("+++++++++" + product_code);
+		// user_code=des.decrypt("dfwefrvsefadfereqfdbs", user_code);
+		logger.info("====解密后的user_code=============" + user_code);
+		Product product = productmapper.selectByProduct_code(product_code,
+				user_code);
+		product.setUser_code(des.encrypt("dfwefrvsefadfereqfdbs", user_code));
+		// 计算到期时间
+		String smdate = controllerhellp.Reg_time_();
+		String bdate = product.getLimit_time();
+		String lasttime = controllerhellp.daysBetween(smdate, bdate);
+		product.setLimit_time(lasttime);
+		logger.info("查询" + product.getProduct_name() + "相应信息===用户代码："
+				+ product.getUser_code());
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null) {
 			returnUrl = "otc_buy.ftl";
@@ -83,8 +88,7 @@ public class OtcmarketLoginController {
 	}
 
 	@RequestMapping(value = "/otc")
-	public String otc(Model model, HttpServletRequest request)
-			throws ParseException {
+	public String otc(Model model, HttpServletRequest request) throws Exception {
 		// 取到session值，
 		if (request.getSession() != null) {
 			model.addAttribute("reg",
@@ -100,15 +104,17 @@ public class OtcmarketLoginController {
 			product.setLimit_time(lasttime);
 			logger.info("===" + product.getProduct_name() + "的剩余时间为："
 					+ product.getLimit_time());
-			//加密
-			byte[] result = des.encrypt(product.getUser_codeString().getBytes());
-			product.setUser_codeString(new String(result));	
-			logger.info("========遍历选出撤销单=============="+product.getUser_codeString());
-			if (product.getUser_codeString().equals(
+			if (product.getUser_code().equals(
 					request.getSession().getAttribute("user_code"))) {
 				product.setState('0');
 				logger.info("========遍历选出撤销单==============");
 			}
+			// 加密
+			String userString = des.encrypt("dfwefrvsefadfereqfdbs",
+					product.getUser_code());
+			product.setUser_code(userString);
+			logger.info("啦啦啦啦========加密后的user_code=============="
+					+ product.getUser_code());
 		}
 		model.addAttribute("products", products);
 		return "index1.ftl";
@@ -119,6 +125,13 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String returnUrl = request.getParameter("returnUrl");
+		String user = new String(); // 间接获取到user_code的地址值
+		user = request.getParameter("id");
+		logger.info("=====returnUrl===" + returnUrl);
+		if (user != null) {
+			returnUrl = returnUrl + "&id=" + user;
+			logger.info("====交易页面的跳转地址" + returnUrl);
+		}
 		logger.info("下一个跳转的地址" + returnUrl);
 		String user_returnUrl = (String) request.getSession().getAttribute(
 				"returnUrl");
@@ -126,6 +139,7 @@ public class OtcmarketLoginController {
 			request.getSession().setAttribute("returnUrl", returnUrl);
 			user_returnUrl = (String) request.getSession().getAttribute(
 					"returnUrl");
+			// user_returnUrl=returnUrl;
 		}
 		logger.info("session里存入的地址："
 				+ request.getSession(false).getAttribute("returnUrl"));

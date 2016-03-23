@@ -18,7 +18,7 @@
 			<div class="input">
 				<div class="log">
 					<div class="name">
-						<h2 style="color: red">特别提醒：您的操作不正确或是系统崩溃了，赶紧联系我！！！！！</h2>
+						<h2 style="color: red">${errorMes!'特别提醒：您的操作不正确或是系统崩溃了，赶紧联系我！！！！！'}</h2>
 						</br>
 						<h5 style="color: blue">联系方式：120</h5>
 						<input type="submit" id="return" class="return"

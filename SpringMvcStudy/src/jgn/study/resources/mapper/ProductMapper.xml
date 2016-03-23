@@ -11,8 +11,7 @@
 		<result column="limit_time" jdbcType="DATE" property="limit_time" />
 		<result column="transfer_account" jdbcType="DECIMAL" property="transfer_account" />
 		<result column="transfer_capital" jdbcType="DECIMAL" property="transfer_capital" />
-        <result column="risk" jdbcType="CHAR" property="risk" />
-      
+        <result column="risk" jdbcType="CHAR" property="risk" />     
         <result column="state" jdbcType="CHAR" property="state" />
 	</resultMap>
 	<sql id="Base_Column_List">user_code,product_code,public_date,product_name,plan_income,reference_income,limit_time,transfer_account,transfer_capital,risk,state</sql>
@@ -21,7 +20,7 @@
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from product where product_code = #{product_code,jdbcType=VARCHAR}
+		from product where product_code=#{product_code,jdbcType=VARCHAR} AND user_code=#{user_code,jdbcType=VARCHAR}
 	</select>
 	<select id="selectAll" resultMap="BaseResultMap"
 		parameterType="jgn.study.bean.Product">

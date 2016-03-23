@@ -21,10 +21,10 @@ public class Product implements Serializable {
 	public void setLimit_time(String limit_time) {
 		this.limit_time = limit_time;
 	}
-	public String getUser_codeString() {
+	public String getUser_code() {
 		return user_code;
 	}
-	public void setUser_codeString(String user_code) {
+	public void setUser_code(String user_code) {
 		this.user_code = user_code;
 	}
 	public String getPublic_date() {
