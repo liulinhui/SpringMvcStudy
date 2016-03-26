@@ -1,11 +1,11 @@
-package jgn.study.dao;
+package com.study.dao;
 
 import java.util.List;
 
-import jgn.study.bean.Product;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import com.study.bean.Product;
 
 
 @Component

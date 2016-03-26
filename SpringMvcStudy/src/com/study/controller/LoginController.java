@@ -1,4 +1,4 @@
-package jgn.study.controller;
+package com.study.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,9 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mysql.jdbc.StringUtils;
-
-import jgn.study.bean.User;
-import jgn.study.dao.UserMapper;
+import com.study.bean.User;
+import com.study.dao.UserMapper;
 
 @Controller
 public class LoginController {

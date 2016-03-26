@@ -1,4 +1,4 @@
-package jgn.study.bean;
+package com.study.bean;
 
 import java.io.Serializable;
 

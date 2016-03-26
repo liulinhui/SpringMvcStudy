@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="jgn.study.dao.RealUserMapper">
-	<resultMap id="BaseResultMap" type="jgn.study.bean.RealUser">
+<mapper namespace="com.study.dao.RealUserMapper">
+	<resultMap id="BaseResultMap" type="com.study.bean.RealUser">
 		<result column="user_name" jdbcType="VARCHAR" property="user_name" />
 		<result column="user_password" jdbcType="VARCHAR" property="user_password" />
 		<result column="user_code" jdbcType="VARCHAR" property="user_code" />
@@ -17,7 +17,7 @@
 		from realuser where user_code = #{user_code,jdbcType=VARCHAR}
 	</select>
 
-	<insert id="insert" parameterType="jgn.study.bean.RealUser">
+	<insert id="insert" parameterType="com.study.bean.RealUser">
 		insert into realuser(user_name,user_password,user_code,reg_time)
 		values (
 		#{user_name,jdbcType=VARCHAR},
@@ -26,7 +26,7 @@
 		#{reg_time,jdbcType=VARCHAR}		
 		)
 	</insert>
-	<update id="update" parameterType="jgn.study.bean.RealUser">
+	<update id="update" parameterType="com.study.bean.RealUser">
 	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}    
 	</update>
 </mapper>

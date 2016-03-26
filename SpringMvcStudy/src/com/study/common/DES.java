@@ -1,4 +1,4 @@
-package jgn.study.common;
+package com.study.common;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;

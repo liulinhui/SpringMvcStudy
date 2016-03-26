@@ -1,7 +1,8 @@
-package jgn.study.dao;
+package com.study.dao;
 
 import org.springframework.stereotype.Component;
-import jgn.study.bean.User;
+
+import com.study.bean.User;
 
 @Component
 public interface UserMapper {

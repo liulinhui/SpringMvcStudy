@@ -1,9 +1,11 @@
-package jgn.study.dao;
+package com.study.dao;
 
-import jgn.study.bean.RealUser;
+
 
 
 import org.springframework.stereotype.Component;
+
+import com.study.bean.RealUser;
 
 @Component
 public interface RealUserMapper {

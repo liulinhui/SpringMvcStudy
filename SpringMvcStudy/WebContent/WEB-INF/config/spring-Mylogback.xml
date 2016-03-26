@@ -28,7 +28,7 @@
 			</pattern>
 		</encoder>
 	</appender>
-	<logger name="jgn.study" level="debug" additivity="true">
+	<logger name="com.study" level="debug" additivity="true">
 		<appender-ref ref="file" />
 	</logger>
 	<root level="info">

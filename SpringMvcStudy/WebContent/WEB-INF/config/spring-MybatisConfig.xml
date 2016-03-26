@@ -105,7 +105,7 @@
 		<!-- mapper和resultmap配置路径 -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:jgn/study/resources/mapper/*.xml</value>
+				<value>classpath:com/study/resources/mapper/*.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -113,7 +113,7 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	<!-- 该包下的类支持注解，可以自动引入mapper类 -->
-	<mybatis:scan base-package="jgn.study.dao" />
+	<mybatis:scan base-package="com.study.dao" />
 
 	<!-- 事务管理器配置,单数据源事务 -->
 	<bean id="transactionManager"
@@ -136,7 +136,7 @@
 	</tx:advice>
 	<aop:config>
 		<aop:pointcut id="executeService"
-			expression="execution(* jgn.study.dao.*.*(..))" />
+			expression="execution(* com.study.dao.*.*(..))" />
 		<aop:advisor pointcut-ref="executeService" advice-ref="txAdvice" />
 	</aop:config>
 

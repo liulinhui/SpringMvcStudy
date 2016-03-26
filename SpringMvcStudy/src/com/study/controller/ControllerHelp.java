@@ -1,4 +1,4 @@
-package jgn.study.controller;
+package com.study.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

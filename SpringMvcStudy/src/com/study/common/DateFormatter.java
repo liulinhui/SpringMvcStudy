@@ -1,4 +1,4 @@
-package jgn.study.common;
+package com.study.common;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

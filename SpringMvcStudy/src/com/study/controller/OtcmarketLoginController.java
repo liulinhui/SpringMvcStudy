@@ -1,4 +1,4 @@
-package jgn.study.controller;
+package com.study.controller;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jgn.study.bean.Product;
-import jgn.study.bean.RealUser;
-import jgn.study.dao.ProductMapper;
-import jgn.study.dao.RealUserMapper;
-import jgn.study.dao.UserMapper;
-import jgn.study.common.DES;
-import jgn.study.controller.ControllerHelp;
+import com.study.bean.Product;
+import com.study.bean.RealUser;
+import com.study.common.DES;
+import com.study.controller.ControllerHelp;
+import com.study.dao.ProductMapper;
+import com.study.dao.RealUserMapper;
+import com.study.dao.UserMapper;
 
 @Controller
 public class OtcmarketLoginController {
