@@ -99,7 +99,7 @@
 							<td>20</td>
 							<td>20</td>
 							<td>20</td>
-							<td>已付</td>
+							<td><a href="javascript:void(0)">已付</a></td>
 						</tr>
 						<tr>
 							<th scope="row">主题宝1号</th>
