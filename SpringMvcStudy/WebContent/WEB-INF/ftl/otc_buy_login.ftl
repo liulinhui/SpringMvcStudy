@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>交易页面</title>
 <link rel="shortcut icon"
-	href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking8.ico"
 	type="image/x-icon">
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/otc_buy.css" />
@@ -133,41 +133,10 @@
 				</div>
 			</div>
 			</#if>
-			<div class="similar pro-table">
-				<div class="header">
-					<div class="bar"></div>
-					<h4>原始产品信息介绍</h4>
-				</div>
-				<table>
-					<thead>
-						<tr>
-							<th>产品名称</th>
-							<th>预期年化收益率</th>
-							<th>产品性质</th>
-							<th>风险等级</th>
-							<th>期限</th>
-							<th>起购金额</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>国泰君安君得金优先级</td>
-							<td>5.63%</td>
-							<td>债券型</td>
-							<td>低</td>
-							<td>61天</td>
-							<td>1,327,900</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="blank"></div>
 		</div>
 	</div>
-
 	<div id="footer-nf">
 		<div class="f-inner">
-
 			<div class="logos">
 				<a target="_blank" href="http://www.csrc.gov.cn"><img
 					src="/SpringMvcStudy/resource/images/images/f_logos_1.png"></a> <a

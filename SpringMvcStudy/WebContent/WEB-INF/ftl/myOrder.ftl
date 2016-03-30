@@ -68,7 +68,7 @@
 		<div class="inner">
 			<div class="blank"></div>
 			<div class="bill" style="-moz-user-select:-moz-none;"  onselectstart="return false;">
-				<div class="header" style="height: 50px">
+				<div class="header" style="text-align: center;margin:0 auto;">
 					<h3>您的订单详情</h3>
 				</div>
 				<table id="travel">

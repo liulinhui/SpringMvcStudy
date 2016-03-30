@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>我的资产</title>
 <link rel="shortcut icon"
-	href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking6.ico"
 	type="image/x-icon">
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/otc_sell.css" />

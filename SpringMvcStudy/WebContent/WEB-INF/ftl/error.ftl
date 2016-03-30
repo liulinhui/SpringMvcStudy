@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录界面</title>
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking5.ico" type="image/x-icon">
 <link href="/SpringMvcStudy/resource/css/login.css" rel="stylesheet"
 	type="text/css" />
 
