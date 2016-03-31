@@ -77,7 +77,6 @@
 					<a href="./myOrder" class="order"><img src="/SpringMvcStudy/resource/images/images2/order_button.png"></img></a>
 				</div>
 			</div>
-			<div class="blank" id="foot"></div>
     </div>
   </div>
  

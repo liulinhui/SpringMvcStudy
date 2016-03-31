@@ -10,9 +10,9 @@ ul li{list-style:none;}
 div#main{ background:#f1f1f1; width:100%;}
 div.inner{ width:1000px;  margin:auto;}
 div.inner div.blank#head{ height:20px;}
-div.inner div.confirm{ height:250px; border:1px solid #d8d8d8; background:#fff;}
+div.inner div.confirm{ height:361px; border:1px solid #d8d8d8; background:#fff;margin-top: 12px;}
 div.inner div.confirm h3{color:#333; font-size:36px; padding-top:60px; text-align:center; }
-div.inner div.confirm img#check{float: left; margin: 60px -300px 0 300px;}
+div.inner div.confirm img#check{float: left; margin: 60px -300px 0 280px;}
 div.inner div.confirm div.note{ width:400px; margin:auto; padding-top:60px;}
 div.inner div.confirm div.note span{ margin:10px; float:left;}
 div.inner div.confirm div.note a{ float:left;}
