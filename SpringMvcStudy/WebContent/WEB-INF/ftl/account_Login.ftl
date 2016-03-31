@@ -5,7 +5,9 @@
 <title>用户登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS -->
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking1.ico" type="image/x-icon">
+<link rel="shortcut icon"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking1.ico"
+	type="image/x-icon">
 <link rel="stylesheet"
 	href="/SpringMvcStudy/resource/assets/css/reset.css">
 <link rel="stylesheet"
@@ -19,9 +21,9 @@
 	<div class="page-container">
 		<h1>登录</h1>
 		<form action="account_Login" method="post">
-			<input type="text" name="user_code" class="usercode"
-				placeholder="账号"> <input type="password"
-				name="user_password" class="password" placeholder="密码">
+			<input type="text" name="user_code" class="usercode" placeholder="账号">
+			<input type="password" name="user_password" class="password"
+				placeholder="密码">
 			<div class="warning">
 				<button type="submit">登录</button>
 			</div>

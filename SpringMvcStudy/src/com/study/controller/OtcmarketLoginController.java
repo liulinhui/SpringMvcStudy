@@ -45,9 +45,6 @@ public class OtcmarketLoginController {
 		String product_code = request.getParameter("product_code");
 		String user_code = des.decrypt("dfwefrvsefadfereqfdbs",
 				request.getParameter("id"));
-
-		System.out.println("+++++++++" + product_code);
-		// user_code=des.decrypt("dfwefrvsefadfereqfdbs", user_code);
 		logger.info("====解密后的user_code=============" + user_code);
 		Product product = productmapper.selectByProduct_code(product_code,
 				user_code);
@@ -102,21 +99,21 @@ public class OtcmarketLoginController {
 			String bdate = product.getLimit_time();
 			String lasttime = controllerhellp.daysBetween(smdate, bdate);
 			product.setLimit_time(lasttime);
-			logger.info("===" + product.getProduct_name() + "的剩余时间为："
-					+ product.getLimit_time());
+//			logger.info("===" + product.getProduct_name() + "的剩余时间为："
+//					+ product.getLimit_time());
 			if (product.getUser_code().equals(
 					request.getSession().getAttribute("user_code"))) {
 				product.setState('0');
-				logger.info("========遍历选出撤销单==============");
+//				logger.info("========遍历选出撤销单==============");
 			}
 			// 加密
 			String userString = des.encrypt("dfwefrvsefadfereqfdbs",
 					product.getUser_code());
 			product.setUser_code(userString);
-			logger.info("啦啦啦啦========加密后的user_code=============="
-					+ product.getUser_code());
+//			logger.info("啦啦啦啦========加密后的user_code=============="
+//					+ product.getUser_code());
 		}
-		model.addAttribute("products", products);
+		model.addAttribute("products", products);  
 		return "index1.ftl";
 	}
 

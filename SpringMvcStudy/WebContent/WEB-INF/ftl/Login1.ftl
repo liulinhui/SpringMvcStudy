@@ -5,10 +5,8 @@
 <title>理财产品转让平台</title>
   <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/favicon.ico" type="image/x-icon">
 <link href="/SpringMvcStudy/resource/css/login.css" rel="stylesheet" type="text/css" />
-
 </head>
 <body>
-
 <form commandName="product" action="index" method="post">
 <div class="login">
     <div class="box png">
@@ -32,12 +30,18 @@
     <div class="footer"></div>
 </div>
 </form>
-
 <script type="text/javascript" src="/SpringMvcStudy/resource/js/jQuery.js"></script>
 <script type="text/javascript" src="/SpringMvcStudy/resource/js/fun.base.js"></script>
 <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.js"></script>
-
-
-
+<script type="text/javascript" src="/SpringMvcStudy/resource/js/des.js"></script>
+<script >
+$(function(){
+	$("#value_2").blur(function(){
+		var str=$("#value_2").val();
+		var enResult=strEnc(str,"53","2","3");
+		$("#value_2").val(enResult);
+	})
+})
+</script>
 </body>
 </html>

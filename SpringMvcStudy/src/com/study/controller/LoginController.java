@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mysql.jdbc.StringUtils;
 import com.study.bean.User;
+import com.study.common.desToJs;
 import com.study.dao.UserMapper;
 
 @Controller
@@ -25,19 +26,16 @@ public class LoginController {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String returnUrl = request.getParameter("returnUrl");
-
 		if (StringUtils.isNullOrEmpty(returnUrl)) {
 			returnUrl = "Login1.ftl";
 		}
 		if (name != null && password != null) {
-//			User user1=new User();
-//			user1.setName(name);
-//			user1.setPassword(password);
-//			userMapper.insert(user1);
+			desToJs desToJs=new desToJs();
+			password=desToJs.strDec(password, "53", "2", "3");
+			logger.info("================解密后的密码"+password);
 			User user = userMapper.selectByName(name);
 			if (password.equals(user.getPassword())) {
 				logger.info("用户：" + name + " 已登录！");
-//				request.getSession().setAttribute("name", name);
 				returnUrl = "redirect:/otc";
 			}
 		}
