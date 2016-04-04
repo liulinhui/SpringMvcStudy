@@ -14,7 +14,7 @@ public class MD5 {
     }
 
     // 返回形式为数字跟字符串
-    private static String byteToArrayString(byte bByte) {
+    private  String byteToArrayString(byte bByte) {
         int iRet = bByte;
         // System.out.println("iRet="+iRet);
         if (iRet < 0) {
@@ -25,18 +25,18 @@ public class MD5 {
         return strDigits[iD1] + strDigits[iD2];
     }
 
-    // 返回形式只为数字
-    private static String byteToNum(byte bByte) {
-        int iRet = bByte;
-        System.out.println("iRet1=" + iRet);
-        if (iRet < 0) {
-            iRet += 256;
-        }
-        return String.valueOf(iRet);
-    }
+//    // 返回形式只为数字
+//    private  String byteToNum(byte bByte) {
+//        int iRet = bByte;
+//        System.out.println("iRet1=" + iRet);
+//        if (iRet < 0) {
+//            iRet += 256;
+//        }
+//        return String.valueOf(iRet);
+//    }
 
     // 转换字节数组为16进制字串
-    private static String byteToString(byte[] bByte) {
+    private  String byteToString(byte[] bByte) {
         StringBuffer sBuffer = new StringBuffer();
         for (int i = 0; i < bByte.length; i++) {
             sBuffer.append(byteToArrayString(bByte[i]));
@@ -44,7 +44,7 @@ public class MD5 {
         return sBuffer.toString();
     }
 
-    public static String GetMD5Code(String strObj) {
+    public  String GetMD5Code(String strObj) {
         String resultString = null;
         try {
             resultString = new String(strObj);
@@ -56,9 +56,15 @@ public class MD5 {
         }
         return resultString;
     }
-
+    public String GetMD5Iterator(String Str,int Iterator){
+    	String string=new String(Str);
+    	for (int i = 0; i < Iterator; i++) {
+			string=GetMD5Code(string);
+		}
+    	return string;
+    }
     public static void main(String[] args) {
         MD5 getMD5 = new MD5();
-        System.out.println(getMD5.GetMD5Code("12345"));
+        System.out.println(getMD5.GetMD5Code("123"));
     }
 }

@@ -1,5 +1,4 @@
 /**
-* DESº”√‹/Ω‚√‹
 * @Copyright Copyright (c) 2006
 * @author Guapo
 * @see DESCore

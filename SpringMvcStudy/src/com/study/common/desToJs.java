@@ -8,9 +8,9 @@ public class desToJs {
     }
     public static void main(String[] args) {
         desToJs desObj = new desToJs();
-        String key1 = "1";
-        String key2 = "2";
-        String key3 = "3";
+        String key1 = "ddfdvdda";
+        String key2 = "adavsvdvad";
+        String key3 = "dafdbdhfmhjkuykjhm";
         String data = "admin";
         String str = desObj.strEnc(data, key1, key2, key3);
         System.out.println(str);

@@ -25,13 +25,14 @@ public class LoginController {
 	public String login(Model model, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
+		logger.info("===========================获取到加密的密码："+password);
 		String returnUrl = request.getParameter("returnUrl");
 		if (StringUtils.isNullOrEmpty(returnUrl)) {
 			returnUrl = "Login1.ftl";
 		}
 		if (name != null && password != null) {
 			desToJs desToJs=new desToJs();
-			password=desToJs.strDec(password, "53", "2", "3");
+			password=desToJs.strDec(password, "ddfdvdda", "sdgfdhgkifgth", "gryftgndfrh");
 			logger.info("================解密后的密码"+password);
 			User user = userMapper.selectByName(name);
 			if (password.equals(user.getPassword())) {

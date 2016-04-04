@@ -109,7 +109,7 @@
 							src="/SpringMvcStudy/resource/images/mfrL.jpg" /></a>
 					</div>
 					<ul class="pricing_table">
-						<li class="price_block" style="">
+						<li class="price_block" style="float:left">
 							<h3>S1232</h3>
 							<div class="price">
 								<div class="price_figure">
@@ -126,7 +126,7 @@
 								<a href="#" class="action_button">Buy Now</a>
 							</div>
 						</li>
-						<li class="price_block">
+						<li class="price_block" style="float:left">
 							<h3>S1232</h3>
 							<div class="price">
 								<div class="price_figure">
@@ -143,7 +143,7 @@
 								<a href="#" class="action_button">Buy Now</a>
 							</div>
 						</li>
-						<li class="price_block">
+						<li class="price_block" style="float:left">
 							<h3>S1232</h3>
 							<div class="price">
 								<div class="price_figure">
@@ -160,7 +160,7 @@
 								<a href="#" class="action_button">Buy Now</a>
 							</div>
 						</li>
-						<li class="price_block">
+						<li class="price_block" style="float:left">
 							<h3>S1232</h3>
 							<div class="price">
 								<div class="price_figure">

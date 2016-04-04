@@ -22,10 +22,10 @@
 		<h1>登录</h1>
 		<form action="account_Login" method="post">
 			<input type="text" name="user_code" class="usercode" placeholder="账号">
-			<input type="password" name="user_password" class="password"
-				placeholder="密码">
+			<input type="password" class="password" placeholder="密码">
+			<div style="display:none"><input type="password" name="user_password" class="password1"  placeholder="密码"></div>
 			<div class="warning">
-				<button type="submit">登录</button>
+				<button class="submit1">登录</button>
 			</div>
 			<div class="error">
 				<span>+</span>
@@ -38,6 +38,42 @@
 		src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/supersized-init.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/scripts.js"></script>
+	<script type="text/javascript" src="/SpringMvcStudy/resource/js/des.js"></script>
+	<script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery.md5.js"></script>
+	<script type="text/javascript">
+	var key1,key2,key3;
+	
+	//ajax向后台请求keys
+	var getKey=$(function(){
+		
+		var pasw=$('.password').val();
+		$.ajax({
+			url: "./ajaxAccount_login",
+			datetype:"json",
+			type:"GET",
+			success:function(date){
+			key1=date.key1;
+			key2=date.key2;
+			key3=date.key3;
+			},
+			error:function(){
+				alert("密钥发放故障:请联系老子  ");
+			}
+		});		
+	});
+	        //加密过程 
+	    $('.submit1').click(function(){
+	    	var str=$(this).val();
+	    	str=$.md5(str);               //对原始密码进行MD5加密                 
+	    	var enResult=strEnc(str,key1,key2,key3)            //des加密 
+	    	for(var i=0;i<100;i++){                           //对密码加密后的值进行MD5加密  防止别人解密获得原始密码
+				enResult=$.md5(enResult);
+			}
+	    	$('.password1').val(enResult);
+	    	alert($('.password1').val());
+	    	//$('form').submit();
+	    })
+	</script>
 </body>
 </html>
 
