@@ -1,6 +1,5 @@
 package com.study.controller;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -173,7 +172,6 @@ public class OtcmarketLoginController {
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
 			user1.setUser_name(user_name);
-			user1.setReg_time(reg_time);
 			realuserMapper.insert(user1);
 			logger.info("注册好了");
 			user_returnUrl = "redirect:/account_Login";
