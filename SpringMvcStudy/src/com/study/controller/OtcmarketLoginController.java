@@ -12,9 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import sun.security.util.Password;
+
 import com.study.bean.Product;
 import com.study.bean.RealUser;
 import com.study.common.DES;
+import com.study.common.MD5;
+import com.study.common.desToJs;
 import com.study.controller.ControllerHelp;
 import com.study.dao.ProductMapper;
 import com.study.dao.RealUserMapper;
@@ -32,6 +36,7 @@ public class OtcmarketLoginController {
 	private ProductMapper productmapper;
 	ControllerHelp controllerhellp = new ControllerHelp();
 	DES des = new DES();
+	MD5 MD5=new MD5();
 
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request)
@@ -121,6 +126,7 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String returnUrl = request.getParameter("returnUrl");
+		System.out.println(user_password);
 		String user = new String(); // 间接获取到user_code的地址值
 		user = request.getParameter("id");
 		logger.info("=====returnUrl===" + returnUrl);
@@ -145,7 +151,15 @@ public class OtcmarketLoginController {
 		} else {
 			RealUser realuser = realuserMapper.selectByCode(user_code);
 			logger.info("-----后台取到用户数据，检验用户登录");
-			if (user_password.equals(realuser.getUser_password())) {
+			String key1=(String) request.getSession().getAttribute("key1");   //取得密钥
+			String key2=(String)request.getSession().getAttribute("key2");
+			String key3=(String)request.getSession().getAttribute("key3");
+			System.out.println(key1+key2+key3);
+			String Password =realuser.getUser_password();
+			desToJs desToJs=new desToJs();
+			Password=desToJs.strEnc(Password, key1, key2, key3);              //密码加密
+			Password=MD5.GetMD5Iterator(Password, 100);
+			if (user_password.equals(Password)) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
 				// user_returnUrl = "redirect:/otc";

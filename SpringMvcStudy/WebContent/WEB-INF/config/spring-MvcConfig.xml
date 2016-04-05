@@ -67,6 +67,7 @@
 			<mvc:exclude-mapping path="/account_Reg" />
 			<mvc:exclude-mapping path="/logout" />
 			<mvc:exclude-mapping path="/ajaxAccount_login" />
+			<mvc:exclude-mapping path="/Error.ftl" />
 			<!-- 自定义的Interceptor -->
 			<bean id="LoginInterceptor" class="com.study.common.LoginInterceptor"></bean>
 		</mvc:interceptor>

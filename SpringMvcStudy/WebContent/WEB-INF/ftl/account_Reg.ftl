@@ -5,7 +5,9 @@
 <title>注册页面</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS -->
-  <link rel="shortcut icon" href="/SpringMvcStudy/resource/images/images2/No_Smoking2.ico" type="image/x-icon">
+<link rel="shortcut icon"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking2.ico"
+	type="image/x-icon">
 
 <link rel="stylesheet"
 	href="/SpringMvcStudy/resource/assets/css/reset.css">
@@ -20,10 +22,14 @@
 	<div class="page-container">
 		<h1>注册新用户</h1>
 		<form action="account_Reg" method="post">
-			<input type="text" name="user_name" class="username"
-				placeholder="用户名"> <input type="text" name="user_code"
-				class="usercode" placeholder="账号"> <input type="password"
-				name="user_password" class="password" placeholder="密码">
+			    <input type="text" name="user_name" class="username"
+				placeholder="用户名"> 
+				<input type="text" name="user_code"
+				class="usercode" placeholder="账号"> 
+				<input type="password"
+				class="password" placeholder="密码">
+				<input type="password"
+				name="user_password" class="password" placeholder="密码" style="display:none">
 			<div class="warning">
 				<button type="submit" id="submit" class="submit">注册</button>
 			</div>
@@ -35,10 +41,18 @@
 	</div>
 	<!-- Javascript -->
 	<script src="/SpringMvcStudy/resource/assets/js/jquery-1.8.2.min.js"></script>
-	<script
-		src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
+	<scriptsrc="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/supersized-init.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/scripts.js"></script>
+	<script>
+     var codeCon=$(function(user_code){
+    	 $.ajax({
+    		 url:"./codeConfirm",
+    		 date:
+    	 })
+     })  
+	
+	</script>
 </body>
 </html>
 
