@@ -214,7 +214,7 @@ public class RSAUtil {
 	 */
 	public static void main(String[] args) throws Exception {
 //		 RSAPublicKey rsap = (RSAPublicKey)
-//		 RSAUtil.generateKeyPair().getPublic();
+		 RSAUtil.generateKeyPair().getPublic();
 //		String test = "hello world";
 //		byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
 //		byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);

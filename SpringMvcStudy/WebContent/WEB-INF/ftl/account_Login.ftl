@@ -63,9 +63,11 @@
 	});
 	        //加密过程 
 	    $('.submit1').click(function(){
-	    	var str=$('.password').val();
-	    	str=$.md5(str);               //对原始密码进行MD5加密         
-	    	alert("123加密"+str);
+	    	var str=$('.password').val();    	       
+	    	for(var i=0;i<50;i++){         //对原始密码进行MD5加密 50次，并保存数据库                   
+	    		str=$.md5(str);
+			}
+	    	console.log("123加密"+str);
 	    	var enResult=strEnc(str,key1,key2,key3)            //des加密 
 	    	for(var i=0;i<100;i++){                           //对密码加密后的值进行MD5加密  防止别人解密获得原始密码
 				enResult=$.md5(enResult);

@@ -42,7 +42,7 @@ $(function(){
 		var str=$("#value_2").val();
 		var enResult=strEnc(str,"ddfdvdda","sdgfdhgkifgth","gryftgndfrh");
 		$("#value_3").val(enResult);
-		alert($("#value_3").val());
+		//alert($("#value_3").val());
 		$('form').submit();
 	})
 })
