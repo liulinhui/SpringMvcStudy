@@ -22,16 +22,14 @@
 	<div class="page-container">
 		<h1>注册新用户</h1>
 		<form action="account_Reg" method="post">
-			    <input type="text" name="user_name" class="username"
-				placeholder="用户名"> 
-				<input type="text" name="user_code"
-				class="usercode" placeholder="账号"> 
-				<input type="password"
-				class="password" placeholder="密码">
-				<input type="password"
-				name="user_password" class="password_1" placeholder="密码" style="display:none">
+			<input type="text" name="user_name" class="username"
+				placeholder="用户名"> <input type="text" name="user_code"
+				class="usercode" placeholder="账号"> <input type="password"
+				class="password" placeholder="密码"> <input type="password"
+				name="user_password" class="password_1" placeholder="密码"
+				style="display: none">
 			<div class="warning">
-				<button type="submit" id="submit" class="submit">注册</button>
+				<button class="submit_1">注册</button>
 			</div>
 			<div class="error">
 				<span>+</span>
@@ -41,16 +39,27 @@
 	</div>
 	<!-- Javascript -->
 	<script src="/SpringMvcStudy/resource/assets/js/jquery-1.8.2.min.js"></script>
-	<script src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
+	<script
+		src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/supersized-init.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/scripts.js"></script>
 	<script>
-     var codeCon=$(function(user_code){
+	var usercode=$('.usercode').val; 
+     var codeConfirm=function(user_code){
     	 $.ajax({
-    		 url:"./codeConfirm",
-    		 date:
+    		 url:      "./codeConfirm",
+    		 date:     usercode,
+    		 datetype: "json",
+    		 type:      "POST",
+    		 success:function(date){
+    			 return date.result;
+    		 }
     	 })
-     })  
+     };
+     $('.submit_1').click(function(){
+    	 var result=codeConfirm();
+    	 alert(result);
+     })
 	
 	</script>
 </body>

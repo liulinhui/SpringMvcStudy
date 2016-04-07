@@ -124,27 +124,25 @@ public class OtcmarketLoginController {
 	@RequestMapping(value = "/account_Login")
 	public String account_Login(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");
-		String user_code = request.getParameter("user_code");
-		String returnUrl = request.getParameter("returnUrl");
-		System.out.println(user_password);
-		String user = new String(); // 间接获取到user_code的地址值
-		user = request.getParameter("id");
-		logger.info("=====returnUrl===" + returnUrl);
-		if (user != null) {
+		String user_code = request.getParameter("user_code");    
+		String returnUrl = request.getParameter("returnUrl");   //从页面传来的URL值
+		String user = new String();                  // 间接获取到user_code的地址值
+		user = request.getParameter("id");           //购买页面传来的产品主人的id
+        if (returnUrl==null) {
+			returnUrl="/otc";
+		}
+		if (user != null) {                            //判断是否下一个页面为购买页面
 			returnUrl = returnUrl + "&id=" + user;
 			logger.info("====交易页面的跳转地址" + returnUrl);
 		}
-		logger.info("下一个跳转的地址" + returnUrl);
 		String user_returnUrl = (String) request.getSession().getAttribute(
 				"returnUrl");
 		if (user_returnUrl == null) {
 			request.getSession().setAttribute("returnUrl", returnUrl);
 			user_returnUrl = (String) request.getSession().getAttribute(
 					"returnUrl");
-			// user_returnUrl=returnUrl;
 		}
-		logger.info("session里存入的地址："
-				+ request.getSession(false).getAttribute("returnUrl"));
+		logger.info("session里存入的地址："+ request.getSession(false).getAttribute("returnUrl"));
 		if (user_code == null || user_password == null) {
 			logger.info("-----------没有输入用户名密码");
 			return "account_Login.ftl";

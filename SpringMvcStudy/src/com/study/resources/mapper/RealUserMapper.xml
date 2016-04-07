@@ -29,4 +29,10 @@
 	<update id="update" parameterType="com.study.bean.RealUser">
 	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}    
 	</update>
+	
+	<select id="selectAllUserList" resultMap="BaseResultMap">
+		select user_code 
+		<include refid="Base_Column_List" />
+		from realuser 
+	</select>
 </mapper>
