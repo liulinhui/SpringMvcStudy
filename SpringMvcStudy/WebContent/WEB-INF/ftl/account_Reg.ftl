@@ -28,39 +28,52 @@
 				class="password" placeholder="密码"> <input type="password"
 				name="user_password" class="password_1" placeholder="密码"
 				style="display: none">
-			<div class="warning">
-				<button class="submit_1">注册</button>
-			</div>
+
 			<div class="error">
 				<span>+</span>
 			</div>
 		</form>
-
+		<button class="submit_1">注册</button>
 	</div>
 	<!-- Javascript -->
 	<script src="/SpringMvcStudy/resource/assets/js/jquery-1.8.2.min.js"></script>
-	<script
-		src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
+	<script src="/SpringMvcStudy/resource/assets/js/supersized.3.2.7.min.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/supersized-init.js"></script>
 	<script src="/SpringMvcStudy/resource/assets/js/scripts.js"></script>
+	<script src="/SpringMvcStudy/resource/js/RSA/Barrett.js"></script>
+	<script src="/SpringMvcStudy/resource/js/RSA/BigInt.js"></script>
+	<script src="/SpringMvcStudy/resource/js/RSA/RSA.js"></script>
 	<script>
-	var usercode=$('.usercode').val; 
-     var codeConfirm=function(user_code){
-    	 $.ajax({
-    		 url:      "./codeConfirm",
-    		 date:     usercode,
-    		 datetype: "json",
-    		 type:      "POST",
-    		 success:function(date){
-    			 return date.result;
-    		 }
-    	 })
-     };
-     $('.submit_1').click(function(){
-    	 var result=codeConfirm();
-    	 alert(result);
-     })
-	
+		var status;
+		var pubilcKey;
+		$('.submit_1').click(function() {
+			$.ajax({
+				url : "./codeConfirm",
+				data : {
+					usercode : $('.usercode').attr("value")
+				},
+				async : false,             //设置为同步进行
+				datatype : "json",
+				type : "POST",
+				success : function(data) {
+					status = data.status;
+				}
+			});
+			if (status == "exist") {
+				alert("status用户已经被别人注册了 " + status);
+			} else if (status == "noexist") {
+				$.ajax({
+					url: "./getPublicKey",
+					async : false,          //设置为同步进行
+					datatype : "json",
+					type : "POST",
+					success : function(data){
+						pubilcKey=data.pubilcKey;
+						alert(pubilcKey);
+					}	
+				})
+			}
+		});
 	</script>
 </body>
 </html>

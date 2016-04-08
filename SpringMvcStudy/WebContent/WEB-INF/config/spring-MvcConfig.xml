@@ -69,6 +69,7 @@
 			<mvc:exclude-mapping path="/ajaxAccount_login" />
 			<mvc:exclude-mapping path="/Error.ftl" />
 			<mvc:exclude-mapping path="/codeConfirm" />
+			<mvc:exclude-mapping path="/getPublicKey" />
 			<!-- 自定义的Interceptor -->
 			<bean id="LoginInterceptor" class="com.study.common.LoginInterceptor"></bean>
 		</mvc:interceptor>

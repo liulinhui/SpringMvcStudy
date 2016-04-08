@@ -12,7 +12,7 @@ import com.study.bean.RealUser;
 @Component
 public interface RealUserMapper {
 	RealUser selectByCode(String user_code);
-	List<String>selectAllUserList();
+	List<String>selectAllUsercode(String user_code);
 	void insert(RealUser realuser);
 	void update(RealUser realuser);
 	

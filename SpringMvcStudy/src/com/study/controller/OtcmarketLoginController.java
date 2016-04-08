@@ -36,7 +36,7 @@ public class OtcmarketLoginController {
 	private ProductMapper productmapper;
 	ControllerHelp controllerhellp = new ControllerHelp();
 	DES des = new DES();
-	MD5 MD5=new MD5();
+	MD5 MD5 = new MD5();
 
 	@RequestMapping(value = "/buy")
 	public String otc_buy(Model model, HttpServletRequest request)
@@ -103,35 +103,35 @@ public class OtcmarketLoginController {
 			String bdate = product.getLimit_time();
 			String lasttime = controllerhellp.daysBetween(smdate, bdate);
 			product.setLimit_time(lasttime);
-//			logger.info("===" + product.getProduct_name() + "的剩余时间为："
-//					+ product.getLimit_time());
+			// logger.info("===" + product.getProduct_name() + "的剩余时间为："
+			// + product.getLimit_time());
 			if (product.getUser_code().equals(
 					request.getSession().getAttribute("user_code"))) {
 				product.setState('0');
-//				logger.info("========遍历选出撤销单==============");
+				// logger.info("========遍历选出撤销单==============");
 			}
 			// 加密
 			String userString = des.encrypt("dfwefrvsefadfereqfdbs",
 					product.getUser_code());
 			product.setUser_code(userString);
-//			logger.info("啦啦啦啦========加密后的user_code=============="
-//					+ product.getUser_code());
+			// logger.info("啦啦啦啦========加密后的user_code=============="
+			// + product.getUser_code());
 		}
-		model.addAttribute("products", products);  
+		model.addAttribute("products", products);
 		return "index1.ftl";
 	}
 
 	@RequestMapping(value = "/account_Login")
 	public String account_Login(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");
-		String user_code = request.getParameter("user_code");    
-		String returnUrl = request.getParameter("returnUrl");   //从页面传来的URL值
-		String user = new String();                  // 间接获取到user_code的地址值
-		user = request.getParameter("id");           //购买页面传来的产品主人的id
-        if (returnUrl==null) {
-			returnUrl="/otc";
+		String user_code = request.getParameter("user_code");
+		String returnUrl = request.getParameter("returnUrl"); // 从页面传来的URL值
+		String user = new String(); // 间接获取到user_code的地址值
+		user = request.getParameter("id"); // 购买页面传来的产品主人的id
+		if (returnUrl == null) {
+			returnUrl = "/otc";
 		}
-		if (user != null) {                            //判断是否下一个页面为购买页面
+		if (user != null) { // 判断是否下一个页面为购买页面
 			returnUrl = returnUrl + "&id=" + user;
 			logger.info("====交易页面的跳转地址" + returnUrl);
 		}
@@ -142,21 +142,22 @@ public class OtcmarketLoginController {
 			user_returnUrl = (String) request.getSession().getAttribute(
 					"returnUrl");
 		}
-		logger.info("session里存入的地址："+ request.getSession(false).getAttribute("returnUrl"));
+		logger.info("session里存入的地址："
+				+ request.getSession(false).getAttribute("returnUrl"));
 		if (user_code == null || user_password == null) {
 			logger.info("-----------没有输入用户名密码");
 			return "account_Login.ftl";
 		} else {
 			RealUser realuser = realuserMapper.selectByCode(user_code);
 			logger.info("-----后台取到用户数据，检验用户登录");
-			String key1=(String) request.getSession().getAttribute("key1");   //取得密钥
-			String key2=(String)request.getSession().getAttribute("key2");
-			String key3=(String)request.getSession().getAttribute("key3");
-			System.out.println(key1+key2+key3);
-			String Password =realuser.getUser_password();
-			desToJs desToJs=new desToJs();
-			Password=desToJs.strEnc(Password, key1, key2, key3);              //密码加密
-			Password=MD5.GetMD5Iterator(Password, 100);
+			String key1 = (String) request.getSession().getAttribute("key1"); // 取得密钥
+			String key2 = (String) request.getSession().getAttribute("key2");
+			String key3 = (String) request.getSession().getAttribute("key3");
+			System.out.println(key1 + key2 + key3);
+			String Password = realuser.getUser_password();
+			desToJs desToJs = new desToJs();
+			Password = desToJs.strEnc(Password, key1, key2, key3); // 密码加密
+			Password = MD5.GetMD5Iterator(Password, 100);
 			if (user_password.equals(Password)) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
@@ -175,8 +176,6 @@ public class OtcmarketLoginController {
 		String user_code = request.getParameter("user_code");
 		String user_returnUrl = request.getParameter("returnUrl");
 		String reg_time = controllerhellp.Reg_time();
-		logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"
-				+ user_code + "注册时间" + reg_time);
 		if (user_code == null || user_password == null || user_name == null) {
 			user_returnUrl = "account_Reg.ftl";
 		} else {
@@ -185,6 +184,7 @@ public class OtcmarketLoginController {
 			user1.setUser_password(user_password);
 			user1.setUser_name(user_name);
 			realuserMapper.insert(user1);
+			logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"+ user_code + "注册时间" + reg_time);
 			logger.info("注册好了");
 			user_returnUrl = "redirect:/account_Login";
 		}

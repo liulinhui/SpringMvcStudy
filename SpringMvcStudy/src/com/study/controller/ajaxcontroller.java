@@ -1,8 +1,6 @@
 package com.study.controller;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.study.common.MD5;
+import com.study.common.RSAUtil;
 import com.study.dao.RealUserMapper;
 
 @Controller
@@ -48,23 +47,43 @@ public class ajaxcontroller {
 		return jsonObject;
 	}
 
-	          /* 判断用户名是否重复 */
+	/* 判断用户名是否重复 */
+	@SuppressWarnings("finally")
 	@RequestMapping(value = "/codeConfirm")
 	@ResponseBody
 	public JSONObject codeConfirm(Model model, HttpServletRequest request) {
-		String usercode=request.getParameter("usercode");
-		String status=new String("null");
-		List<String>usercodelist=realuserMapper.selectAllUserList();
-		logger.info("==============usercodelist"+usercodelist.size());
-        for (int i = 0; i < usercodelist.size(); i++) {
-			if (usercode.equals(usercodelist.get(i))) {
-				status="exist";
-				break;
+		String usercode = request.getParameter("usercode");
+		String status = new String("noexist");
+		try {
+			List<String> allUsercode = realuserMapper
+					.selectAllUsercode(usercode);
+			if (allUsercode.size() == 1) {
+				status = "exist";
 			}
+		} catch (Exception e) {
+			status = "noexist";
+		} finally {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("status", status);
+			logger.info("========================================="
+					+ jsonObject.toJSONString());
+			return jsonObject;
 		}
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("result", status);
-        return jsonObject;
+
+	}
+
+	/* 获取RSA的公钥 */
+	@RequestMapping(value = "/getPublicKey")
+	@ResponseBody
+	public JSONObject getPublicKey(Model model, HttpServletRequest request)
+			throws Exception {
+		String pubilcKey;
+		RSAUtil RSAUtil = new RSAUtil();
+		pubilcKey = RSAUtil.getPublickModulus();
+		logger.info("======================pubilcKey:" + pubilcKey);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("pubilcKey", pubilcKey);
+		return jsonObject;
 	}
 
 }

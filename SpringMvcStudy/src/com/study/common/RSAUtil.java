@@ -19,6 +19,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
+
 import javax.crypto.Cipher;
 
 /**
@@ -27,7 +28,7 @@ import javax.crypto.Cipher;
  */
 public class RSAUtil {
 
-	private static String RSAKeyStore = "key/RSAKey.txt";
+	private final  String RSAKeyStore = "key/RSAKey.txt";
 
 	/**
 	 * * 生成密钥对 *
@@ -35,17 +36,15 @@ public class RSAUtil {
 	 * @return KeyPair *
 	 * @throws EncryptException
 	 */
-	public static KeyPair generateKeyPair() throws Exception {
+	public  KeyPair generateKeyPair() throws Exception {
 		try {
 			KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA",
 					new org.bouncycastle.jce.provider.BouncyCastleProvider());
-			final int KEY_SIZE = 1024;// 没什么好说的了，这个值关系到块加密的大小，可以更改，但是不要太大，否则效率会低
+			final int KEY_SIZE = 1024;                                  // 没什么好说的了，这个值关系到块加密的大小，可以更改，但是不要太大，否则效率会低
 			keyPairGen.initialize(KEY_SIZE, new SecureRandom());
 			KeyPair keyPair = keyPairGen.generateKeyPair();
-
 			System.out.println(keyPair.getPrivate());
 			System.out.println(keyPair.getPublic());
-
 			saveKeyPair(keyPair);
 			return keyPair;
 		} catch (Exception e) {
@@ -53,7 +52,7 @@ public class RSAUtil {
 		}
 	}
 
-	public static KeyPair getKeyPair() throws Exception {
+	public KeyPair getKeyPair() throws Exception {
 		FileInputStream fis = new FileInputStream(RSAKeyStore);
 		ObjectInputStream oos = new ObjectInputStream(fis);
 		KeyPair kp = (KeyPair) oos.readObject();
@@ -62,8 +61,7 @@ public class RSAUtil {
 		return kp;
 	}
 
-	public static void saveKeyPair(KeyPair kp) throws Exception {
-
+	public  void saveKeyPair(KeyPair kp) throws Exception {
 		FileOutputStream fos = new FileOutputStream(RSAKeyStore);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		// 生成密钥
@@ -82,7 +80,7 @@ public class RSAUtil {
 	 * @return RSAPublicKey *
 	 * @throws Exception
 	 */
-	public static RSAPublicKey generateRSAPublicKey(byte[] modulus,
+	public  RSAPublicKey generateRSAPublicKey(byte[] modulus,
 			byte[] publicExponent) throws Exception {
 		KeyFactory keyFac = null;
 		try {
@@ -91,7 +89,6 @@ public class RSAUtil {
 		} catch (NoSuchAlgorithmException ex) {
 			throw new Exception(ex.getMessage());
 		}
-
 		RSAPublicKeySpec pubKeySpec = new RSAPublicKeySpec(new BigInteger(
 				modulus), new BigInteger(publicExponent));
 		try {
@@ -111,7 +108,7 @@ public class RSAUtil {
 	 * @return RSAPrivateKey *
 	 * @throws Exception
 	 */
-	public static RSAPrivateKey generateRSAPrivateKey(byte[] modulus,
+	public  RSAPrivateKey generateRSAPrivateKey(byte[] modulus,
 			byte[] privateExponent) throws Exception {
 		KeyFactory keyFac = null;
 		try {
@@ -120,7 +117,6 @@ public class RSAUtil {
 		} catch (NoSuchAlgorithmException ex) {
 			throw new Exception(ex.getMessage());
 		}
-
 		RSAPrivateKeySpec priKeySpec = new RSAPrivateKeySpec(new BigInteger(
 				modulus), new BigInteger(privateExponent));
 		try {
@@ -140,7 +136,7 @@ public class RSAUtil {
 	 * @return 加密后的数据 *
 	 * @throws Exception
 	 */
-	public static byte[] encrypt(PublicKey pk, byte[] data) throws Exception {
+	public  byte[] encrypt(PublicKey pk, byte[] data) throws Exception {
 		try {
 			Cipher cipher = Cipher.getInstance("RSA",
 					new org.bouncycastle.jce.provider.BouncyCastleProvider());
@@ -165,7 +161,6 @@ public class RSAUtil {
 				// 这里面doUpdate方法不可用，查看源代码后发现每次doUpdate后并没有什么实际动作除了把byte[]放到
 				// ByteArrayOutputStream中，而最后doFinal的时候才将所有的byte[]进行加密，可是到了此时加密块大小很可能已经超出了
 				// OutputSize所以只好用dofinal方法。
-
 				i++;
 			}
 			return raw;
@@ -184,15 +179,14 @@ public class RSAUtil {
 	 * @return 解密后的明文 *
 	 * @throws Exception
 	 */
-	public static byte[] decrypt(PrivateKey pk, byte[] raw) throws Exception {
+	public  byte[] decrypt(PrivateKey pk, byte[] raw) throws Exception {
 		try {
 			Cipher cipher = Cipher.getInstance("RSA",
 					new org.bouncycastle.jce.provider.BouncyCastleProvider());
-			cipher.init(cipher.DECRYPT_MODE, pk);
+			cipher.init(Cipher.DECRYPT_MODE, pk);
 			int blockSize = cipher.getBlockSize();
 			ByteArrayOutputStream bout = new ByteArrayOutputStream(64);
 			int j = 0;
-
 			while (raw.length - j * blockSize > 0) {
 				bout.write(cipher.doFinal(raw, j * blockSize, blockSize));
 				j++;
@@ -202,7 +196,16 @@ public class RSAUtil {
 			throw new Exception(e.getMessage());
 		}
 	}
-
+    
+	
+	public String getPublickModulus() throws Exception{
+		String publiString;
+		RSAUtil RSAUtil=new RSAUtil();
+		publiString=RSAUtil.getKeyPair().getPublic().toString().substring(37, 293);
+		System.out.println("=============================================="+publiString+"====================");
+		return publiString;
+		
+	}
 	/**
 	 * * *
 	 * 
@@ -210,31 +213,33 @@ public class RSAUtil {
 	 *            *
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
-		// RSAPublicKey rsap = (RSAPublicKey)
-		// RSAUtil.generateKeyPair().getPublic();
+//	public static void main(String[] args) throws Exception {
+//		RSAUtil RSAUtil=new RSAUtil();
+//		 RSAPublicKey rsap = (RSAPublicKey)
+//		 RSAUtil.generateKeyPair().getPublic();
 		// String test = "hello world";
 		// byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
 		// byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);
 		// System.out.println(new String(de_test));
 		// System.out.println(getKeyPair().getPublic());
-		System.out.println(getKeyPair().getPublic().toString()
-				.substring(37, 293));
-		String pwd;
-		byte[] en_result = new BigInteger(
-				"3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
-				16).toByteArray();
-		byte[] de_result = RSAUtil.decrypt(RSAUtil.getKeyPair().getPrivate(),
-				en_result);
-		System.out.println("还原密文：");
-		System.out.println(new String(de_result));
-		StringBuffer sb = new StringBuffer();
-		sb.append(new String(de_result));
-		pwd = sb.reverse().toString();
-		System.out.println(sb);
-		System.out.println("=================================");
-		pwd = URLDecoder.decode(pwd, "UTF-8");
-		System.out.println(pwd);
-
-	}
+//		System.out.println(RSAUtil.getKeyPair().getPublic().toString()
+//				.substring(37, 293));
+//		System.out.println(RSAUtil.getPublickModulus());
+//		String pwd;
+//		byte[] en_result = new BigInteger(
+//				"3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
+//				16).toByteArray();
+//		byte[] de_result =RSAUtil.decrypt(RSAUtil.getKeyPair().getPrivate(),
+//				en_result);
+//		System.out.println("还原密文：");
+//		System.out.println(new String(de_result));
+//		StringBuffer sb = new StringBuffer();
+//		sb.append(new String(de_result));
+//		pwd = sb.reverse().toString();
+//		System.out.println(sb);
+//		System.out.println("=================================");
+//		pwd = URLDecoder.decode(pwd, "UTF-8");
+//		System.out.println(pwd);
+//
+//	}
 }
