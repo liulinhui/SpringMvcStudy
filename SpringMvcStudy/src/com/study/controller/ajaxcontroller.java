@@ -75,12 +75,10 @@ public class ajaxcontroller {
 	/* 获取RSA的公钥 */
 	@RequestMapping(value = "/getPublicKey")
 	@ResponseBody
-	public JSONObject getPublicKey(Model model, HttpServletRequest request)
+	public static JSONObject getPublicKey(Model model, HttpServletRequest request)
 			throws Exception {
 		String pubilcKey;
-		RSAUtil RSAUtil = new RSAUtil();
-		pubilcKey = RSAUtil.getPublickModulus();
-		logger.info("======================pubilcKey:" + pubilcKey);
+		pubilcKey = RSAUtil.getPublickModulus();		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("pubilcKey", pubilcKey);
 		return jsonObject;

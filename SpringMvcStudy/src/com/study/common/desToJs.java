@@ -255,7 +255,7 @@ public class desToJs {
                 if (firstKey != null && firstKey != "" && secondKey != null
                         && secondKey != "") {
                     int[] tempBt;
-                    int x, y, z;
+                    int x, y;
                     tempBt = intByte;
                     for (x = secondLength - 1; x >= 0; x--) {
                         tempBt = dec(tempBt, (int[]) secondKeyBt.get(x));
@@ -267,7 +267,7 @@ public class desToJs {
                 } else {
                     if (firstKey != null && firstKey != "") {
                         int[] tempBt;
-                        int x, y, z;
+                        int x;
                         tempBt = intByte;
                         for (x = firstLength - 1; x >= 0; x--) {
                             tempBt = dec(tempBt, (int[]) firstKeyBt.get(x));
@@ -586,7 +586,7 @@ public class desToJs {
 
     public int[] expandPermute(int[] rightData) {
         int[] epByte = new int[48];
-        int i, j;
+        int i;
         for (i = 0; i < 8; i++) {
             if (i == 0) {
                 epByte[i * 6 + 0] = rightData[31];

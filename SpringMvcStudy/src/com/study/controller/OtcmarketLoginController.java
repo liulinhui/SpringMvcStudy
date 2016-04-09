@@ -1,5 +1,7 @@
 package com.study.controller;
 
+import java.math.BigInteger;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ import com.study.bean.Product;
 import com.study.bean.RealUser;
 import com.study.common.DES;
 import com.study.common.MD5;
+import com.study.common.RSAUtil;
 import com.study.common.desToJs;
 import com.study.controller.ControllerHelp;
 import com.study.dao.ProductMapper;
@@ -170,7 +173,7 @@ public class OtcmarketLoginController {
 	}
 
 	@RequestMapping(value = "/account_Reg")
-	public String account_Reg(Model model, HttpServletRequest request) {
+	public String account_Reg(Model model, HttpServletRequest request) throws Exception {
 		String user_name = request.getParameter("user_name");
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
@@ -180,9 +183,18 @@ public class OtcmarketLoginController {
 			user_returnUrl = "account_Reg.ftl";
 		} else {
 			RealUser user1 = new RealUser();
+			/** 对密码进行解密  **/
+			byte[] en_result = new BigInteger(user_password,16).toByteArray();
+			byte[] de_result =RSAUtil.decrypt(RSAUtil.getKeyPair().getPrivate(),en_result);
+			logger.info("===============================还原密文:"+new String(de_result));
+			StringBuffer sb = new StringBuffer();
+			sb.append(new String(de_result));
+			user_password=sb.reverse().toString();       //逆序处理
+			user_password = URLDecoder.decode(user_password, "UTF-8");   //转码为UTF-8        
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
 			user1.setUser_name(user_name);
+			user1.setReg_time(reg_time);
 			realuserMapper.insert(user1);
 			logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"+ user_code + "注册时间" + reg_time);
 			logger.info("注册好了");
