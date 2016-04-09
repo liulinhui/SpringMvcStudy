@@ -218,29 +218,29 @@ public class RSAUtil {
 	public static void main(String[] args) throws Exception {
 //		 RSAPublicKey rsap = (RSAPublicKey)
 //		 RSAUtil.generateKeyPair().getPublic();
-		// String test = "hello world";
-		// byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
-		// byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);
-		// System.out.println(new String(de_test));
-		// System.out.println(getKeyPair().getPublic());
+//		 String test = "hello world";
+//		 byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
+//		 byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);
+//		 System.out.println(new String(de_test));
+//		 System.out.println(getKeyPair().getPublic());
 //		System.out.println(getKeyPair().getPublic().toString()
 //				.substring(37, 293));
 //		System.out.println(getPublickModulus());
-		String pwd;
-		byte[] en_result = new BigInteger(
-				"3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
-				16).toByteArray();
-		byte[] de_result =decrypt(getKeyPair().getPrivate(),
-				en_result);
-		System.out.println("还原密文：");
-		System.out.println(new String(de_result));
-		StringBuffer sb = new StringBuffer();
-		sb.append(new String(de_result));
-		pwd = sb.reverse().toString();
-		System.out.println(sb);
-		System.out.println("=================================");
-		pwd = URLDecoder.decode(pwd, "UTF-8");
-		System.out.println(pwd);
+//		String pwd;
+//		byte[] en_result = new BigInteger(
+//				"3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
+//				16).toByteArray();
+//		byte[] de_result =decrypt(getKeyPair().getPrivate(),
+//				en_result);
+//		System.out.println("还原密文：");
+//		System.out.println(new String(de_result));
+//		StringBuffer sb = new StringBuffer();
+//		sb.append(new String(de_result));
+//		pwd = sb.reverse().toString();
+//		System.out.println(sb);
+//		System.out.println("=================================");
+//		pwd = URLDecoder.decode(pwd, "UTF-8");
+//		System.out.println(pwd);
 
 	}
 }
