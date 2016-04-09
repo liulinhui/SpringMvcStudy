@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
-import java.net.URLDecoder;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -28,9 +27,24 @@ import javax.crypto.Cipher;
  */
 public class RSAUtil {
 
-	private static String RSAKeyStore = "E://RSAKey.key";
-//	private static String RSAKeyStore = "/usr/local/etc/tomcat/webapps/RSAKey.key";
-//	private static String RSAKeyStore = "F://毕业设计/git/SpringMvcStudy/SpringMvcStudy/SpringMvcStudy/key/RSAKey.key";
+	private static String RSAKeyStore = getPath(); // key文件的地址
+	// "/usr/local/etc/tomcat/webapps/RSAKey.key"; //服务器key的绝对地址
+
+	/**
+	 * * 获取key在磁盘的绝对地址 *
+	 * 
+	 */
+	public static String getPath() {
+		// file:/D:/JavaWeb/.metadata/.me_tcat/webapps/TestBeanUtils/WEB-INF/classes/
+		String path = Thread.currentThread().getContextClassLoader()
+				.getResource("").toString(); // 获取class的地址
+		// path=path.replace('/', '\\'); // 将/换成\
+		path = path.replace("file:", ""); // 去掉file:
+		path = path.replace("classes/", ""); // 去掉class\
+		// path = path.substring(1); // 去掉第一个\,如 \D:\JavaWeb...
+		path += "key/RSAKey.txt";
+		return path;
+	}
 
 	/**
 	 * * 生成密钥对 *
@@ -42,7 +56,7 @@ public class RSAUtil {
 		try {
 			KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA",
 					new org.bouncycastle.jce.provider.BouncyCastleProvider());
-			final int KEY_SIZE = 1024;                                  // 没什么好说的了，这个值关系到块加密的大小，可以更改，但是不要太大，否则效率会低
+			final int KEY_SIZE = 1024; // 没什么好说的了，这个值关系到块加密的大小，可以更改，但是不要太大，否则效率会低
 			keyPairGen.initialize(KEY_SIZE, new SecureRandom());
 			KeyPair keyPair = keyPairGen.generateKeyPair();
 			System.out.println(keyPair.getPrivate());
@@ -181,7 +195,7 @@ public class RSAUtil {
 	 * @return 解密后的明文 *
 	 * @throws Exception
 	 */
-	public static  byte[] decrypt(PrivateKey pk, byte[] raw) throws Exception {
+	public static byte[] decrypt(PrivateKey pk, byte[] raw) throws Exception {
 		try {
 			Cipher cipher = Cipher.getInstance("RSA",
 					new org.bouncycastle.jce.provider.BouncyCastleProvider());
@@ -198,15 +212,20 @@ public class RSAUtil {
 			throw new Exception(e.getMessage());
 		}
 	}
-    
-	
-	public static String getPublickModulus() throws Exception{
+
+	public static String getPublickModulus() throws Exception {
 		String publiString;
-//		publiString=getKeyPair().getPublic().toString().substring(36, 293);            //服务器截取公钥参数
-		publiString=getKeyPair().getPublic().toString().substring(37, 293);    
-//		System.out.println("=============================================="+publiString+"====================");
+		// publiString=getKeyPair().getPublic().toString().substring(36, 293);
+		// //服务器截取公钥参数
+		publiString = getKeyPair().getPublic().toString().substring(37, 293);
+		// System.out.println("=============================================="+publiString+"====================");
+		String pathString = getPath();
+		System.out.println("==============================pathString:"
+				+ pathString);
+		System.out.println("==============================RSAKeyStore:"
+				+ RSAKeyStore);
 		return publiString;
-		
+
 	}
 	/**
 	 * * *
@@ -215,32 +234,32 @@ public class RSAUtil {
 	 *            *
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
-//		 RSAPublicKey rsap = (RSAPublicKey)
-//		 RSAUtil.generateKeyPair().getPublic();
-//		 String test = "hello world";
-//		 byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
-//		 byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);
-//		 System.out.println(new String(de_test));
-//		 System.out.println(getKeyPair().getPublic());
-//		System.out.println(getKeyPair().getPublic().toString()
-//				.substring(37, 293));
-//		System.out.println(getPublickModulus());
-//		String pwd;
-//		byte[] en_result = new BigInteger(
-//				"3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
-//				16).toByteArray();
-//		byte[] de_result =decrypt(getKeyPair().getPrivate(),
-//				en_result);
-//		System.out.println("还原密文：");
-//		System.out.println(new String(de_result));
-//		StringBuffer sb = new StringBuffer();
-//		sb.append(new String(de_result));
-//		pwd = sb.reverse().toString();
-//		System.out.println(sb);
-//		System.out.println("=================================");
-//		pwd = URLDecoder.decode(pwd, "UTF-8");
-//		System.out.println(pwd);
+	// public static void main(String[] args) throws Exception {
+	// RSAPublicKey rsap = (RSAPublicKey)
+	// RSAUtil.generateKeyPair().getPublic();
+	// String test = "hello world";
+	// byte[] en_test = encrypt(getKeyPair().getPublic(), test.getBytes());
+	// byte[] de_test = decrypt(getKeyPair().getPrivate(), en_test);
+	// System.out.println(new String(de_test));
+	// System.out.println(getKeyPair().getPublic());
+	// System.out.println(getKeyPair().getPublic().toString()
+	// .substring(37, 293));
+	// System.out.println(getPublickModulus());
+	// String pwd;
+	// byte[] en_result = new BigInteger(
+	// "3e0ba3de3f2410f6df8089c3065b31cab45ddd1904acdaffe6df0cc95f937a0829f886059a1350d6e98c77d03a81bfd34d9519d897b4a2fc96116482dfde25d569d1f9b09dac0396b589c42b8e53a8dce16d02fee142c76bd58a90f6b9f9d19fc8eb61eb32cdeeb74f588c3e7802f369b9102f38b8104b622750bc44223af498",
+	// 16).toByteArray();
+	// byte[] de_result =decrypt(getKeyPair().getPrivate(),
+	// en_result);
+	// System.out.println("还原密文：");
+	// System.out.println(new String(de_result));
+	// StringBuffer sb = new StringBuffer();
+	// sb.append(new String(de_result));
+	// pwd = sb.reverse().toString();
+	// System.out.println(sb);
+	// System.out.println("=================================");
+	// pwd = URLDecoder.decode(pwd, "UTF-8");
+	// System.out.println(pwd);
 
-	}
+	// }
 }

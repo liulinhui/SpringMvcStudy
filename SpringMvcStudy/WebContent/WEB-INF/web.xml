@@ -122,6 +122,7 @@
 		<error-code>404</error-code>
 		<location>/404.html</location>
 	</error-page>
+	<!-- 配置定时器 -->
 	<listener>
         <listener-class>com.study.common.MyTimerListener </listener-class>
     </listener>

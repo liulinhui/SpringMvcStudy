@@ -13,7 +13,6 @@ public class DateFormatter implements Formatter<Date> {
     private SimpleDateFormat dateFormat;
 
     public DateFormatter(String datePattern) {
-        System.out.println("DateFormatter()5b========");
         this.datePattern = datePattern;
         dateFormat = new SimpleDateFormat(datePattern);
         dateFormat.setLenient(false);
