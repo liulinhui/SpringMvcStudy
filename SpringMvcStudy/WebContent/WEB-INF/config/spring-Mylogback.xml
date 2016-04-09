@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<configuration scan="true" scanPeriod="1800 seconds" debug="false">
+<configuration scan="true" scanPeriod="1800 seconds"
+	debug="false">
 	<!-- 配置日志生成目录 -->
 	<property name="USER_HOME" value="E:/Tomcat 7.0/logs" />
 	<property scope="context" name="FILE_NAME" value="mylog-logback" />

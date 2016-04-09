@@ -42,7 +42,7 @@ public class RSAUtil {
 		path = path.replace("file:", ""); // 去掉file:
 		path = path.replace("classes/", ""); // 去掉class\
 		// path = path.substring(1); // 去掉第一个\,如 \D:\JavaWeb...
-		path += "key/RSAKey.txt";
+		path += "key/RSAKey.key";
 		return path;
 	}
 
