@@ -100,7 +100,7 @@
 					</div>
 					<div class="tip">
 						<img src="/SpringMvcStudy/resource/images/images2/tip.png"></img>
-						<h5>买家预期年化收益率=（持有期之和/转让价格）</h5>
+						<h5>买家预期年化收益率=(持有期收入之和/转让价格-1)*(365/持有时间)*100%</h5>
 						
 					</div>
 				</div>

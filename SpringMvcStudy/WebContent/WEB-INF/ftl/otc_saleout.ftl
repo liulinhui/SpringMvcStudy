@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>交易页面</title>
 <link rel="shortcut icon"
-	href="/SpringMvcStudy/resource/images/images2/No_Smoking8.ico"
+	href="/SpringMvcStudy/resource/images/images2/No_Smoking12.ico"
 	type="image/x-icon">
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/otc_buy.css" />
@@ -37,15 +37,17 @@
 				毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em>
 			</div>
 			<div class="links">
-				<a id="login" href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}">登录/注册</a> 
-			    <a href="./myOrder">我的订单</a>
+				<#if !reg??> <a id="login" href="./account_Login"
+					style="display: black">登录/注册</a> </#if> <#if reg??> <a id="reg"
+					href="./logout" class="${reg!''}" style="display: black">注销：【${reg!"测试" }】</a>
+				</#if> <a href="./myOrder">我的订单</a>
 			</div>
 		</div>
 	</div>
 	<div class="header-con">
 		<div class="h-inner">
 			<a href="./otc" id="logo"><img
-				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
+				src="/SpringMvcStudy/resource/images/images2/logo.jpg" /></a>
 			<div class="h-search">
 				<input type="text" id="s-input" placeholder="名称/代码" /> <a href=""
 					id="s-btn" title="搜索">搜索</a>
@@ -58,11 +60,11 @@
 				</div>
 			</div>
 			<div class="nav">
-				<a href="./otc" class="">首页</a><a href="./sell">我要转让</a><a
+				<a href="./otc" class="active">首页</a><a href="./myproduct">我要转让</a><a
 					href="./myAsset">我的账户</a>
 			</div>
 			<p class="breadcrumb">
-				<a href="">毕业设计</a><a href="">>OTC转让系统</a><a href="">>君得金优先级28天期</a>
+				<a href="">毕业设计</a><a href="">>OTC转让专区</a>
 			</p>
 		</div>
 	</div>
@@ -90,7 +92,7 @@
 					</div>
 					<div class="rate">
 						<h2>
-							${product.limit_time!"102" }<span>天</span>
+							${product.surplus_days!"102" }<span>天</span>
 						</h2>
 						<h6>剩余期限</h6>
 						<p>
@@ -100,7 +102,7 @@
 					</div>
 					<div class="rate">
 						<h2>
-							1000<span>份</span>
+							${product.transfer_account!"1000" }<span>份</span>
 						</h2>
 						<h6>转让份额</h6>
 						<p>
@@ -120,16 +122,10 @@
 						</h2>
 						<h5>投资金额</h5>
 					</div>
-					<div class="warn">
-						<h5>
-							当前可用资金：<a
-								href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><span
-								id="text">登录</span></a>可见
-						</h5>
+					<div class="button">
+						<img src="/SpringMvcStudy/resource/images/images2/longSellOut.png"
+							style="margin: 45px 0;" />
 					</div>
-					<a
-						href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><div
-							class="button" id="conbuy"></div></a>
 				</div>
 			</div>
 			</#if>
@@ -139,21 +135,21 @@
 		<div class="f-inner">
 			<div class="logos">
 				<a target="_blank" href="http://www.csrc.gov.cn"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_1.png"></a> <a
+					src="/SpringMvcStudy/resource/images/images/f_logos_1.png" /></a> <a
 					target="_blank" href="http://www.sac.net.cn"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_2.png"></a> <a
+					src="/SpringMvcStudy/resource/images/images/f_logos_2.png" /></a> <a
 					target="_blank"
 					href="http://www.gtja.com/portal/channel/yyzz.jhtml"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_3.png"></a> <a
+					src="/SpringMvcStudy/resource/images/images/f_logos_3.png" /></a> <a
 					target="_blank"
 					href="https://ss.cnnic.cn/verifyseal.dll?sn=2010051900100001113"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_4.png"></a> <a
+					src="/SpringMvcStudy/resource/images/images/f_logos_4.png" /></a> <a
 					target="_blank"
 					href="https://seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=TRADE.GTJA.COM&lang=zh_cn"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_5.png"></a> <a
+					src="/SpringMvcStudy/resource/images/images/f_logos_5.png" /></a> <a
 					target="_blank"
 					href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action"><img
-					src="/SpringMvcStudy/resource/images/images/f_logos_6.png"></a>
+					src="/SpringMvcStudy/resource/images/images/f_logos_6.png" /></a>
 			</div>
 			<p class="copyright">哈哈哈哈 copyright © 2016 苗灿 大孙子</p>
 		</div>

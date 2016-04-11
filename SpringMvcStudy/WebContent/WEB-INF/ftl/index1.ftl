@@ -85,7 +85,7 @@
           <#list products as item>
             <tr >
               <td></td>
-							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${item.product_name!" 君得金优先级182天期"}<p>(代码：${item.product_code!"" })</p></td>
+							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${item.product_name!""}<p>(代码：${item.product_code!"" })</p></td>
               <td class="id">${item.plan_income!"6.65" }%</td>
 							<td class="rate">${item.reference_income!"" }<span class="per">%</span></td>
               <td class="period">${item.limit_time!"" }天</td>
@@ -99,10 +99,11 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status"><a href="javascript:void(0);"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
-							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
-							<#if item.state=="2"><td class="status"><a href="javascript:void(0)"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>							
+							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}&status=${item.state!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
+							<#if item.state=="2">
+							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}&status=${item.state!''}"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>							
               <td></td>
             </tr>
             </#list>

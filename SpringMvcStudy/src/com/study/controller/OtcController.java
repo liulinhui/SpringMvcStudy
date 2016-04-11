@@ -19,6 +19,13 @@ public class OtcController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	private RealUserMapper realuserMapper;
+	
+	/**
+	 * 用户订拥有的产品页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/myproduct")
 	public String myproduct(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -27,6 +34,12 @@ public class OtcController {
 		}
 		return "myproduct1.ftl";
 	}
+	/**
+	 * 用户资产信息
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/myAsset")
 	public String myAsset(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -34,14 +47,21 @@ public class OtcController {
 					request.getSession().getAttribute("user_code"));
 		}
 		RealUser user=new RealUser();
-		user=realuserMapper.selectByCode((String)request.getSession().getAttribute("user_code"));
-		String time=user.getReg_time().substring(0, 19);
+		user=realuserMapper.selectByCode((String)request.getSession().getAttribute("user_code"));   //获取用户详细信息
+		String time=user.getReg_time().substring(0, 19);                                           //获取注册时间
 		user.setReg_time(time);
 		logger.info("========注册时间："+user.getReg_time()+"===========");
 		model.addAttribute("user",user);
 		logger.info("=================用户"+user.getUser_name()+"信息采集成功===============");
 		return "myAsset.ftl";
 	}
+	
+	/**
+	 * 用户订单详情页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/myOrder")
 	public String myOrder(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -50,6 +70,13 @@ public class OtcController {
 		}
 		return "myOrder.ftl";
 	}
+	
+	/**
+	 * 确认页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/confirm")
 	public String confirm(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -58,6 +85,13 @@ public class OtcController {
 		}
 		return "confirm.ftl";
 	}
+	
+	/**
+	 * 注销登录
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/logout")
 	public String logout(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -68,6 +102,13 @@ public class OtcController {
 		}
 		return "redirect:/otc";
 	}
+	
+	/**
+	 * 转让确认页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/transfer_confirm")
 	public String transfer_confirm(Model model, HttpServletRequest request) {
 		if (request.getSession() != null) {
@@ -76,6 +117,13 @@ public class OtcController {
 		}
 		return "transfer_confirm.ftl";
 	}
+	
+	/**
+	 * 充值页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/AccountRecharge")
 	public String AccountRecharge(Model model, HttpServletRequest request) {
 		String user_password = request.getParameter("user_password");

@@ -7,7 +7,7 @@ public class Time {
 	MyTimeTask myTimeTask=new MyTimeTask();
 	public void timerStart(){
 		timer = new Timer();
-	     timer.schedule(myTimeTask, 0,180000);
+	     timer.schedule(myTimeTask, 0,43200000);
 	}
 	public void timerStop(){
 	       if(timer!=null) 
