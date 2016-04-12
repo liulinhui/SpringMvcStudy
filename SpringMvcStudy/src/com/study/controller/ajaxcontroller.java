@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.study.common.MD5;
 import com.study.common.RSAUtil;
-import com.study.dao.RealUserMapper;
+import com.study.service.RealUserService;
 
 @Controller
 public class ajaxcontroller {
@@ -24,7 +24,7 @@ public class ajaxcontroller {
 	MD5 MD5 = new MD5();
 	ControllerHelp controllerhellp = new ControllerHelp();
 	@Autowired
-	private RealUserMapper realuserMapper;
+	private RealUserService realUserService;
 
 	/* 登录页面请求产生密钥 */
 	@RequestMapping(value = "/ajaxAccount_login")
@@ -55,7 +55,7 @@ public class ajaxcontroller {
 		String usercode = request.getParameter("usercode");
 		String status = new String("noexist");
 		try {
-			List<String> allUsercode = realuserMapper
+			List<String> allUsercode = realUserService
 					.selectAllUsercode(usercode);
 			if (allUsercode.size() == 1) {
 				status = "exist";

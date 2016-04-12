@@ -11,14 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.study.bean.RealUser;
-import com.study.dao.RealUserMapper;
+import com.study.service.RealUserService;
 
 
 @Controller
 public class OtcController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
-	private RealUserMapper realuserMapper;
+	private RealUserService realUserService;
 	
 	/**
 	 * 用户订拥有的产品页面
@@ -47,7 +47,7 @@ public class OtcController {
 					request.getSession().getAttribute("user_code"));
 		}
 		RealUser user=new RealUser();
-		user=realuserMapper.selectByCode((String)request.getSession().getAttribute("user_code"));   //获取用户详细信息
+		user=realUserService.selectByCode((String)request.getSession().getAttribute("user_code"));   //获取用户详细信息
 		String time=user.getReg_time().substring(0, 19);                                           //获取注册时间
 		user.setReg_time(time);
 		logger.info("========注册时间："+user.getReg_time()+"===========");
@@ -136,11 +136,11 @@ public class OtcController {
 			Integer amount = Integer.parseInt(request.getParameter("amount"),10);
 			System.out.println("----------输入充值的数量为："+amount);
 			RealUser user1 = new RealUser();
-			int oldAsset=realuserMapper.selectByCode(user_code).getUser_asset();
+			int oldAsset=realUserService.selectByCode(user_code).getUser_asset();
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
 			user1.setUser_asset(amount+oldAsset);
-			realuserMapper.update(user1);
+			realUserService.update(user1);
 			user_returnUrl = "redirect:/myAsset";
 		}
 		return user_returnUrl;

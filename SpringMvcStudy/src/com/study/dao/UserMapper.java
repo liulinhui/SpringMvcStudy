@@ -6,8 +6,6 @@ import com.study.bean.User;
 
 @Component
 public interface UserMapper {
-
 	User selectByName(String name);
-
 	void insert(User user);
 }

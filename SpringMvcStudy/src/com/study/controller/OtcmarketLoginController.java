@@ -14,8 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import sun.security.util.Password;
-
 import com.study.bean.Product;
 import com.study.bean.RealUser;
 import com.study.common.DES;
@@ -23,20 +21,17 @@ import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.desToJs;
 import com.study.controller.ControllerHelp;
-import com.study.dao.RealUserMapper;
-import com.study.dao.UserMapper;
 import com.study.service.ProductService;
+import com.study.service.RealUserService;
 
 @Controller
 public class OtcmarketLoginController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(OtcmarketLoginController.class);
 	@Autowired
-	private UserMapper userMapper;
-	@Autowired
-	private RealUserMapper realuserMapper;
-	@Autowired
 	private ProductService productService;
+	@Autowired
+	private RealUserService realUserService;
 	ControllerHelp controllerhellp = new ControllerHelp();
 	DES des = new DES();
 	MD5 MD5 = new MD5();
@@ -70,7 +65,7 @@ public class OtcmarketLoginController {
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null
 				&& state[0] == '1') {
-			RealUser realUser=realuserMapper.selectByCode(request.getSession().getAttribute("user_code").toString());  //查询用户资金
+			RealUser realUser=realUserService.selectByCode(request.getSession().getAttribute("user_code").toString());  //查询用户资金
 			int RestMoney=realUser.getUser_asset();
 			logger.info("============================================="+RestMoney);
 			model.addAttribute("RestMoney", RestMoney);
@@ -191,7 +186,7 @@ public class OtcmarketLoginController {
 			logger.info("-----------没有输入用户名密码");
 			return "account_Login.ftl";
 		} else {
-			RealUser realuser = realuserMapper.selectByCode(user_code);
+			RealUser realuser = realUserService.selectByCode(user_code);
 			logger.info("-----后台取到用户数据，检验用户登录");
 			String key1 = (String) request.getSession().getAttribute("key1"); // 取得密钥
 			String key2 = (String) request.getSession().getAttribute("key2");
@@ -247,7 +242,7 @@ public class OtcmarketLoginController {
 			user1.setUser_password(user_password);
 			user1.setUser_name(user_name);
 			user1.setReg_time(reg_time);
-			realuserMapper.insert(user1);
+			realUserService.insert(user1);
 			logger.info("用户名：" + user_name + "密码：" + user_password + "用户账号"
 					+ user_code + "注册时间" + reg_time);
 			logger.info("注册好了");
