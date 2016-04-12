@@ -15,6 +15,21 @@ public class Product implements Serializable {
 	private char risk;//风险
 	private String public_date;//发布时间
 	private char state;//购买状态
+	private String id;
+	private String transfer_price;  //单价 
+	
+	public String getTransfer_price() {
+		return transfer_price;
+	}
+	public void setTransfer_price(String transfer_price) {
+		this.transfer_price = transfer_price;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getLimit_time() {
 		return limit_time;
 	}

@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/banner.css"/>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script> 
  </head>
@@ -21,7 +21,7 @@
      <div class="tel">毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em></div>
       <div class="links">
         <#if !reg??>      
-        <a id="login" href="./account_Login?returnUrl=/otc" style="display:black">登录/注册</a> 
+        <a id="login" href="./account_Login" style="display:black">登录/注册</a> 
         </#if>  
         <#if reg??>         
         <a id="reg" href="./logout" class="${reg!''}" style="display:black">注销：【${reg!"测试" }】</a>
@@ -99,11 +99,11 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status"><a href="javascript:void(0);"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status cancel"><a href="javascript:void(0);"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
-							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}&status=${item.state!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
+							<td class="status"><a href="./buy?status=${item.state!''}&id=${item.id!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
 							<#if item.state=="2">
-							<td class="status"><a href="./buy?product_code=${item.product_code!'' }&id=${item.user_code!''}&status=${item.state!''}"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>							
+							<td class="status"><a href="./buy?status=${item.state!''}&id=${item.id!''}"><img src="/SpringMvcStudy/resource/images/images2/sellout_button.png"></img></a></td></#if>							
               <td></td>
             </tr>
             </#list>

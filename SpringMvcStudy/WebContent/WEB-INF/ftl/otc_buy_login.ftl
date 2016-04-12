@@ -94,15 +94,16 @@
 						</h2>
 						<h6>剩余期限</h6>
 						<p>
-							<span>转让价格</span> 1.003元/份
+							<span>转让价格</span> ${product.transfer_price!"" }元/份
 						</p>
 						<div class="line"></div>
 					</div>
 					<div class="rate">
 						<h2>
-							1000<span>份</span>
+							<input type="text" class="fenge"/>
+							<span class="fengZi">份</span>
 						</h2>
-						<h6>转让份额</h6>
+						<h6 style="margin-top:47px;">转让份额</h6>
 						<p>
 							<span>转让日期</span>${product.public_date!"2015-05-11" }
 						</p>
@@ -116,19 +117,19 @@
 				<div class="confirm">
 					<div class="amount">
 						<h2>
-							120,023,000<span>元</span>
+							<a style="color:#f99325;">120,023,000</a><span>元</span>
 						</h2>
 						<h5>投资金额</h5>
 					</div>
 					<div class="warn">
 						<h5>
 							当前可用资金：<a
-								href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><span
+								href="./account_Login?id=${product.id!''}&returnUrl=/buy?status=${product.state!''}&id=${product.id!''}"><span
 								id="text">登录</span></a>可见
 						</h5>
 					</div>
 					<a
-						href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}"><div
+						href="./account_Login?id=${product.id!''}&returnUrl=/buy?status=${product.state!''}&id=${product.id!''}"><div
 							class="button" id="conbuy"></div></a>
 				</div>
 			</div>

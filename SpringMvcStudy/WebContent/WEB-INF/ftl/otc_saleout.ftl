@@ -96,7 +96,7 @@
 						</h2>
 						<h6>剩余期限</h6>
 						<p>
-							<span>转让价格</span> 1.003元/份
+							<span>转让价格</span> ${product.transfer_price!"" }元/份
 						</p>
 						<div class="line"></div>
 					</div>

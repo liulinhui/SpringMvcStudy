@@ -85,17 +85,18 @@
 						</h2>
 						<h6>剩余期限</h6>
 						<p>
-							<span>转让价格</span> 1.003元/份
+							<span>转让价格</span> ${product.transfer_price!"" }元/份
 						</p>
 						<div class="line"></div>
 					</div>
 					<div class="rate">
 						<h2>
-							1000<span>份</span>
+							<input type="text" class="fenge"/>
+							<span class="fengZi">份</span>
 						</h2>
-						<h6>转让份额</h6>
+						<h6 style="margin-top:47px;">转让份额</h6>
 						<p>
-							<span>转让日期</span>${product.public_date!"2015-05-11" } 
+							<span>转让日期</span>${product.public_date!"" } 
 						</p>
 					</div>
 					<div class="tip">
@@ -107,12 +108,12 @@
 				<div class="confirm">
 					<div class="amount">
 						<h2>
-							120,023,000<span>元</span>
+							<a style="color:#f99325;">120,023,000</a><span>元</span>
 						</h2>
 						<h5>投资金额</h5>
 					</div>
 						<div class="warn">
-							<h5>当前可用资金：<span id="amount">13,000,000</span>元</h5>
+							<h5 style="margin-left: 21px;">当前可用资金：<span id="amount">${RestMoney!"" }</span>元</h5>
 							<a href="./AccountRecharge"><span id="recharge"></span></a>
 						</div>
 						<a href="./confirm"><div class="button" id="conbuy">	</div></a>

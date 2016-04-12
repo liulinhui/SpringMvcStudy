@@ -42,5 +42,8 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/patchca.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxrs-api-3.0.4.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.2.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bcprov-jdk16-1.46.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ehcache-core-2.4.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mybatis-ehcache-1.0.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
