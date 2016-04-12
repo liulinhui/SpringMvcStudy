@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import com.study.bean.Product;
 import com.study.dao.ProductMapper;
 
-@Component
+
+@Service
 public class ProductService {
 	@Autowired
 	ProductMapper productmapper;
 	
 	public List<Product> selectAll(){
 		List<Product>products=productmapper.selectAll();
+		System.out.println("===================================");
 		return products;
 	};
 	

@@ -3,12 +3,12 @@ package com.study.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.study.bean.RealUser;
 import com.study.dao.RealUserMapper;
 
-@Component
+@Service
 public class RealUserService {
 	@Autowired
 	RealUserMapper realusermapper;
@@ -23,6 +23,7 @@ public class RealUserService {
 	}
 	
 	public void update(RealUser realuser){
+		System.out.println("===================================");
 		realusermapper.update(realuser);
 	}
 	public List<String> selectAllUsercode(String user_code){
