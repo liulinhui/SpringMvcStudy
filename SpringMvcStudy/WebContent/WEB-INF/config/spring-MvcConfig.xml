@@ -12,7 +12,7 @@
 	<!-- 需要监控扫描的包 -->
 	<context:component-scan base-package="com.study.controller" />
 	<context:component-scan base-package="com.study.common" />
-
+	<context:component-scan base-package="com.study.service" />
 	<!--spring mvc 使用direct/forward -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -63,7 +63,7 @@
 			<mvc:exclude-mapping path="/otc" />
 			<mvc:exclude-mapping path="/buy" />
 			<mvc:exclude-mapping path="/protocol" />
-			<mvc:exclude-mapping path="/account_Login" />			
+			<mvc:exclude-mapping path="/account_Login" />
 			<mvc:exclude-mapping path="/account_Reg" />
 			<mvc:exclude-mapping path="/logout" />
 			<mvc:exclude-mapping path="/ajaxAccount_login" />

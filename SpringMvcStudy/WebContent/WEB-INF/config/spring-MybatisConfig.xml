@@ -114,7 +114,7 @@
 	</bean>
 	<!-- 该包下的类支持注解，可以自动引入mapper类 -->
 	<mybatis:scan base-package="com.study.dao" />
-
+	
 	<!-- 事务管理器配置,单数据源事务 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

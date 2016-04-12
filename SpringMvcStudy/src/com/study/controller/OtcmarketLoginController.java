@@ -23,9 +23,9 @@ import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.desToJs;
 import com.study.controller.ControllerHelp;
-import com.study.dao.ProductMapper;
 import com.study.dao.RealUserMapper;
 import com.study.dao.UserMapper;
+import com.study.service.ProductService;
 
 @Controller
 public class OtcmarketLoginController {
@@ -36,7 +36,7 @@ public class OtcmarketLoginController {
 	@Autowired
 	private RealUserMapper realuserMapper;
 	@Autowired
-	private ProductMapper productmapper;
+	private ProductService productService;
 	ControllerHelp controllerhellp = new ControllerHelp();
 	DES des = new DES();
 	MD5 MD5 = new MD5();
@@ -59,7 +59,7 @@ public class OtcmarketLoginController {
 		String returnUrl = new String(); // 设置返回的页面
 		String id = request.getParameter("id"); // 获取产品代码
 		char[] state = request.getParameter("status").toCharArray(); // 获取产品状态
-		Product product = productmapper.selectById(id);
+		Product product = productService.selectById(id);
 		// 计算到期时间
 		String smdate = controllerhellp.Reg_time_();
 		String bdate = product.getLimit_time();
@@ -134,7 +134,7 @@ public class OtcmarketLoginController {
 					request.getSession().getAttribute("user_code"));
 		}
 		List<Product> products = new ArrayList<Product>();
-		products = productmapper.selectAll(); // 获取所有产品信息
+		products = productService.selectAll(); // 获取所有产品信息
 		for (Product product : products) {
 			// 获取剩余到期时间
 			String smdate = controllerhellp.Reg_time_();
