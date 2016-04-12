@@ -172,18 +172,14 @@ public class OtcmarketLoginController {
 		String ID = request.getParameter("id");                // 购买页面传来的商品ID
 		String user_returnUrl=new String();
 		if (ID == null) {
-			returnUrl = "/otc";
-			request.getSession().setAttribute("returnUrl", returnUrl);
-			user_returnUrl = (String) request.getSession().getAttribute(
-					"returnUrl");			
+			returnUrl = "/otc";					
 		}
 		if (ID != null) { // 判断是否下一个页面为购买页面
 			returnUrl=returnUrl+"&id="+ID;
-			request.getSession().setAttribute("returnUrl", returnUrl);
-			user_returnUrl = (String) request.getSession().getAttribute(
-					"returnUrl");
 			logger.info("====交易页面的跳转地址" + user_returnUrl);
 		}
+		user_returnUrl = (String) request.getSession().getAttribute(
+				"returnUrl");
 		if (user_returnUrl == null) {
 			request.getSession().setAttribute("returnUrl", returnUrl);
 			user_returnUrl = (String) request.getSession().getAttribute(
