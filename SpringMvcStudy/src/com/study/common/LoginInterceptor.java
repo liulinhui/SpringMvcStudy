@@ -35,7 +35,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         log.info("contextPath:"+contextPath);    
         log.info("url:"+url);
 
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession(true);
 		log.info("==============执行顺序: 1、preHandle================");
 		if (session != null && session.getAttribute("user_code") != null) {
 			return true;

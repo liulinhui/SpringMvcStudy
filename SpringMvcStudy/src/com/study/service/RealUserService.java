@@ -23,7 +23,6 @@ public class RealUserService {
 	}
 	
 	public void update(RealUser realuser){
-		System.out.println("===================================");
 		realusermapper.update(realuser);
 	}
 	public List<String> selectAllUsercode(String user_code){

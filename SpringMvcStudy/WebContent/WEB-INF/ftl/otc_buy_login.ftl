@@ -37,8 +37,9 @@
 				毕业设计：<em>基于SpringMvc的理财产品转让系统设计</em>
 			</div>
 			<div class="links">
-				<a id="login" href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}">登录/注册</a> 
-			    <a href="./myOrder">我的订单</a>
+				<a id="login"
+					href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}">登录/注册</a>
+				<a href="./myOrder">我的订单</a>
 			</div>
 		</div>
 	</div>
@@ -95,15 +96,15 @@
 						<h6>剩余期限</h6>
 						<p>
 							<span>转让价格</span> ${product.transfer_price!"" }元/份
+							<input id="s3" style="display: none;" value=${product.transfer_price!"" } />
 						</p>
 						<div class="line"></div>
 					</div>
 					<div class="rate">
 						<h2>
-							<input type="text" class="fenge"/>
-							<span class="fengZi">份</span>
+							<input type="text" maxlength="8" class="fenge" id="s1" /> <span class="fengZi">份</span>
 						</h2>
-						<h6 style="margin-top:47px;">转让份额</h6>
+						<h6 style="margin-top: 47px;">转让份额</h6>
 						<p>
 							<span>转让日期</span>${product.public_date!"2015-05-11" }
 						</p>
@@ -117,7 +118,8 @@
 				<div class="confirm">
 					<div class="amount">
 						<h2>
-							<a style="color:#f99325;">120,023,000</a><span>元</span>
+							<a style="color: #f99325;"><input class="allAccount"
+								type="text" id="s2" disabled="disabled" placeholder="0" /></a><span>元</span>
 						</h2>
 						<h5>投资金额</h5>
 					</div>
@@ -159,5 +161,14 @@
 			<p class="copyright">哈哈哈哈 copyright © 2016 苗灿 大孙子</p>
 		</div>
 	</div>
+	<script>
+		var o_1 = document.getElementById("s1");
+		var o_2 = document.getElementById("s2");
+		var o_3 = document.getElementById("s3");
+		o_1.onkeyup = function() {
+			o_2.value = ((o_1.value)*(o_3.value));
+			//o_2.value = o_2.value.tofixed(0);
+		}
+	</script>
 </body>
 </html>
