@@ -13,10 +13,9 @@ import com.study.dao.ProductMapper;
 public class ProductService {
 	@Autowired
 	ProductMapper productmapper;
-	
 	public List<Product> selectAll(){
 		List<Product>products=productmapper.selectAll();
-		System.out.println("===================================");
+		System.out.println("===================================缓存");
 		return products;
 	};
 	

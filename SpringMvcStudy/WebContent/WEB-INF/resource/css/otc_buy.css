@@ -48,6 +48,7 @@ div.inner {
 	color: #f99325;
 	font-size: 29pt;
 	text-align: right;
+	font-weight: bold;
 }
 
 .fenge {
@@ -59,6 +60,7 @@ div.inner {
 	position: absolute;
 	border-color: #f99325;
 	text-align: right;
+	font-weight: bold;
 }
 
 .fengZi {
