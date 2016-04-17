@@ -59,7 +59,7 @@ public class OtcmarketLoginController {
 		String smdate = controllerhellp.Reg_time_();
 		String bdate = product.getLimit_time();
 		String lasttime = controllerhellp.daysBetween(smdate, bdate);
-		product.setLimit_time(lasttime);
+		product.setLastdate(lasttime);
 		logger.info("查询" + product.getProduct_name() + "相应信息===用户代码："
 				+ product.getUser_code());
 		model.addAttribute("product", product);
@@ -135,7 +135,7 @@ public class OtcmarketLoginController {
 			String smdate = controllerhellp.Reg_time_();
 			String bdate = product.getLimit_time();
 			String lasttime = controllerhellp.daysBetween(smdate, bdate);
-			product.setLimit_time(lasttime);
+			product.setLastdate(lasttime);
 			if (product.getUser_code().equals( // 确定可撤销的产品
 					request.getSession().getAttribute("user_code"))
 					&& product.getState() == '1') {

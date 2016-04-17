@@ -88,7 +88,7 @@
 							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${item.product_name!""}<p>(代码：${item.product_code!"" })</p></td>
               <td class="id">${item.plan_income!"6.65" }%</td>
 							<td class="rate">${item.reference_income!"" }<span class="per">%</span></td>
-              <td class="period">${item.limit_time!"" }天</td>
+              <td class="period">${item.lastdate!"" }天</td>
               <td class="amount">${item.transfer_account!"13,799,000" }</td>
               <td class="amount">${item.transfer_capital!"13,799,000" }</td>
               <#if item.risk=="1">

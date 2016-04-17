@@ -73,8 +73,9 @@
 				<div class="note">
 					<span>逛逛</span>
 					<a href="./otc" class="excg"></a>
-					<span>或者查看</span>
+					<span>或者到</span>
 					<a href="./myOrder" class="order"><img src="/SpringMvcStudy/resource/images/images2/order_button.png"></img></a>
+					<span style="position: absolute;">进行支付</span>
 				</div>
 			</div>
 			<div class="blank" id="foot"></div>

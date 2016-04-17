@@ -11,13 +11,27 @@ public class Product implements Serializable {
 	private double reference_income;//买入后参考年化收益率
 	private String limit_time;//剩余期限	
 	private int transfer_account;//转让份额
+	private int rest_account;//剩余份额
 	private int transfer_capital;//转让金额
-	private char risk;//风险
+	private char risk;//风险     1:低风险   2:高风险
 	private String public_date;//发布时间
 	private char state;//购买状态
-	private String id;
-	private String transfer_price;  //单价 
+	private String id;  //id
+	private String transfer_price;  //单价
+	private String lastdate;  //剩余时间
 	
+	public int getRest_account() {
+		return rest_account;
+	}
+	public void setRest_account(int rest_account) {
+		this.rest_account = rest_account;
+	}
+	public String getLastdate() {
+		return lastdate;
+	}
+	public void setLastdate(String lastdate) {
+		this.lastdate = lastdate;
+	}
 	public String getTransfer_price() {
 		return transfer_price;
 	}
