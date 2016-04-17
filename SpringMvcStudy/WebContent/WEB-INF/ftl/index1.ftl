@@ -11,9 +11,11 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/banner.css"/>
+    <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/AlertDIV.css"/>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
-  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script> 
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
+    <script type="text/javascript" src="/SpringMvcStudy/resource/js/AlertDIV.js"></script> 
  </head>
 <body>
   <div class="header-top">
@@ -99,7 +101,7 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status cancel"><a href="javascript:void(0);"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status cancel"><a href="javascript:void(0);"  onclick="ShowDiv('MyDiv','Myfade')"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
 							<td class="status"><a href="./buy?status=${item.state!''}&id=${item.id!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
 							<#if item.state=="2">
@@ -113,9 +115,32 @@
           </tbody>
         </table>
       </div>
-			<!--<div class="scroll" ><img src="/SpringMvcStudy/resource/images/images2/scrolldown.gif"></img></div> -->
-			<!--<p style=" text-align:center;">加载更多</p>  -->
   </div>
+  
+             <!--弹出层  -->
+<!--弹出层时背景层DIV-->
+<div id="Myfade" class="black_overlay">
+</div>
+<div id="MyDiv" class="white_content" style="position: fixed">
+<div class="con">
+<div class="content1"><a class="content2">撤&nbsp;单</a></div>
+</div>
+<hr/>
+<ul style="list-style:none;">
+	<li><a><h2>产品代码:<span class="xiangxi">12315</span></h2></a></li>
+	<li><a><h2>产品名称:<span class="xiangxi">12315</span></h2></a></li>
+	<li><a><h2>剩余数量:<span class="xiangxi">12315</span></h2></a></li>
+	<li><a><h2>发布时间:<span class="xiangxi">12315</span></h2></a></li>
+</ul>
+<hr/>
+<button class="confirm_buy" onclick="CloseDiv('MyDiv','Myfade')">确认</button>     
+<button class="cancel_buy" onclick="CloseDiv('MyDiv','Myfade')">取消</button>
+</div>
+<div id="jiazai" style="position: fixed">
+    <img src="/SpringMvcStudy/resource/images/jiazai.gif" alt="" />
+</div>
+                    <!--弹出层  -->
+
   <div id="footer-nf">
     <div class="f-inner">    
       <div class="logos">

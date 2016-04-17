@@ -118,7 +118,7 @@
 				<div class="confirm">
 					<div class="amount">
 						<h2>
-							120,023,000<span>元</span>
+							${product.transfer_capital!""}<span>元</span>
 						</h2>
 						<h5>投资金额</h5>
 					</div>

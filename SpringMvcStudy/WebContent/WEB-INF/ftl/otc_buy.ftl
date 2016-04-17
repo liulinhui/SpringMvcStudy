@@ -10,9 +10,11 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/otc_buy.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/headerfooter.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
+  <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/AlertDIV.css"/>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/AlertDIV.js"></script>
   
   <!--[if IE 6]>
   <script src="./js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
