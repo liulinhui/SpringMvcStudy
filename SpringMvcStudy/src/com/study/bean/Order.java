@@ -8,11 +8,18 @@ public class Order implements Serializable {
 	private String product_code;   //产品代码
 	private Double reference_income;  //预计年化收益率
 	private String limit_time;       //到期时间
-	private String buy_amount;       //购买数量
+	private int buy_amount;       //购买数量
 	private Double price;            //单价  
 	private String buy_time;           //购买时间
 	private char risk;               //风险    1:低风险   2:高风险
 	private char status;             //付款状态   1:未付款  2:已付款
+	
+	public int getBuy_amount() {
+		return buy_amount;
+	}
+	public void setBuy_amount(int buy_amount) {
+		this.buy_amount = buy_amount;
+	}
 	public String getId() {
 		return id;
 	}
@@ -48,12 +55,6 @@ public class Order implements Serializable {
 	}
 	public void setLimit_time(String limit_time) {
 		this.limit_time = limit_time;
-	}
-	public String getBuy_amount() {
-		return buy_amount;
-	}
-	public void setBuy_amount(String buy_amount) {
-		this.buy_amount = buy_amount;
 	}
 	public Double getPrice() {
 		return price;

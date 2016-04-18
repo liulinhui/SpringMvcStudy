@@ -17,9 +17,15 @@ public class Product implements Serializable {
 	private String public_date;//发布时间
 	private char state;//购买状态
 	private String id;  //id
-	private String transfer_price;  //单价
+	private double transfer_price;  //单价
 	private String lastdate;  //剩余时间
 	
+	public double getTransfer_price() {
+		return transfer_price;
+	}
+	public void setTransfer_price(double transfer_price) {
+		this.transfer_price = transfer_price;
+	}
 	public int getRest_account() {
 		return rest_account;
 	}
@@ -31,12 +37,6 @@ public class Product implements Serializable {
 	}
 	public void setLastdate(String lastdate) {
 		this.lastdate = lastdate;
-	}
-	public String getTransfer_price() {
-		return transfer_price;
-	}
-	public void setTransfer_price(String transfer_price) {
-		this.transfer_price = transfer_price;
 	}
 	public String getId() {
 		return id;

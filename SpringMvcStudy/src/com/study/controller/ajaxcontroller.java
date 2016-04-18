@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.study.bean.Order;
+import com.study.bean.Product;
 import com.study.common.MD5;
 import com.study.common.RSAUtil;
+import com.study.service.OrederService;
+import com.study.service.ProductService;
 import com.study.service.RealUserService;
 
 @Controller
@@ -24,7 +28,11 @@ public class ajaxcontroller {
 	MD5 MD5 = new MD5();
 	ControllerHelp controllerhellp = new ControllerHelp();
 	@Autowired
-	private RealUserService realUserService;
+	private  RealUserService realUserService;
+	@Autowired
+	private  ProductService productService;
+	@Autowired
+	private  OrederService orderservice;
 
 	/* 登录页面请求产生密钥 */
 	@RequestMapping(value = "/ajaxAccount_login")
@@ -75,13 +83,46 @@ public class ajaxcontroller {
 	/* 获取RSA的公钥 */
 	@RequestMapping(value = "/getPublicKey")
 	@ResponseBody
-	public static JSONObject getPublicKey(Model model, HttpServletRequest request)
-			throws Exception {
+	public static JSONObject getPublicKey(Model model,
+			HttpServletRequest request) throws Exception {
 		String pubilcKey;
-		pubilcKey = RSAUtil.getPublickModulus();		
+		pubilcKey = RSAUtil.getPublickModulus();
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("pubilcKey", pubilcKey);
 		return jsonObject;
 	}
 
+	/**
+	 * 判断购买数量是否超出范围
+	 */
+	@RequestMapping(value = "/confirmAccount")
+	@ResponseBody
+	public JSONObject confirmAccount(Model model, HttpServletRequest request) {
+		int allAccount = Integer.parseInt(request.getParameter("allAccount"));
+		String id = request.getParameter("id");
+		logger.info("===========id"+id);
+		Product product = productService.selectById(id);
+		JSONObject jsonObject = new JSONObject();
+		if (allAccount > product.getRest_account()) {
+			jsonObject.put("result", "false");
+
+		} else if (allAccount <= product.getRest_account()) {
+			Order order = new Order();
+			order.setId(product.getId());
+			order.setBuy_amount(allAccount);
+			order.setBuy_time(controllerhellp.Reg_time());
+			order.setLimit_time(product.getLimit_time());
+			order.setProduct_code(product.getProduct_code());
+			order.setPrice(product.getTransfer_price());
+			order.setProduct_name(product.getProduct_name());
+			order.setReference_income(product.getReference_income());
+			order.setRisk(product.getRisk());
+			order.setStatus('1');
+			order.setUser_code(request.getSession().getAttribute("user_code")
+					.toString());
+			orderservice.insert(order);
+			jsonObject.put("result", "true");
+		}
+		return jsonObject;
+	}
 }

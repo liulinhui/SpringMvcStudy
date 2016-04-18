@@ -38,7 +38,7 @@
 			</div>
 			<div class="links">
 				<a id="login"
-					href="./account_Login?returnUrl=/buy?product_code=${product.product_code!''}&id=${product.user_code!''}">登录/注册</a>
+					href="./account_Login?id=${product.id!''}&returnUrl=/buy?status=${product.state!''}&id=${product.id!''}">登录/注册</a>
 				<a href="./myOrder">我的订单</a>
 			</div>
 		</div>
@@ -76,6 +76,7 @@
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
 					<h3>
 						${product.product_name!"君得金28天期优先级" }<span>代码：${product.product_code!"S32424" }</span>
+						<span style="float: right;margin: 0 91px;"><span style="color: #646cb8;font-size: 17px;">剩余分额：</span>${product.rest_account!"" }</span>
 					</h3>
 				</div>
 				<div class="info">
@@ -166,7 +167,7 @@
 		var o_2 = document.getElementById("s2");
 		var o_3 = document.getElementById("s3");
 		o_1.onkeyup = function() {
-			o_2.value = ((o_1.value)*(o_3.value));
+			o_2.value = (((o_1.value) * (o_3.value)) * 1).toFixed(2);
 			//o_2.value = o_2.value.tofixed(0);
 		}
 	</script>

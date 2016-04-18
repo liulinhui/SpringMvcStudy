@@ -10,7 +10,7 @@
 		#{product_code,jdbcType=VARCHAR},
 		#{reference_income,jdbcType=DOUBLE},
 		#{limit_time,jdbcType=VARCHAR},
-		#{buy_amount,jdbcType=VARCHAR},
+		#{buy_amount,jdbcType=DECIMAL},
 		#{price,jdbcType=DOUBLE},	
 		#{buy_time,jdbcType=VARCHAR},
 		#{risk,jdbcType=CHAR},

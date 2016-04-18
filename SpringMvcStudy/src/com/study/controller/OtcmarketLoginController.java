@@ -52,7 +52,7 @@ public class OtcmarketLoginController {
 					request.getSession().getAttribute("user_code"));
 		}
 		String returnUrl = new String(); // 设置返回的页面
-		String id = request.getParameter("id"); // 获取产品代码
+		String id = request.getParameter("id"); // 获取产品编号
 		char[] state = request.getParameter("status").toCharArray(); // 获取产品状态
 		Product product = productService.selectById(id);
 		// 计算到期时间

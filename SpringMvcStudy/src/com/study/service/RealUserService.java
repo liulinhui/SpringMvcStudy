@@ -16,7 +16,7 @@ public class RealUserService {
 	
 //	@Cacheable(value="myCache",key="#user_code")
 	public RealUser selectByCode(String user_code){
-		System.out.println("============================缓存");
+//		System.out.println("============================缓存");
 		RealUser realUser=realusermapper.selectByCode(user_code);
 		return realUser;
 	}
