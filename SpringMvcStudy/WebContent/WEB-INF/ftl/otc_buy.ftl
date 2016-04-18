@@ -198,6 +198,7 @@
 			});
 			if(status=="false"){
 				alert("超出分额 ");
+				break;
 			}
 		})
 	</script>

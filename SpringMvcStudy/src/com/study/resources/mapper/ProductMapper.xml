@@ -19,7 +19,6 @@
         <result column="transfer_price" jdbcType="DOUBLE" property="transfer_price" />
 	</resultMap>
 	<sql id="Base_Column_List">rest_account,lastdate,transfer_price,id,user_code,product_code,public_date,product_name,plan_income,reference_income,limit_time,transfer_account,transfer_capital,risk,state</sql>
-
 	<select id="selectById" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
 		select
@@ -32,5 +31,4 @@
 		<include refid="Base_Column_List" />
 		from product 
 	</select>
-	
 </mapper>
