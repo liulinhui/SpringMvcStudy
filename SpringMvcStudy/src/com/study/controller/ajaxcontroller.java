@@ -93,14 +93,13 @@ public class ajaxcontroller {
 	}
 
 	/**
-	 * 判断购买数量是否超出范围
+	 * 判断购买数量是否超出范围,提交订单
 	 */
 	@RequestMapping(value = "/confirmAccount")
 	@ResponseBody
 	public JSONObject confirmAccount(Model model, HttpServletRequest request) {
 		int allAccount = Integer.parseInt(request.getParameter("allAccount"));
 		String id = request.getParameter("id");
-		logger.info("===========id"+id);
 		Product product = productService.selectById(id);
 		JSONObject jsonObject = new JSONObject();
 		if (allAccount > product.getRest_account()) {

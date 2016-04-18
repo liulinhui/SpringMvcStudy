@@ -99,114 +99,45 @@
 					</table>
 				</div>
 				<div class="header xianshi" style="height: 50px">
-					<a href="javascript:void(0);"><h3>您当前拥有的产品:<span>123<span>件</span></span></h3></a>
+					<a href="javascript:void(0);"><h3>您当前拥有的产品:<span style="margin: 0 24px;"><span style="color: #DF7928;margin-right: 5px;">${account!''}</span>件</span></h3></a>
 				</div>
 				<div class="display"
 					style="display: black; -moz-user-select: -moz-none;overflow: hidden"
 					onselectstart="return false;">
 					<ul class="pricing_table">
+					<#if assets??>
+					<#list assets as item>
 						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
+							<h3 style="color: #DB7224">${item.product_code!''}</h3>
 							<div class="price">
 								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
+									<span class="price_number" style="font-size: 21px;">${item.product_name!''}</span>
 								</div>
 							</div>
 							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
+								<li style="font-weight: bold;font-size: 16px;">${item.account!''}份</li>
+								<li style="font-weight: bold;font-size: 15px;">买入时间:${item.limit_time!''}</li>
+								<li style="font-weight: bold;font-size: 15px;">年化收益率:${item.plan_income!''}</li>
+								<#if item.risk=='1'>
+                                    <li style="font-weight: bold;font-size: 16px;">低风险</li> 								
+								</#if>
+								<#if item.risk=='2'>
+								    <li style="font-weight: bold;font-size: 16px;">高风险</li>
+								</#if>
 							</ul>
+							<#if item.status=="1">
 							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
+								<a href="#" class="action_button">立即转让</a>
 							</div>
-						</li>
-						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
-							<div class="price">
-								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
-								</div>
-							</div>
-							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
-							</ul>
+							</#if>
+							<#if item.status=="2">
 							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
-							</div>
+								<a href="#" class="action_button">马上撤单</a>
+							</div> 
+							</#if>
 						</li>
-						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
-							<div class="price">
-								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
-								</div>
-							</div>
-							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
-							</ul>
-							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
-							</div>
-						</li>
-						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
-							<div class="price">
-								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
-								</div>
-							</div>
-							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
-							</ul>
-							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
-							</div>
-						</li>
-						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
-							<div class="price">
-								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
-								</div>
-							</div>
-							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
-							</ul>
-							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
-							</div>
-						</li>
-						<li class="price_block" style="float:left">
-							<h3 style="color: #DB7224">S1232</h3>
-							<div class="price">
-								<div class="price_figure">
-									<span class="price_number">主题宝号</span>
-								</div>
-							</div>
-							<ul class="features">
-								<li>876586份</li>
-								<li>Unlimited Clients</li>
-								<li>Unlimited Projects</li>
-
-							</ul>
-							<div class="footer">
-								<a href="#" class="action_button">Buy Now</a>
-							</div>
-						</li>
+					</#list>
+					</#if>			
 					</ul>
 				</div>
 			</div>

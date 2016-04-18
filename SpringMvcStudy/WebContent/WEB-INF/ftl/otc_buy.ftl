@@ -81,7 +81,8 @@
 					<img src="/SpringMvcStudy/resource/images/images2/trans.png"></img>
 					<h3>
 						${product.product_name!"君得金28天期优先级" }<span>代码：${product.product_code!"S32424" }</span>
-						<span style="float: right;margin: 0 91px;"><span style="color: #646cb8;font-size: 17px;">剩余分额：</span>${product.rest_account!"" }</span>
+						<span style="float: right; margin: 0 91px;"><span
+							style="color: #646cb8; font-size: 17px;">剩余分额：</span>${product.rest_account!"" }</span>
 					</h3>
 					<input class="identy" style="display: none" value=${product.id!'' } />
 				</div>
@@ -137,7 +138,7 @@
 						</h5>
 						<a href="./AccountRecharge"><span id="recharge"></span></a>
 					</div>
-					<a href="./confirm"><div class="button" id="conbuy"></div></a>
+					<a href="./confirm" onclick="buy();return false;"><div class="button" id="conbuy"></div></a>
 				</div>
 			</div>
 			</#if>
@@ -178,29 +179,35 @@
 		}
 	</script>
 	<script>
-		$("#conbuy").click(function() {
-			var allAccount = $("#s1").val();  //购买数量 
-			var identy = $(".identy").val();
-			var status;
-			//判断购买数量是否超出范围
-			$.ajax({
-				url : "./confirmAccount",
-				datetype : "json",
-				async : false, //设置为同步进行
-				data : {
-					allAccount : allAccount,
-					id : identy
-				},
-				type : "POST",
-				success : function(data) {
-					status = data.result;
+		function buy() {
+				var allAccount = $("#s1").val(); //购买数量 
+				var identy = $(".identy").val();
+				if (allAccount==0) {
+					alert("请输入购买数量 ");
+					return false;
 				}
-			});
-			if(status=="false"){
-				alert("超出分额 ");
-				break;
-			}
-		})
+				var status;
+				//判断购买数量是否超出范围
+				$.ajax({
+					url : "./confirmAccount",
+					datetype : "json",
+					async : false, //设置为同步进行
+					data : {
+						allAccount : allAccount,
+						id : identy
+					},
+					type : "POST",
+					success : function(data) {
+						status = data.result;
+					}
+				});
+				if (status == "false") {
+					alert("超出分额 ");
+					return false;
+				}else if (status=="true") {
+					window.location.href='./confirm';
+				}
+		};
 	</script>
 </body>
 </html>

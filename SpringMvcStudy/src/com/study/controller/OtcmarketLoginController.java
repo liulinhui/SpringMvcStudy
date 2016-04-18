@@ -171,7 +171,10 @@ public class OtcmarketLoginController {
 		}
 		if (ID != null) { // 判断是否下一个页面为购买页面
 			returnUrl=returnUrl+"&id="+ID;
-			logger.info("====交易页面的跳转地址" + user_returnUrl);
+			Product product=productService.selectById(ID);
+			if (product.getUser_code().equals(user_code)) {
+				returnUrl="/otc";
+			}
 		}
 		user_returnUrl = (String) request.getSession().getAttribute(
 				"returnUrl");

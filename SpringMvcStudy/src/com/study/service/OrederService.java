@@ -16,8 +16,8 @@ public class OrederService {
 		orderMapper.insert(order);
 	}
 	
-	public List<Order> selectAll(){
-		List<Order>Orders=orderMapper.selectAll();
+	public List<Order> selectAll(String user_code){
+		List<Order>Orders=orderMapper.selectAll(user_code);
 		return Orders;
 	};
 

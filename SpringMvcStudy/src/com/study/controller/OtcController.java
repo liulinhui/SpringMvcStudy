@@ -1,7 +1,8 @@
 package com.study.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.study.bean.Asset;
+import com.study.bean.Order;
 import com.study.bean.RealUser;
+import com.study.service.AssetService;
+import com.study.service.OrederService;
 import com.study.service.RealUserService;
 
 
@@ -19,6 +24,10 @@ public class OtcController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	private RealUserService realUserService;
+	@Autowired
+	private OrederService orderservice;
+	@Autowired
+	private AssetService assetservice;
 	
 	/**
 	 * 用户订拥有的产品页面
@@ -53,6 +62,10 @@ public class OtcController {
 		logger.info("========注册时间："+user.getReg_time()+"===========");
 		model.addAttribute("user",user);
 		logger.info("=================用户"+user.getUser_name()+"信息采集成功===============");
+		List<Asset>assets=assetservice.selectAll(request.getSession().getAttribute("user_code").toString());
+		int account=assets.size();
+		model.addAttribute("assets", assets);
+		model.addAttribute("account", account);
 		return "myAsset.ftl";
 	}
 	
@@ -68,6 +81,9 @@ public class OtcController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
+		String user_code=request.getSession().getAttribute("user_code").toString();
+		List<Order>order=orderservice.selectAll(user_code);
+		model.addAttribute("order", order);
 		return "myOrder.ftl";
 	}
 	

@@ -14,12 +14,7 @@ public class Order implements Serializable {
 	private char risk;               //风险    1:低风险   2:高风险
 	private char status;             //付款状态   1:未付款  2:已付款
 	
-	public int getBuy_amount() {
-		return buy_amount;
-	}
-	public void setBuy_amount(int buy_amount) {
-		this.buy_amount = buy_amount;
-	}
+
 	public String getId() {
 		return id;
 	}
@@ -79,6 +74,12 @@ public class Order implements Serializable {
 	}
 	public void setStatus(char status) {
 		this.status = status;
+	}
+	public int getBuy_amount() {
+		return buy_amount;
+	}
+	public void setBuy_amount(int buy_amount) {
+		this.buy_amount = buy_amount;
 	}
 	
 

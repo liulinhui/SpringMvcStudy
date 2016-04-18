@@ -11,6 +11,6 @@ import com.study.bean.Order;
 @Component
 public interface OrderMapper {
 	void insert(Order order);
-	List<Order> selectAll();
+	List<Order> selectAll(String user_code);
 
 }
