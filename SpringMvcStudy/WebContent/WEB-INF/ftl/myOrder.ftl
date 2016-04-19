@@ -59,7 +59,7 @@
 				<a href="./otc">首页</a><a href="./myproduct">我要转让</a><a
 					href="./myAsset">我的账户</a>
 			</div>
-			<p class="breadcrumb">
+			<p class="breadcrumb" style="margin-left: -20px;">
 				<a href="">毕业设计</a><a href="">>OTC转让专区</a>
 			</p>
 		</div>
@@ -75,7 +75,7 @@
 					<thead>
 						<tr style="font-size:30px;font-family:Verdana;color:#6C6C6C;font-weight:bold">
 							<th scope="col" rowspan="2">产品名称</th>
-							<th scope="col" colspan="8">详细信息</th>
+							<th scope="col" colspan="9">详细信息</th>
 						</tr>
 
 						<tr>
@@ -84,6 +84,7 @@
 							<th scope="col">到期时间</th>
 							<th scope="col">买入份额</th>
 							<th scope="col">买入价格</th>
+							<th scope="col">金额</th>
 							<th scope="col">买入时间</th>
 							<th scope="col">风险</th>
 							<th scope="col">状态</th>
@@ -98,6 +99,7 @@
 							<td>${item.reference_income!''}</td>
 							<td>${item.limit_time!''}</td>
 							<td>${item.buy_amount!''}</td>
+							<td>￥${item.price!''}</td>
 							<td>￥${item.price!''}</td>
 							<td>${item.buy_time!''}</td>
 							<#if item.risk=='1'>
