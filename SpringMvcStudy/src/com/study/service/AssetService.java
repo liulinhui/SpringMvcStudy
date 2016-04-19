@@ -12,9 +12,14 @@ import com.study.dao.AssetMapper;
 public class AssetService {
 	@Autowired
 	AssetMapper assetMapper;
-	
-	public List<Asset> selectAll(String user_code){
-		List<Asset>assets=assetMapper.selectAll(user_code);
+
+	public List<Asset> selectAll(String user_code) {
+		List<Asset> assets = assetMapper.selectAll(user_code);
+		return assets;
+	}
+
+	public List<Asset> selectAvaliable(String user_code) {
+		List<Asset> assets = assetMapper.selectAvaliable(user_code);
 		return assets;
 	}
 

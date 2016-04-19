@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.study.dao.AssetMapper">
-    <resultMap id="BaseResultMap" type="com.study.bean.Asset">
+	<resultMap id="BaseResultMap" type="com.study.bean.Asset">
+		<result column="id" jdbcType="VARCHAR" property="id" />
 		<result column="user_name" jdbcType="VARCHAR" property="user_name" />
 		<result column="user_code" jdbcType="VARCHAR" property="user_code" />
 		<result column="product_name" jdbcType="VARCHAR" property="product_name" />
@@ -9,11 +10,18 @@
 		<result column="limit_time" jdbcType="VARCHAR" property="limit_time" />
 		<result column="account" jdbcType="DECIMAL" property="account" />
 		<result column="risk" jdbcType="CHAR" property="risk" />
-		<result column="status" jdbcType="CHAR" property="status" /> 
+		<result column="status" jdbcType="CHAR" property="status" />
 		<result column="buy_time" jdbcType="VARCHAR" property="buy_time" />
-		<result column="plan_income" jdbcType="DOUBLE" property="plan_income" />   
-	</resultMap>	
-	<select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
-		select * from asset where user_code=#{user_code,jdbcType=VARCHAR} 
+		<result column="plan_income" jdbcType="DOUBLE" property="plan_income" />
+	</resultMap>
+	<select id="selectAll" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select * from asset where
+		user_code=#{user_code,jdbcType=VARCHAR}
+	</select>
+	<select id="selectAll" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select * from asset where
+		user_code=#{user_code,jdbcType=VARCHAR} and status='1'
 	</select>
 </mapper>

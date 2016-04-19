@@ -41,6 +41,8 @@ public class OtcController {
 			model.addAttribute("reg",
 					request.getSession().getAttribute("user_code"));
 		}
+		List<Asset>assets=assetservice.selectAvaliable(request.getSession().getAttribute("user_code").toString());
+		model.addAttribute("assets", assets);
 		return "myproduct1.ftl";
 	}
 	/**

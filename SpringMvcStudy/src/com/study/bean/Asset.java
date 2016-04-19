@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Asset implements Serializable{
 	private static final long serialVersionUID = 1L;
+	private String id;      //id
 	private String user_name;  //用户名
 	private String user_code;  //用户代碼
 	private String product_name;  //产品名称
@@ -14,6 +15,13 @@ public class Asset implements Serializable{
 	private char status;             //付款状态   1:正在收益     2:正在转让
 	private String buy_time;       //买入时间
 	private Double plan_income;            //年化收益率
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getUser_name() {
 		return user_name;
 	}

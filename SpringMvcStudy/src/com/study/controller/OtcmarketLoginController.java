@@ -4,16 +4,13 @@ import java.math.BigInteger;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.study.bean.Product;
 import com.study.bean.RealUser;
 import com.study.common.DES;
@@ -65,9 +62,11 @@ public class OtcmarketLoginController {
 		model.addAttribute("product", product);
 		if (request.getSession().getAttribute("user_code") != null
 				&& state[0] == '1') {
-			RealUser realUser=realUserService.selectByCode(request.getSession().getAttribute("user_code").toString());  //查询用户资金
-			int RestMoney=realUser.getUser_asset();
-			logger.info("============================================="+RestMoney);
+			RealUser realUser = realUserService.selectByCode(request
+					.getSession().getAttribute("user_code").toString()); // 查询用户资金
+			int RestMoney = realUser.getUser_asset();
+			logger.info("============================================="
+					+ RestMoney);
 			model.addAttribute("RestMoney", RestMoney);
 			returnUrl = "otc_buy.ftl";
 		}
@@ -164,20 +163,20 @@ public class OtcmarketLoginController {
 		String user_password = request.getParameter("user_password");
 		String user_code = request.getParameter("user_code");
 		String returnUrl = request.getParameter("returnUrl"); // 从页面传来的URL值
-		String ID = request.getParameter("id");                // 购买页面传来的商品ID
-		String user_returnUrl=new String();
+		String ID = request.getParameter("id"); // 购买页面传来的商品ID
+		String user_returnUrl = new String();
 		if (ID == null) {
-			returnUrl = "/otc";					
+			returnUrl = "/otc";
 		}
 		if (ID != null) { // 判断是否下一个页面为购买页面
-			returnUrl=returnUrl+"&id="+ID;
-			Product product=productService.selectById(ID);
+			returnUrl = returnUrl + "&id=" + ID;
+			Product product = productService.selectById(ID);
 			if (product.getUser_code().equals(user_code)) {
-				returnUrl="/otc";
+				returnUrl = "/otc";
 			}
 		}
-		user_returnUrl = (String) request.getSession().getAttribute(
-				"returnUrl");
+		user_returnUrl = (String) request.getSession()
+				.getAttribute("returnUrl");
 		if (user_returnUrl == null) {
 			request.getSession().setAttribute("returnUrl", returnUrl);
 			user_returnUrl = (String) request.getSession().getAttribute(

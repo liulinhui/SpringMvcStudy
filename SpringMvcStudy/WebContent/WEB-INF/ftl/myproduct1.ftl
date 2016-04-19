@@ -58,24 +58,13 @@
 				<div class="header" style="height:50px">
 					<h3>请选择您需要转让的产品</h3>
 				</div>
+				<#if assets??> 
+				<#list assets as item>
 				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
+					<a href="./sell?id=${item.id!''}"><h3>您当前持有<span id="amount">${item.account!''}</span>份 &nbsp; <span id="product">${item.product_name!''}（${item.code!''}）</span></h3></a>
 				</div>
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>	
-				<div class="header">
-					<a href="./sell"><h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3></a>
-				</div>			
+				</#list>
+				</#if>			
 			</div>		
 			</div>
 			<div class="blank"></div>

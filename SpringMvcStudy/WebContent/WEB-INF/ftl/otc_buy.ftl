@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/table.css" />
 	<link rel="stylesheet" type="text/css"
-		href="/SpringMvcStudy/resource/css/AlertDIV.css" />
+		href="/SpringMvcStudy/resource/css/buy_AlertDIV.css" />
 	<script type="text/javascript"
 		src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript"
@@ -138,12 +138,33 @@
 						</h5>
 						<a href="./AccountRecharge"><span id="recharge"></span></a>
 					</div>
-					<a href="./confirm" onclick="buy();return false;"><div class="button" id="conbuy"></div></a>
+					<a href="./confirm" onclick="buy();return false;"><div
+							class="button" id="conbuy"></div></a>
 				</div>
 			</div>
 			</#if>
 		</div>
 	</div>
+
+	<!--弹出层  -->
+	<!--弹出层时背景层DIV-->
+	<div id="Myfade" class="black_overlay"></div>
+	<div id="MyDiv" class="white_content" style="position: fixed">
+		<div class="con">
+			<div class="content1">
+				<a class="content2">友情提示</a>
+			</div>
+		</div>
+		<div style="height: 197px;">
+			<div style="padding: 59px 69px;">
+				<a style="font-family: kaiti;font-weight: bold;font-size: 20px;">当前可购买分额:<span style="color:#FF8000">${product.rest_account!"" }</span>份
+				</a>
+				<p>请重新选择购买数量</p>
+			</div>
+		</div>
+		<button class="confirm_buy" onclick="CloseDiv('MyDiv','Myfade')">确认</button>
+	</div>
+	<!--弹出层  -->
 
 
 	<div id="footer-nf">
@@ -180,33 +201,33 @@
 	</script>
 	<script>
 		function buy() {
-				var allAccount = $("#s1").val(); //购买数量 
-				var identy = $(".identy").val();
-				if (allAccount==0) {
-					alert("请输入购买数量 ");
-					return false;
+			var allAccount = $("#s1").val(); //购买数量 
+			var identy = $(".identy").val();
+			if (allAccount == 0) {
+				return false;
+			}
+			var status;
+			//判断购买数量是否超出范围
+			$.ajax({
+				url : "./confirmAccount",
+				datetype : "json",
+				async : false, //设置为同步进行
+				data : {
+					allAccount : allAccount,
+					id : identy
+				},
+				type : "POST",
+				success : function(data) {
+					status = data.result;
 				}
-				var status;
-				//判断购买数量是否超出范围
-				$.ajax({
-					url : "./confirmAccount",
-					datetype : "json",
-					async : false, //设置为同步进行
-					data : {
-						allAccount : allAccount,
-						id : identy
-					},
-					type : "POST",
-					success : function(data) {
-						status = data.result;
-					}
-				});
-				if (status == "false") {
-					alert("超出分额 ");
-					return false;
-				}else if (status=="true") {
-					window.location.href='./confirm';
-				}
+			});
+			if (status == "false") {
+				$('#Myfade').show();
+				$('#MyDiv').show();
+				return false;
+			} else if (status == "true") {
+				window.location.href = './confirm';
+			}
 		};
 	</script>
 </body>
