@@ -61,7 +61,7 @@
 				<#if assets??> 
 				<#list assets as item>
 				<div class="header">
-					<a href="./sell?id=${item.id!''}"><h3>您当前持有<span id="amount">${item.account!''}</span>份 &nbsp; <span id="product">${item.product_name!''}（${item.code!''}）</span></h3></a>
+					<a href="./sell?id=${item.id!''}"><h3>您当前持有<span id="amount">${item.account!''}</span>份 &nbsp; <span id="product">${item.product_name!''}<span>(${item.product_code!''})</span></span></h3></a>
 				</div>
 				</#list>
 				</#if>			

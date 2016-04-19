@@ -19,9 +19,14 @@
 		select * from asset where
 		user_code=#{user_code,jdbcType=VARCHAR}
 	</select>
-	<select id="selectAll" parameterType="java.lang.String"
+	<select id="selectAvaliable" parameterType="java.lang.String"
 		resultMap="BaseResultMap">
 		select * from asset where
-		user_code=#{user_code,jdbcType=VARCHAR} and status='1'
+		user_code=#{user_code,jdbcType=VARCHAR} and status='1' 
+	</select>
+		<select id="selectProductById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select * from asset where
+		id=#{id,jdbcType=VARCHAR}
 	</select>
 </mapper>

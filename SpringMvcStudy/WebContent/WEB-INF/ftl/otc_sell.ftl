@@ -53,17 +53,15 @@
   </div>
   <div id="main">
     <div class="inner">
-			<div class="blank"></div>
-			
-				
+			<div class="blank"></div>	
 			<div class="bill">
 				<div class="header">
-					<h3>您当前持有<span id="amount">123,000</span>份 &nbsp; <span id="product">君得金28天期优先级（952208）</span></h3>
+					<h3>您当前持有<span id="amount">${asset.account!''}</span>份 &nbsp; <span id="product">${asset.product_name!''}（${asset.product_code!''}）</span></h3>
 				</div>
 				<div class="rules">
 					<div class="content">
 						<h5>交易规则：</h5>
-						<p>1. 君得金优先级产品最小持有份额为20万份</p>
+						<p>1.<span style="font-family:kaiti;color: #F99325;font-size: 17px;font-weight: bold;">${asset.product_name!''}</span> 最小持有份额为20万份</p>
 						<p>2. 您转让后剩余的份额必须大于200,000份或者为0</p>
 					</div>
 				</div>
@@ -74,7 +72,7 @@
 								<span>委托数量</span>
 								<input name="amount" class="exchange"></input>
 								<span>份</span>
-								<p>转让份数至少为<span class="red">1000</span>份，且需要为1000份的倍数</p>
+								<p>转让份数至少为<span class="red">1000</span>份</p>
 							</li>
 							<li>
 								<span>委托价格</span>
@@ -93,7 +91,7 @@
 								<a href="./transfer_confirm"><div class="button"></div></a>
 							</li>
 						</ul>
-						<div class="info">
+						<div class="info" style="display: none">
 							<h5>若本次转让成功</h5>
 							<ul>
 								<li><img src="/SpringMvcStudy/resource/images/images2/buy_icon.png"></img><p><span>2,038,000</span>元</p><p>我将获得现金</p></li>
