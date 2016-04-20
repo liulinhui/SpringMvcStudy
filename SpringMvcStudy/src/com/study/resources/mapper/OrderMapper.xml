@@ -33,4 +33,7 @@
 	<select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select * from user_order where user_code=#{user_code,jdbcType=VARCHAR} order by status,buy_time desc
 	</select>
+	<delete id="deleteOrder" parameterType="java.lang.String">  
+        delete from user_order where id = #{id,jdbcType=VARCHAR}  
+    </delete>
 </mapper>

@@ -1,6 +1,15 @@
-﻿.jiazai{
-	display:none;
+﻿.jiazai1{
+	font-weight: bold;font-family: kaiti;             
+    color:	#FFFFFF;
+    font-size: 16px;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+.jiazai{
 	position:fixed;
+    left:42%;
+	top: 40%;
 }
 .black_overlay{
     display: none;
@@ -27,6 +36,16 @@
     z-index:1002;
     overflow: auto;
 	border-radius: 78px;
+}
+.white_content2 {
+    display: none;
+    position: fixed;
+    top: 0%;
+    display:none;
+    width: 100%;
+    height: 100%;
+    z-index:1002;
+    overflow: auto;
 }
 .confirm_buy{
 height: 33px;

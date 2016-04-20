@@ -67,13 +67,15 @@
 	<div id="main">
 		<div class="inner">
 			<div class="blank"></div>
-			<div class="bill" style="-moz-user-select:-moz-none;"  onselectstart="return false;">
-				<div class="header" style="text-align: center;margin:0 auto;">
+			<div class="bill" style="-moz-user-select: -moz-none;"
+				onselectstart="return false;">
+				<div class="header" style="text-align: center; margin: 0 auto;">
 					<h3>您的订单详情</h3>
 				</div>
 				<table id="travel">
 					<thead>
-						<tr style="font-size:30px;font-family:Verdana;color:#6C6C6C;font-weight:bold">
+						<tr
+							style="font-size: 30px; font-family: Verdana; color: #6C6C6C; font-weight: bold">
 							<th scope="col" rowspan="2">产品名称</th>
 							<th scope="col" colspan="10">详细信息</th>
 						</tr>
@@ -92,39 +94,43 @@
 						</tr>
 					</thead>
 					<tbody>
-					<#if order??>
-					<#list order as item>
+						<#if order??> <#list order as item>
 						<tr>
-							<th scope="row" style="font-size:15px;font-weight: bold;font-family: kaiti;">${item.product_name!''}</th>
+							<th scope="row"
+								style="font-size: 15px; font-weight: bold; font-family: kaiti;">${item.product_name!''}</th>
 							<td>${item.product_code!''}</td>
 							<td>${item.reference_income!''}</td>
 							<td>${item.limit_time!''}</td>
 							<td>${item.buy_amount!''}</td>
 							<td>￥${item.price!''}</td>
 							<td>￥${item.price!''}</td>
-							<td>${item.buy_time!''}</td>
-							<#if item.risk=='1'>
-							<td>低</td>
-							</#if>
-							<#if item.risk=='2'>
-							<td>高</td>
-							</#if>
-							<#if item.status=='2'>
-							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">已付</a></td>
-							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">删除记录</a></td>
-							</#if>
-							<#if item.status=='1'>
-							<td><a href="javascript:void(0)" style="color: #ff7200;font-family: kaiti;font-size: 16px;font-weight: bold;">立即支付</a></td>
-							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">取消订单</a></td>
+							<td>${item.buy_time!''}</td> <#if item.risk=='1'>
+							<td>低</td> </#if> <#if item.risk=='2'>
+							<td>高</td> </#if> <#if item.status=='2'>
+							<td><a id=${item.id!''} class="underline"
+								href="javascript:void(0)"
+								style="font-size: 16px; font-weight: bold; font-family: kaiti;">已付</a></td>
+							<td><a id=${item.id!''} class="underline delete"
+								href="javascript:void(0)"
+								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
+							</#if> <#if item.status=='1'>
+							<td><a id=${item.id!''} class="underline"
+								href="javascript:void(0)"
+								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">立即支付</a></td>
+							<td><a id=${item.id!''} class="underline delete"
+								href="javascript:void(0)"
+								style="font-size: 16px; font-weight: bold; font-family: kaiti;">取消订单</a></td>
 							</#if>
 						</tr>
-					</#list>
-					</#if>
-					<#if order?size==0>
-					  <div style="margin: 276px;position: absolute;">
-                          <div style="color: #666666;">您暂时还没有任何产品,逛逛<a href="./otc" class="order"><img src="/SpringMvcStudy/resource/images/images2/exchange_market_button.png" style="margin: -10px 12px;"></img></a>吧</div>				  
-					  </div>
-					</#if>
+						</#list> </#if> <#if order?size==0>
+						<div style="margin: 276px; position: absolute;">
+							<div style="color: #666666;">
+								您暂时还没有任何产品,逛逛<a href="./otc" class="order"><img
+									src="/SpringMvcStudy/resource/images/images2/exchange_market_button.png"
+									style="margin: -10px 12px;"></img></a>吧
+							</div>
+						</div>
+						</#if>
 					</tbody>
 				</table>
 			</div>
@@ -138,6 +144,22 @@
 			}, function() {
 				$(this).removeClass('odd');
 			});
+			$('.delete').click(function() {
+				var id = $(this).attr("id");
+				$.ajax({
+					url : "./deleteOrder",
+					datetype : "json",
+					async : false, //设置为同步进行
+					data : {
+						id : id
+					},
+					type : "POST",
+					success : function(data) {
+						window.location.reload();
+					}
+				});
+			});
+
 		});
 	</script>
 	<div id="footer-nf">

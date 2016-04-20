@@ -34,10 +34,4 @@ $(document).ready(function(){
 	$('table tbody#otc tr').mouseout(function(){
 		$(this).removeClass('bg');
 	});
-	
-	$('td .cancelimg').click(function(){
-	  $('#show_div').show();
-	  $('#bg_div').show();
-	});
-	
 });

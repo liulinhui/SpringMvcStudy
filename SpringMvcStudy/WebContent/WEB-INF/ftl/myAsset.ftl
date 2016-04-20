@@ -127,7 +127,7 @@
 							</ul>
 							<#if item.status=="1">
 							<div class="footer">
-								<a href="#" class="action_button">立即转让</a>
+								<a href="./sell?id=${item.id!''}" class="action_button">立即转让</a>
 							</div>
 							</#if>
 							<#if item.status=="2">

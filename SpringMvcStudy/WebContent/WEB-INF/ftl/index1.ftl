@@ -12,10 +12,10 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/banner.css"/>
     <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/AlertDIV.css"/>
+      <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/lrtk.css"/>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
-    <script type="text/javascript" src="/SpringMvcStudy/resource/js/AlertDIV.js"></script> 
  </head>
 <body>
   <div class="header-top">
@@ -70,7 +70,7 @@
               <th style="width:40px;"></th>
               <th class="name">产品名称</th>
 							<th class="id">原预期年化<br>收益率</th>
-							<th class="rate">买入后参考 &nbsp;&nbsp; <br>年化收益率<a href="javascript:void(0)"><img class="filter" src="/SpringMvcStudy/resource/images/images2/filter_down_square.png"></img></a></th>
+							<th class="rate"><span>买入后参考</span><br><span>年化收益率</span><a style="position: absolute;margin: -9px -1px;height: 29px;" href="javascript:void(0)"><img class="filter" src="/SpringMvcStudy/resource/images/images2/filter_down_square.png"></img></a></th>
               <th class="period">剩余期限<a href="javascript:void(0)"><img class="filter" src="/SpringMvcStudy/resource/images/images2/filter_down_square.png"></img></a></th>    
               <th class="period">转让份额<a href="javascript:void(0)"><img class="filter" src="/SpringMvcStudy/resource/images/images2/filter_down_square.png"></img></a></th>    
 							<th class="amount">转让金额/元<a href="javascript:void(0)"><img class="filter" src="/SpringMvcStudy/resource/images/images2/filter_down_square.png"></img></a></th>
@@ -101,7 +101,7 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status cancel"><a id="${item.id!""}"  href="javascript:void(0);"  onclick="ShowDiv()"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status"><a class="status cancel" id="${item.id!""}"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
 							<td class="status"><a href="./buy?status=${item.state!''}&id=${item.id!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
 							<#if item.state=="2">
@@ -122,6 +122,7 @@
 <div id="Myfade" class="black_overlay">
 </div>
 <div id="MyDiv" class="white_content" style="position: fixed">
+
 <div class="con">
 <div class="content1"><a class="content2">撤&nbsp;单</a></div>
 </div>
@@ -134,11 +135,22 @@
 </ul>
 <hr/>
 <button class="confirm_buy" onclick="CloseDiv('MyDiv','Myfade')">确认</button>     
-<button class="cancel_buy" onclick="CloseDiv('MyDiv','Myfade')">取消</button>
+<button class="cancel_buy" onclick="CloseDiv1('MyDiv','Myfade')">取消</button>
 </div>
-<div id="jiazai" style="position: fixed">
-    <img src="/SpringMvcStudy/resource/images/jiazai.gif" alt="" />
+<div class="white_content2">
+<div><p class="jiazai1">正在撤单，请稍等...</p></div>
+<div class="container123">
+    <div class="warning123">
+    </div>
 </div>
+<!-- 
+<div class="jiazai">
+    <div><p class="jiazai1">正在撤单，请稍等...</p></div>
+    <img src="/SpringMvcStudy/resource/images/jiazai.gif"/>
+</div>
+ -->
+</div>
+
                     <!--弹出层  -->
 
   <div id="footer-nf">
@@ -154,5 +166,40 @@
       <p class="copyright">哈哈哈哈 copyright  © 2016 苗灿 大孙子</p>
     </div>
   </div>
+  <script>
+//  弹出隐藏层
+  function ShowDiv(){
+  	$('#MyDiv').show();
+  	$('#Myfade').show();
+  	$('#Myfade').height($(document).height());
+  	var id=$(this).attr("id");
+  };
+//  关闭弹出层
+  function CloseDiv(show_div,bg_div){	
+  	$('#MyDiv').hide();
+  	//$('#Myfade').hide();
+	$('.white_content2').show();
+  	var id=$(this).attr("id");
+  	 $.ajax({
+		  url:"./cancelProduct",
+		  datetype : "json",
+			 async : false,         //设置为同步进行
+			  data : {id : id },
+			  type : "POST",
+		   success : function(data) {
+				window.location.reload();			
+		   }		
+	  })
+
+  };
+  function CloseDiv1(show_div,bg_div)
+  {
+  	$('#MyDiv').hide();
+  	$('#Myfade').hide();
+  };
+  $('.cancel').click(function(){  
+	  ShowDiv();
+  });
+  </script> 
 </body>
 </html>

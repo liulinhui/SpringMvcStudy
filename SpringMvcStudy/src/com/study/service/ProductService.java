@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
 import com.study.bean.Product;
 import com.study.dao.ProductMapper;
 
@@ -28,5 +26,8 @@ public class ProductService {
 	public Product selectById(@Param("id")String id) {
 		Product product=productmapper.selectById(id);
 		return product;
+	}
+	public void cancel(String id){
+		productmapper.cancel(id);
 	}
 }

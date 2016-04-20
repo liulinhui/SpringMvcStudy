@@ -31,4 +31,8 @@
 		<include refid="Base_Column_List" />
 		from product 
 	</select>
+	<delete id="cancel" parameterType="java.lang.String">  
+        delete from product where id = #{id,jdbcType=VARCHAR}  
+    </delete>
+	
 </mapper>

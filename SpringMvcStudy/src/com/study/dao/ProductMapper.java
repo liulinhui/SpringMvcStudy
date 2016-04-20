@@ -10,4 +10,5 @@ public interface ProductMapper {
 	List<Product> selectAll();
 	void insert(Product product);
 	Product selectById(String id);
+	void cancel(String id);
 }

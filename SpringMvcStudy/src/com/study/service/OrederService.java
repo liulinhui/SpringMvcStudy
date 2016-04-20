@@ -20,5 +20,9 @@ public class OrederService {
 		List<Order>Orders=orderMapper.selectAll(user_code);
 		return Orders;
 	};
+	
+	public void deleteOrder(String id){
+		orderMapper.deleteOrder(id);
+	}
 
 }

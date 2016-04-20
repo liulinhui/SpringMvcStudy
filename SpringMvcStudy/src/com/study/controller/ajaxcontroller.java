@@ -124,4 +124,47 @@ public class ajaxcontroller {
 		}
 		return jsonObject;
 	}
+	
+	/**
+	 * 删除或者取消订单
+	 */
+	@RequestMapping(value = "/deleteOrder")
+	@ResponseBody
+	public JSONObject deleteOrder(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		String result="true";
+		try {
+			orderservice.deleteOrder(id);
+		} catch (Exception e) {
+			result="false";
+		}
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("result", result);
+		return jsonObject;
+		
+	} 
+	
+	
+//	/**
+//	 * 撤单
+//	 */
+//	@RequestMapping(value = "/cancelProduct")
+//	@ResponseBody
+//	public JSONObject cancelProduct(Model model, HttpServletRequest request){
+//		String id=request.getParameter("id");
+//		productService.cancel(id);
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
