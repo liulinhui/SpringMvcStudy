@@ -181,8 +181,8 @@ public class OtcmarketLoginController {
 		}
 		if (ID != null) { // 判断是否下一个页面为购买页面
 			returnUrl = returnUrl + "&id=" + ID;
-			Product product = productService.selectById(ID);
-			if (product.getUser_code().equals(user_code)) {
+			Product product1 = productService.selectById(ID);   //验证产品用户是否拥有
+			if (product1.getUser_code()==(user_code)) {
 				returnUrl = "/otc";
 			}
 		}

@@ -35,4 +35,9 @@ $(document).ready(function(){
 		$(this).removeClass('bg');
 	});
 	
+	$('td .cancelimg').click(function(){
+	  $('#show_div').show();
+	  $('#bg_div').show();
+	});
+	
 });

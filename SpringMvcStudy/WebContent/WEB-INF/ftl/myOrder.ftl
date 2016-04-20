@@ -75,7 +75,7 @@
 					<thead>
 						<tr style="font-size:30px;font-family:Verdana;color:#6C6C6C;font-weight:bold">
 							<th scope="col" rowspan="2">产品名称</th>
-							<th scope="col" colspan="9">详细信息</th>
+							<th scope="col" colspan="10">详细信息</th>
 						</tr>
 
 						<tr>
@@ -88,6 +88,7 @@
 							<th scope="col">买入时间</th>
 							<th scope="col">风险</th>
 							<th scope="col">状态</th>
+							<th scope="col">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -110,9 +111,11 @@
 							</#if>
 							<#if item.status=='2'>
 							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">已付</a></td>
+							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">删除记录</a></td>
 							</#if>
 							<#if item.status=='1'>
 							<td><a href="javascript:void(0)" style="color: #ff7200;font-family: kaiti;font-size: 16px;font-weight: bold;">立即支付</a></td>
+							<td><a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;font-family: kaiti;">取消订单</a></td>
 							</#if>
 						</tr>
 					</#list>

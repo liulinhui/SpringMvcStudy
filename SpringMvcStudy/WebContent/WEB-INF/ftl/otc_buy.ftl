@@ -23,9 +23,6 @@
 		src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
 	<script type="text/javascript"
 		src="/SpringMvcStudy/resource/js/index.js"></script>
-	<script type="text/javascript"
-		src="/SpringMvcStudy/resource/js/AlertDIV.js"></script>
-
 	<!--[if IE 6]>
   <script src="./js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
   <script type="text/javascript">
@@ -229,6 +226,10 @@
 				window.location.href = './confirm';
 			}
 		};
+		function CloseDiv(MyDiv,Myfade){
+			$('#MyDiv').hide();
+			$('#Myfade').hide();
+		}
 	</script>
 </body>
 </html>

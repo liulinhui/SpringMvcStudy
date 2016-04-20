@@ -85,7 +85,7 @@
           <a href="./buy">
           <#if products??>
           <#list products as item>
-            <tr >
+            <tr id="${item.id!""}">
               <td></td>
 							<td class="name"><img class="trans" src="/SpringMvcStudy/resource/images/images2/trans.png"></img>${item.product_name!""}<p>(代码：${item.product_code!"" })</p></td>
               <td class="id">${item.plan_income!"6.65" }%</td>
@@ -101,7 +101,7 @@
               </#if>
               <td class="start">${item.public_date!"2015/01/08"}</td>
                             <#if item.state=="0">
-							<td class="status cancel"><a href="javascript:void(0);"  onclick="ShowDiv('MyDiv','Myfade')"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
+							<td class="status cancel"><a id="${item.id!""}"  href="javascript:void(0);"  onclick="ShowDiv()"><img src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
 							<#if item.state=="1">
 							<td class="status"><a href="./buy?status=${item.state!''}&id=${item.id!''}"><img src="/SpringMvcStudy/resource/images/images2/buy_button.png"></img></a></td></#if>
 							<#if item.state=="2">
