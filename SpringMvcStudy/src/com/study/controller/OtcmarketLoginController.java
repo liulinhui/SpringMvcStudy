@@ -4,16 +4,13 @@ import java.math.BigInteger;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.study.bean.Asset;
 import com.study.bean.Product;
 import com.study.bean.RealUser;
@@ -22,7 +19,6 @@ import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.desToJs;
 import com.study.controller.ControllerHelp;
-import com.study.dao.AssetMapper;
 import com.study.service.AssetService;
 import com.study.service.ProductService;
 import com.study.service.RealUserService;
