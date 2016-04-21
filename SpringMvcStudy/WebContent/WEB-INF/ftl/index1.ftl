@@ -47,13 +47,10 @@
 			<a href="./otc" id="logo"><img
 				src="/SpringMvcStudy/resource/images/images2/logo.jpg"></a>
 			<div class="h-search">
-				<input type="text" id="s-input" placeholder="名称/代码" /> <a href=""
+				<input type="text" id="s-input" placeholder="名称/代码" /> <a 
 					id="s-btn" title="搜索">搜索</a>
 				<div id="s-result">
-					<ul style="list-style:none">
-						<li><a href="">我想理财马上开户</a></li>
-						<li><a href="">我想理财马上开户</a></li>
-						<li><a href="">我想理财马上开户</a></li>
+					<ul class="s-search" style="list-style:none">
 					</ul>
 				</div>
 			</div>

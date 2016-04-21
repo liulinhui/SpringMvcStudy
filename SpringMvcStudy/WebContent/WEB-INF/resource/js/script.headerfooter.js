@@ -92,7 +92,11 @@ $(function() {
 			 async : false,         // 设置为同步进行
 			  type : "POST",
 		   success : function(data) {
-                 alert(data.matchs);
+			   var childhtml="<li><a style="+"'display:none'"+">----</a></li>";
+			    $.each(data.matchs, function(i, item) {
+			      childhtml += '<li><a href='+'"./buy?status='+item.state+'&id='+item.id+'">'+item.product_name+'</li>';
+			   });
+			    $('.s-search').html(childhtml);
 		   }		
 		});
 		$('.h-search #s-result').addClass('opened').fadeIn();

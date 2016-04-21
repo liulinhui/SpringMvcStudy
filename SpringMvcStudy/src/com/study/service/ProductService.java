@@ -33,7 +33,7 @@ public class ProductService {
 	public void cancel(String id){
 		productmapper.cancel(id);
 	}
-	@Cacheable(value="myCache",key="#root.targetClass + #root.methodName")
+	@Cacheable(value="myCache",key="#root.methodName+#root.targetClass ")
 	public List<FuzzyMatch> selectMatchs(){
 		List<FuzzyMatch>fuzzyMatchs=productmapper.selectMatchs();
 		return fuzzyMatchs;
