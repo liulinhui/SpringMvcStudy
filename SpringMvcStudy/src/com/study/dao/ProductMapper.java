@@ -1,7 +1,10 @@
 package com.study.dao;
 
 import java.util.List;
+
 import org.springframework.stereotype.Component;
+
+import com.study.bean.FuzzyMatch;
 import com.study.bean.Product;
 
 
@@ -11,4 +14,5 @@ public interface ProductMapper {
 	void insert(Product product);
 	Product selectById(String id);
 	void cancel(String id);
+	List<FuzzyMatch>selectMatchs();
 }

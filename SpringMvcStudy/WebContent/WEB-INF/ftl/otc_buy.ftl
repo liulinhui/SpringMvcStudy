@@ -200,6 +200,7 @@
 		function buy() {
 			var allAccount = $("#s1").val(); //购买数量 
 			var identy = $(".identy").val();
+			var total_money=$('.allAccount').val();
 			if (allAccount == 0) {
 				return false;
 			}
@@ -207,11 +208,12 @@
 			//判断购买数量是否超出范围
 			$.ajax({
 				url : "./confirmAccount",
-				datetype : "json",
+				datatype : "json",
 				async : false, //设置为同步进行
 				data : {
 					allAccount : allAccount,
-					id : identy
+					id : identy,
+					total_money:total_money
 				},
 				type : "POST",
 				success : function(data) {

@@ -28,6 +28,7 @@ public class RealUserService {
 	}
 	
 	public List<String> selectAllUsercode(String user_code){
+		System.out.println("============================模糊匹配");
 		List<String>strings=realusermapper.selectAllUsercode(user_code);
 		return strings;
 	}

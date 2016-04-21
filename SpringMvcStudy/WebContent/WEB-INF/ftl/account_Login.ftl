@@ -49,7 +49,7 @@
 		var pasw=$('.password').val();
 		$.ajax({
 			url: "./ajaxAccount_login",
-			datetype:"json",
+			datatype:"json",
 			type:"GET",
 			success:function(date){
 			key1=date.key1;

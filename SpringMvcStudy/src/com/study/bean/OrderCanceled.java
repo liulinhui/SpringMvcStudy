@@ -1,6 +1,6 @@
 package com.study.bean;
 import java.io.Serializable;
-public class Order implements Serializable {
+public class OrderCanceled implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id;  //产品ID
 	private String user_code;  //用户名

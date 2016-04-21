@@ -1,9 +1,8 @@
 package com.study.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.alibaba.fastjson.JSONObject;
+import com.study.bean.FuzzyMatch;
 import com.study.bean.Order;
 import com.study.bean.Product;
 import com.study.common.MD5;
 import com.study.common.RSAUtil;
+import com.study.common.fuzzyMatch;
 import com.study.service.OrederService;
 import com.study.service.ProductService;
 import com.study.service.RealUserService;
@@ -33,6 +33,7 @@ public class ajaxcontroller {
 	private  ProductService productService;
 	@Autowired
 	private  OrederService orderservice;
+	fuzzyMatch fuzzy;
 
 	/* 登录页面请求产生密钥 */
 	@RequestMapping(value = "/ajaxAccount_login")
@@ -100,6 +101,7 @@ public class ajaxcontroller {
 	public JSONObject confirmAccount(Model model, HttpServletRequest request) {
 		int allAccount = Integer.parseInt(request.getParameter("allAccount"));
 		String id = request.getParameter("id");
+		Double total_money=Double.parseDouble(request.getParameter("total_money"));
 		Product product = productService.selectById(id);
 		JSONObject jsonObject = new JSONObject();
 		if (allAccount > product.getRest_account()) {
@@ -109,6 +111,7 @@ public class ajaxcontroller {
 			Order order = new Order();
 			order.setId(product.getId());
 			order.setBuy_amount(allAccount);
+			order.setTotal_money(total_money);
 			order.setBuy_time(controllerhellp.Reg_time());
 			order.setLimit_time(product.getLimit_time());
 			order.setProduct_code(product.getProduct_code());
@@ -144,6 +147,42 @@ public class ajaxcontroller {
 		
 	} 
 	
+	/**
+	 * 查询撤销产品
+	 */
+	@RequestMapping(value = "/choseCancelPro")
+	@ResponseBody
+	public JSONObject choseCancelPro(Model model, HttpServletRequest request){
+		JSONObject jsonObject = new JSONObject();
+		String id=request.getParameter("id");
+		Product product=productService.selectById(id);
+		jsonObject.put("product", product);
+		return jsonObject;
+	}
+	
+	/**
+	 * 模糊匹配
+	 */
+	@SuppressWarnings("static-access")
+	@RequestMapping(value = "/fuzzyMatch")
+	@ResponseBody
+	public JSONObject fuzzyMatch(Model model, HttpServletRequest request) throws Exception{
+		String info=request.getParameter("info");
+		JSONObject jsonObject = new JSONObject();
+		List<FuzzyMatch>fuzzyMatchs=productService.selectMatchs();
+		List<FuzzyMatch>matchs=new ArrayList<FuzzyMatch>();
+		if (info.equals("")) {
+			return null;
+		}
+		for(FuzzyMatch fuzzyMatch:fuzzyMatchs){
+			String combain=fuzzyMatch.getProduct_code()+fuzzyMatch.getProduct_name();
+			if (fuzzy.match(info,combain)) {
+				matchs.add(fuzzyMatch);
+			}
+		}
+		jsonObject.put("matchs", matchs);
+		return jsonObject;
+	}
 	
 //	/**
 //	 * 撤单

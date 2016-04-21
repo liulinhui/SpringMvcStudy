@@ -103,7 +103,7 @@
 							<td>${item.limit_time!''}</td>
 							<td>${item.buy_amount!''}</td>
 							<td>￥${item.price!''}</td>
-							<td>￥${item.price!''}</td>
+							<td>￥${item.total_money!''}</td>
 							<td>${item.buy_time!''}</td> <#if item.risk=='1'>
 							<td>低</td> </#if> <#if item.risk=='2'>
 							<td>高</td> </#if> <#if item.status=='2'>
@@ -148,7 +148,7 @@
 				var id = $(this).attr("id");
 				$.ajax({
 					url : "./deleteOrder",
-					datetype : "json",
+					datatype : "json",
 					async : false, //设置为同步进行
 					data : {
 						id : id

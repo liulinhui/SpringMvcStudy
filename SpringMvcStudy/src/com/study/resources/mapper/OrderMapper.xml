@@ -10,12 +10,13 @@
 		<result column="limit_time" jdbcType="VARCHAR" property="limit_time" />
 		<result column="buy_amount" jdbcType="DECIMAL" property="buy_amount" />
 		<result column="price" jdbcType="DOUBLE" property="price" />
+		<result column="total_money" jdbcType="DOUBLE" property="total_money" />
 		<result column="buy_time" jdbcType="VARCHAR" property="buy_time" />
 		<result column="risk" jdbcType="CHAR" property="risk" />
         <result column="status" jdbcType="CHAR" property="status" />     
 	</resultMap>	
 	<insert id="insert" parameterType="com.study.bean.Order">
-		insert into user_order(id,user_code,product_name,product_code,reference_income,limit_time,buy_amount,price,buy_time,risk,status)
+		insert into user_order(id,user_code,product_name,product_code,reference_income,limit_time,buy_amount,price,total_money,buy_time,risk,status)
 		values (
 		#{id,jdbcType=VARCHAR},
 		#{user_code,jdbcType=VARCHAR},
@@ -25,6 +26,7 @@
 		#{limit_time,jdbcType=VARCHAR},
 		#{buy_amount,jdbcType=DECIMAL},
 		#{price,jdbcType=DOUBLE},
+		#{total_money,jdbcType=DOUBLE},
 		#{buy_time,jdbcType=VARCHAR},
 		#{risk,jdbcType=CHAR},
 		#{status,jdbcType=CHAR}
