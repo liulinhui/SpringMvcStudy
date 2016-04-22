@@ -17,6 +17,7 @@ import com.study.bean.Product;
 import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.fuzzyMatch;
+import com.study.common.TransPinYin;
 import com.study.service.OrederService;
 import com.study.service.ProductService;
 import com.study.service.RealUserService;
@@ -34,6 +35,7 @@ public class ajaxcontroller {
 	@Autowired
 	private  OrederService orderservice;
 	fuzzyMatch fuzzy;
+	TransPinYin transPinYinin = new TransPinYin();
 
 	/* 登录页面请求产生密钥 */
 	@RequestMapping(value = "/ajaxAccount_login")
@@ -175,7 +177,7 @@ public class ajaxcontroller {
 			return null;
 		}
 		for(FuzzyMatch fuzzyMatch:fuzzyMatchs){
-			String combain=fuzzyMatch.getProduct_code()+fuzzyMatch.getProduct_name();
+			String combain=fuzzyMatch.getProduct_code()+transPinYinin.trans2PinYin(fuzzyMatch.getProduct_name())+fuzzyMatch.getProduct_name();
 			if (fuzzy.match(info,combain)) {
 				matchs.add(fuzzyMatch);
 			}

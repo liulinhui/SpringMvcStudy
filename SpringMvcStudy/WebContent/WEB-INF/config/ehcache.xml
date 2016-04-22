@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache dynamicConfig="false" monitoring="off" updateCheck="false"  
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd"> 
-	<!--<diskStore path="java.io.tmpdir" />  -->
+<ehcache dynamicConfig="false" monitoring="off" updateCheck="false"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<!--<diskStore path="java.io.tmpdir" /> -->
 	<diskStore path="e:\\cache" />
-	<cache name="myCache" 
-	    maxElementsOnDisk="20000"
-		maxElementsInMemory="2000" 
-		eternal="true" 
-		overflowToDisk="true"
-		diskPersistent="true"
-	    memoryStoreEvictionPolicy="LFU" />
+	<cache name="myCache" maxElementsOnDisk="0" maxElementsInMemory="2000"
+		eternal="false" timeToIdleSeconds="900" timeToLiveSeconds="900"
+		overflowToDisk="true" diskPersistent="true" memoryStoreEvictionPolicy="LFU" />
 
 	<!-- 定义缓存策略 eternal="false" // 元素是否永恒,如果是就永不过期(必须设置) maxEntriesLocalHeap="1000" 
 		// 堆内存中最大缓存对象数,0没有限制(必须设置) overflowToDisk="false" // 当缓存达到maxElementsInMemory值是,是否允许溢出到磁盘(必须设置) 

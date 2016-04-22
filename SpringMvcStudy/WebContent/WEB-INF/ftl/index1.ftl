@@ -50,7 +50,7 @@
 				<input type="text" id="s-input" placeholder="名称/代码" /> <a 
 					id="s-btn" title="搜索">搜索</a>
 				<div id="s-result">
-					<ul class="s-search" style="list-style:none">
+					<ul class="s-search" style="list-style:none;height: 165px;overflow: scroll;">
 					</ul>
 				</div>
 			</div>
