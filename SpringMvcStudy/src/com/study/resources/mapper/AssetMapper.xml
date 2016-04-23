@@ -29,4 +29,7 @@
 		select * from asset where
 		id=#{id,jdbcType=VARCHAR}
 	</select>
+	<update id="updateStstus" parameterType="java.lang.String">
+	    update asset set status='1' where id=#{id,jdbcType=VARCHAR}    
+	</update>
 </mapper>

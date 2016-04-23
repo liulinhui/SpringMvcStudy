@@ -38,4 +38,7 @@
 	<delete id="deleteOrder" parameterType="java.lang.String">  
         delete from user_order where id = #{id,jdbcType=VARCHAR}  
     </delete>
+    <update id="updateOrder" parameterType="com.study.bean.Order">
+	    update user_order set status='3' where id=#{id,jdbcType=VARCHAR}    
+	</update>
 </mapper>

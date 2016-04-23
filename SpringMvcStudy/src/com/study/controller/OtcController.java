@@ -15,7 +15,7 @@ import com.study.bean.Asset;
 import com.study.bean.Order;
 import com.study.bean.RealUser;
 import com.study.service.AssetService;
-import com.study.service.OrederService;
+import com.study.service.OrderService;
 import com.study.service.RealUserService;
 
 
@@ -25,7 +25,7 @@ public class OtcController {
 	@Autowired
 	private RealUserService realUserService;
 	@Autowired
-	private OrederService orderservice;
+	private OrderService orderservice;
 	@Autowired
 	private AssetService assetservice;
 	

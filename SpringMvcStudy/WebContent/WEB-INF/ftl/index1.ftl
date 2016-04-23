@@ -167,8 +167,8 @@
 						</h2></a></li>
 			</ul>
 			<hr />
-			<button class="confirm_buy" onclick="CloseDiv('MyDiv','Myfade')">确认</button>
-			<button class="cancel_buy" onclick="CloseDiv1('MyDiv','Myfade')">取消</button>
+			<button id="" class="confirm_buy" ><a style="color:#FF8000;" href="javascript:vooid(0)">确认</a></button>
+			<button class="cancel_buy" onclick="CloseDiv1('MyDiv','Myfade')"><a style="color:#FF8000;" href="javascript:vooid(0)">取消</a></button>
 		</div>
 		<div class="white_content2">
 			<div>
@@ -177,12 +177,6 @@
 			<div class="container123">
 				<div class="warning123"></div>
 			</div>
-			<!-- 
-<div class="jiazai">
-    <div><p class="jiazai1">正在撤单，请稍等...</p></div>
-    <img src="/SpringMvcStudy/resource/images/jiazai.gif"/>
-</div>
- -->
 		</div>
 
 		<!--弹出层  -->
@@ -219,8 +213,8 @@
   	var id=$(this).attr("id");
   };
 //  关闭弹出层
-  function CloseDiv(show_div,bg_div){	
-  	$('#MyDiv').hide();
+$('.confirm_buy').click(function(){
+	$('#MyDiv').hide();
   	//$('#Myfade').hide();
 	$('.white_content2').show();
   	var id=$(this).attr("id");
@@ -231,11 +225,23 @@
 			  data : {id : id },
 			  type : "POST",
 		   success : function(data) {
-				window.location.reload();			
+				if (data.result=="true") {
+					setTimeout(function(){
+						$('.white_content2').hide();
+						$('#Myfade').hide();
+						window.location.reload();
+					},2000);
+				}else if (data.result=="false") {
+					setTimeout(function(){
+						alert("撤单失败，请稍后再试 ");
+						$('.white_content2').hide();
+						$('#Myfade').hide();
+						window.location.reload();
+					},2000);
+				}			
 		   }		
-	  })
-
-  };
+	  });
+});
   function CloseDiv1(show_div,bg_div)
   {
   	$('#MyDiv').hide();
@@ -257,6 +263,7 @@
 			   $('.xiangxi2').text(product.product_name);
 			   $('.xiangxi3').text(product.rest_account);
 			   $('.xiangxi4').text(product.public_date);
+			   $('.confirm_buy').attr("id",product.id);
 			   ShowDiv();
 		   }		
 	  });

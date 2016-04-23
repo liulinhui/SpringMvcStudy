@@ -8,7 +8,7 @@ import com.study.bean.Order;
 import com.study.dao.OrderMapper;
 
 @Service
-public class OrederService {
+public class OrderService {
 	@Autowired
 	OrderMapper orderMapper;
 	
@@ -23,6 +23,10 @@ public class OrederService {
 	
 	public void deleteOrder(String id){
 		orderMapper.deleteOrder(id);
+	}
+	
+	public void updateOrder(String id){
+		orderMapper.updateOrder(id);
 	}
 
 }

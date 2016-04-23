@@ -2,7 +2,9 @@ package com.study.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.alibaba.fastjson.JSONObject;
 import com.study.bean.FuzzyMatch;
 import com.study.bean.Order;
@@ -18,7 +21,9 @@ import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.fuzzyMatch;
 import com.study.common.TransPinYin;
-import com.study.service.OrederService;
+import com.study.service.AssetService;
+import com.study.service.OldProductService;
+import com.study.service.OrderService;
 import com.study.service.ProductService;
 import com.study.service.RealUserService;
 
@@ -33,7 +38,11 @@ public class ajaxcontroller {
 	@Autowired
 	private  ProductService productService;
 	@Autowired
-	private  OrederService orderservice;
+	private  AssetService assetService;
+	@Autowired
+	private  OrderService orderservice;
+	@Autowired
+	private  OldProductService oldProductService;
 	fuzzyMatch fuzzy;
 	TransPinYin transPinYinin = new TransPinYin();
 
@@ -186,15 +195,29 @@ public class ajaxcontroller {
 		return jsonObject;
 	}
 	
-//	/**
-//	 * 撤单
-//	 */
-//	@RequestMapping(value = "/cancelProduct")
-//	@ResponseBody
-//	public JSONObject cancelProduct(Model model, HttpServletRequest request){
-//		String id=request.getParameter("id");
-//		productService.cancel(id);
-//	}
+	/**
+	 * 撤单
+	 */
+	@RequestMapping(value = "/cancelProduct")
+	@ResponseBody
+	public JSONObject cancelProduct(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		String result="true";
+		try {
+			Product product=productService.selectById(id);
+			oldProductService.insertOldProduct(product);
+			assetService.updateStatus(id);
+			orderservice.updateOrder(id);
+			productService.cancel(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result="false";
+		}
+		JSONObject jsonObject=new JSONObject();
+		jsonObject.put("result", result);
+		return jsonObject;		
+	}
 	
 	
 	

@@ -104,16 +104,22 @@
 							<td>${item.buy_amount!''}</td>
 							<td>￥${item.price!''}</td>
 							<td>￥${item.total_money!''}</td>
-							<td>${item.buy_time!''}</td> <#if item.risk=='1'>
-							<td>低</td> </#if> <#if item.risk=='2'>
-							<td>高</td> </#if> <#if item.status=='2'>
+							<td>${item.buy_time!''}</td> 
+							<#if item.risk=='1'>
+							<td>低</td>
+							 </#if> 
+							<#if item.risk=='2'>
+							<td>高</td> 
+							</#if> 
+							<#if item.status=='2'>
 							<td><a id=${item.id!''} class="underline"
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">已付</a></td>
 							<td><a id=${item.id!''} class="underline delete"
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
-							</#if> <#if item.status=='1'>
+							</#if>
+							 <#if item.status=='1'>
 							<td><a id=${item.id!''} class="underline"
 								href="javascript:void(0)"
 								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">立即支付</a></td>
@@ -121,8 +127,16 @@
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">取消订单</a></td>
 							</#if>
+							<#if item.status=='3'>
+							<td><a id=${item.id!''} class="underline"
+								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">交易停止</a></td>
+							<td><a id=${item.id!''} class="underline delete"
+								style="font-size: 16px; font-weight: bold; font-family: kaiti;">交易停止</a></td>
+							</#if>
 						</tr>
-						</#list> </#if> <#if order?size==0>
+						</#list> 
+						</#if> 
+						<#if order?size==0>
 						<div style="margin: 276px; position: absolute;">
 							<div style="color: #666666;">
 								您暂时还没有任何产品,逛逛<a href="./otc" class="order"><img

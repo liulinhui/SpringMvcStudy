@@ -26,5 +26,9 @@ public class AssetService {
 		Asset asset=assetMapper.selectProductById(id);
 		return asset;
 	}
+	
+	public void updateStatus(String id){
+		assetMapper.updateStstus(id);
+	}
 
 }
