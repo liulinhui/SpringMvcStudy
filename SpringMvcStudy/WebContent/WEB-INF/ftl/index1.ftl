@@ -119,8 +119,8 @@
 									<#if item.risk=="1">
 									<td class="risk">低</td> </#if> <#if item.risk=="2">
 									<td class="risk">高</td> </#if>
-									<td class="start">${item.public_date!"2015/01/08"}</td> <#if
-									item.state=="0">
+									<td class="start">${item.public_date!"2015/01/08"}</td>
+									<#if item.state=="0">
 									<td class="status"><a class="status cancel"
 										id="${item.id!""}"><img
 											src="/SpringMvcStudy/resource/images/images2/cancel_button.png"></img></a></td></#if>
@@ -157,7 +157,7 @@
 							产品代码:<span class="xiangxi1 xiangxi">12315</span>
 						</h2></a></li>
 				<li><a><h2>
-							产品名称:<span class="xiangxi2 xiangxi">12315</span>
+							产品名称:<span class="xiangxi2 xiangxi" style="font-size: 17px;">12315</span>
 						</h2></a></li>
 				<li><a><h2>
 							剩余数量:<span class="xiangxi3 xiangxi">12315</span>
@@ -167,8 +167,8 @@
 						</h2></a></li>
 			</ul>
 			<hr />
-			<button id="" class="confirm_buy" ><a style="color:#FF8000;" href="javascript:vooid(0)">确认</a></button>
-			<button class="cancel_buy" onclick="CloseDiv1('MyDiv','Myfade')"><a style="color:#FF8000;" href="javascript:vooid(0)">取消</a></button>
+			<button id="" class="confirm_buy" ><a style="color:#FF8000;" href="javascript:void(0)">确认</a></button>
+			<button class="cancel_buy" onclick="CloseDiv1('MyDiv','Myfade')"><a style="color:#FF8000;" href="javascript:void(0)">取消</a></button>
 		</div>
 		<div class="white_content2">
 			<div>
@@ -221,7 +221,7 @@ $('.confirm_buy').click(function(){
   	 $.ajax({
 		  url:"./cancelProduct",
 		  datatype : "json",
-			 async : false,         //设置为同步进行
+			 async : false,         //设置为同步
 			  data : {id : id },
 			  type : "POST",
 		   success : function(data) {
@@ -250,7 +250,6 @@ $('.confirm_buy').click(function(){
   $('.cancel').click(function(){
 	  var id=$(this).attr("id");
 	  var product;
-	 
 	  $.ajax({
 		  url:"./choseCancelPro",
 		  datatype : "json",

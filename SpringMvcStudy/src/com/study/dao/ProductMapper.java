@@ -15,4 +15,5 @@ public interface ProductMapper {
 	Product selectById(String id);
 	void cancel(String id);
 	List<FuzzyMatch>selectMatchs();
+	void update(Product product);
 }

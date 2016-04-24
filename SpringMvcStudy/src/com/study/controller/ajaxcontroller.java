@@ -1,5 +1,6 @@
 package com.study.controller;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.study.bean.Asset;
 import com.study.bean.FuzzyMatch;
 import com.study.bean.Order;
 import com.study.bean.Product;
+import com.study.bean.RealUser;
 import com.study.common.MD5;
 import com.study.common.RSAUtil;
 import com.study.common.fuzzyMatch;
@@ -219,16 +222,60 @@ public class ajaxcontroller {
 		return jsonObject;		
 	}
 	
+	/**
+	 * 获取支付信息支付
+	 */
+	@RequestMapping(value = "/pay")
+	@ResponseBody
+	public JSONObject pay(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		Order order=orderservice.seleOrderById(id);
+		JSONObject jsonObject=new JSONObject();
+		jsonObject.put("order", order);
+		return jsonObject;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 确认购买
+	 */
+	@RequestMapping(value = "/confirmPay")
+	@ResponseBody
+	public JSONObject confirmPay(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		JSONObject jsonObject=new JSONObject();
+		String state="true";   
+		Order order=orderservice.seleOrderById(id);
+		BigDecimal TotalAccount=new BigDecimal(order.getTotal_money());   //需要支付的金额
+		BigDecimal Asset=new BigDecimal((double) realUserService.selectByCode(request.getSession().getAttribute("user_code").toString()).getUser_asset());  //用户拥有的金额
+		if (TotalAccount.compareTo(Asset)==1) {             //资金不足
+			state="false";
+			jsonObject.put("result", state);
+			return jsonObject;
+		}
+		Product product=productService.selectById(id);
+		product.setRest_account(product.getTransfer_account()-order.getBuy_amount());
+		if (product.getRest_account()==0) {      //买完了
+			product.setState('2');
+		}
+		RealUser realUser=realUserService.selectByCode(request.getSession().getAttribute("user_code").toString());
+		realUser.setUser_asset(realUser.getUser_asset()-order.getTotal_money());  //更新用户资产
+		realUserService.update(realUser);    //更新用户资产
+		productService.update(product);     //更新转让市场产品信息
+		//更新个人产品
+		Asset asset=new Asset(); 
+		asset.setId(MD5.GetMD5Code(Long.toString(System.currentTimeMillis())));
+		asset.setUser_name(realUser.getUser_name());
+		asset.setUser_code(realUser.getUser_code());
+		asset.setProduct_name(product.getProduct_name());
+		asset.setProduct_code(product.getProduct_code());
+		asset.setLimit_time(product.getLimit_time());
+		asset.setAccount(order.getBuy_amount());
+		asset.setBuy_time(controllerhellp.Reg_time());
+		asset.setRisk(product.getRisk());
+		asset.setStatus('1');
+		asset.setPlan_income(product.getPlan_income());
+		assetService.insertProduct(asset);
+		jsonObject.put("result", state);
+		return jsonObject;
+	}
 }

@@ -130,7 +130,7 @@
 						<h5>投资金额</h5>
 					</div>
 					<div class="warn">
-						<h5 style="margin-left: 21px;">
+						<h5 style="margin-left: 10px;">
 							当前可用资金：<span id="amount">${RestMoney!"" }</span>元
 						</h5>
 						<a href="./AccountRecharge"><span id="recharge"></span></a>

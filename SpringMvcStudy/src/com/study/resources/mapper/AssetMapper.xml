@@ -32,4 +32,20 @@
 	<update id="updateStstus" parameterType="java.lang.String">
 	    update asset set status='1' where id=#{id,jdbcType=VARCHAR}    
 	</update>
+	<insert id="insertProduct" parameterType="com.study.bean.Asset">
+		insert into user_asset(id,user_name,user_code,product_name,product_code,limit_time,account,risk,status,buy_time,plan_income)
+		values (
+		#{id,jdbcType=VARCHAR},
+		#{user_name,jdbcType=VARCHAR},
+		#{user_code,jdbcType=VARCHAR},
+		#{product_name,jdbcType=VARCHAR},
+		#{product_code,jdbcType=VARCHAR},
+		#{limit_time,jdbcType=VARCHAR},
+		#{account,jdbcType=DECIMAL},
+		#{risk,jdbcType=CHAR},
+		#{status,jdbcType=CHAR},
+		#{buy_time,jdbcType=VARCHAR},
+		#{plan_income,jdbcType=DOUBLE}		
+		)
+	</insert>
 </mapper>

@@ -30,5 +30,9 @@ public class AssetService {
 	public void updateStatus(String id){
 		assetMapper.updateStstus(id);
 	}
+	
+	public void insertProduct(Asset asset){
+		assetMapper.insertProduct(asset);
+	}
 
 }

@@ -151,10 +151,10 @@ public class OtcController {
 			
 			user_returnUrl = "AccountRecharge.ftl";
 		}else {
-			Integer amount = Integer.parseInt(request.getParameter("amount"),10);
+			Double amount = Double.parseDouble(request.getParameter("amount"));
 			System.out.println("----------输入充值的数量为："+amount);
 			RealUser user1 = new RealUser();
-			int oldAsset=realUserService.selectByCode(user_code).getUser_asset();
+			Double oldAsset=realUserService.selectByCode(user_code).getUser_asset();
 			user1.setUser_code(user_code);
 			user1.setUser_password(user_password);
 			user1.setUser_asset(amount+oldAsset);

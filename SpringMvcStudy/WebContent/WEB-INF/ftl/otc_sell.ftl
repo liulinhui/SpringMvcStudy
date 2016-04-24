@@ -87,11 +87,11 @@
 								<span class="checkbox" ></span>
 								<p class="read">我已阅读<a href="./protocol" target="_blank">相关协议</a>并同意开通OTC交易权限</p>
 							</li>
-							<li>
+							
 								<a href="./transfer_confirm"><div class="button"></div></a>
-							</li>
+							
 						</ul>
-						<div class="info" style="display: none">
+						<div class="info" style="display: block;">
 							<h5>若本次转让成功</h5>
 							<ul>
 								<li><img src="/SpringMvcStudy/resource/images/images2/buy_icon.png"></img><p><span>2,038,000</span>元</p><p>我将获得现金</p></li>

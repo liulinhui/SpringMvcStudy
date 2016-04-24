@@ -38,4 +38,8 @@ public class ProductService {
 		List<FuzzyMatch>fuzzyMatchs=productmapper.selectMatchs();
 		return fuzzyMatchs;
 	}
+	
+	public void update(Product product){
+		productmapper.update(product);
+	}
 }

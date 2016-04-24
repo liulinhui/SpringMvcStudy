@@ -68,7 +68,7 @@ public class OtcmarketLoginController {
 				&& state[0] == '1') {
 			RealUser realUser = realUserService.selectByCode(request
 					.getSession().getAttribute("user_code").toString()); // 查询用户资金
-			int RestMoney = realUser.getUser_asset();
+			Double RestMoney = realUser.getUser_asset();
 			logger.info("============================================="
 					+ RestMoney);
 			model.addAttribute("RestMoney", RestMoney);

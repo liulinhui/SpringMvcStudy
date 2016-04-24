@@ -17,6 +17,10 @@
 		href="/SpringMvcStudy/resource/css/headerfooter.css" />
 	<link rel="stylesheet" type="text/css"
 		href="/SpringMvcStudy/resource/css/table.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/AlertDIV.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/SpringMvcStudy/resource/css/lrtk.css" />
 	<script type="text/javascript"
 		src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript"
@@ -99,7 +103,7 @@
 							<th scope="row"
 								style="font-size: 15px; font-weight: bold; font-family: kaiti;">${item.product_name!''}</th>
 							<td>${item.product_code!''}</td>
-							<td>${item.reference_income!''}</td>
+							<td>${item.reference_income!''}&nbsp%</td>
 							<td>${item.limit_time!''}</td>
 							<td>${item.buy_amount!''}</td>
 							<td>￥${item.price!''}</td>
@@ -113,14 +117,13 @@
 							</#if> 
 							<#if item.status=='2'>
 							<td><a id=${item.id!''} class="underline"
-								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">已付</a></td>
 							<td><a id=${item.id!''} class="underline delete"
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
 							</#if>
 							 <#if item.status=='1'>
-							<td><a id=${item.id!''} class="underline"
+							<td><a id=${item.id!''} class="underline payNow"
 								href="javascript:void(0)"
 								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">立即支付</a></td>
 							<td><a id=${item.id!''} class="underline delete"
@@ -130,8 +133,8 @@
 							<#if item.status=='3'>
 							<td><a id=${item.id!''} class="underline"
 								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">交易停止</a></td>
-							<td><a id=${item.id!''} class="underline delete"
-								style="font-size: 16px; font-weight: bold; font-family: kaiti;">交易停止</a></td>
+							<td><a id=${item.id!''} class="underline"
+								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
 							</#if>
 						</tr>
 						</#list> 
@@ -151,14 +154,62 @@
 		</div>
 		<div class="blank"></div>
 	</div>
+	<!--弹出层  -->
+		<!--弹出层时背景层DIV-->
+		<div id="Myfade" class="black_overlay"></div>
+		<div id="MyDiv" class="white_content">
+			<div class="con">
+				<div class="content1">
+					<a class="content2">支&nbsp;付</a>
+				</div>
+			</div>
+			<hr />
+			<ul style="list-style: none;">
+				<li><a><h2>
+							产品代码:<span class="xiangxi1 xiangxi"></span>
+						</h2></a></li>
+				<li><a><h2>
+							产品名称:<span class="xiangxi2 xiangxi" style="font-size: 17px;"></span>
+						</h2></a></li>
+				<li><a><h2>
+							购买数量:<span class="xiangxi3 xiangxi"></span>
+						</h2></a></li>
+				<li><a><h2>
+							支付金额:<span class="xiangxi4 xiangxi"></span>
+						</h2></a></li>
+			</ul>
+			<hr />
+			<button id="" class="confirm_pay" ><a style="color:#FF8000;" href="javascript:void(0)">确认</a></button>
+			<button class="cancel_pay"><a style="color:#FF8000;" href="javascript:void(0)">取消</a></button>
+		</div>
+		<div class="white_content2">
+			<div>
+				<p class="jiazai1">正在支付，请稍等...</p>
+			</div>
+			<div class="container123">
+				<div class="warning123"></div>
+			</div>
+		</div>
+		<div class="white_content3">
+             
+		</div>
+
+		<!--弹出层  -->
 	<script>
 		$(document).ready(function() {
+		     //  弹出隐藏层
+			  function ShowDiv(){
+			  	$('#MyDiv').show();
+			  	$('#Myfade').show();
+			  	$('#Myfade').height($(document).height());
+			  };
+			  
 			$('tbody tr').hover(function() {
 				$(this).addClass('odd');
 			}, function() {
 				$(this).removeClass('odd');
 			});
-			$('.delete').click(function() {
+			$('.delete').click(function() {    //取消订单
 				var id = $(this).attr("id");
 				$.ajax({
 					url : "./deleteOrder",
@@ -173,7 +224,59 @@
 					}
 				});
 			});
-
+			//获取支付产品信息
+			$('.payNow').click(function(){
+				var id=$(this).attr("id");
+				var product;
+				$.ajax({
+					url:"./pay",
+					datatype:"json",
+					async:false,
+					data:{id:id},
+					type:"POST",
+					success:function(data){
+						product=data.order;
+						$('.xiangxi1').text(product.product_code);
+						$('.xiangxi2').text(product.product_name);
+						$('.xiangxi3').text(product.buy_amount);
+						$('.xiangxi4').text(product.total_money+"元");
+						$('.confirm_pay').attr("id",product.id);
+						ShowDiv();
+					}
+				})
+			});
+			//取消购买，关闭弹窗
+			$('.cancel_pay').click(function(){
+				$('#MyDiv').hide();
+			  	$('#Myfade').hide();
+			});
+			//确认购买
+			$('.confirm_pay').click(function(){
+				$('#MyDiv').hide();
+				$('.white_content2').show();
+				var id=$(this).attr("id");
+				var state;
+				$.ajax({
+					url:"./confirmPay",
+					datatype:"json",
+					async:false,
+					data:{id:id},
+					type:"POST",
+					success:function(data){
+						state=data.result;
+						if (state=="false") {
+							$('.white_content2').hide();
+							$('.white_content3').show();
+						}else{
+							setTimeout(function(){
+								$('.white_content2').hide();
+								$('#Myfade').hide();
+								window.location.reload();
+							},2000);
+						}
+					}
+				})
+			});
 		});
 	</script>
 	<div id="footer-nf">

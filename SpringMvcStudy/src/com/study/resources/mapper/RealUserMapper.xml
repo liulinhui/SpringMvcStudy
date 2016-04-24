@@ -5,7 +5,7 @@
 		<result column="user_name" jdbcType="VARCHAR" property="user_name" />
 		<result column="user_password" jdbcType="VARCHAR" property="user_password" />
 		<result column="user_code" jdbcType="VARCHAR" property="user_code" />
-		<result column="user_asset" jdbcType="VARCHAR" property="user_asset" />
+		<result column="user_asset" jdbcType="DOUBLE" property="user_asset" />
 		<result column="reg_time" jdbcType="VARCHAR" property="reg_time" />
 	</resultMap>
 	<sql id="Base_Column_List">user_name,user_password,user_code,user_asset,reg_time</sql>
@@ -27,7 +27,7 @@
 		)
 	</insert>
 	<update id="update" parameterType="com.study.bean.RealUser">
-	    update realuser set user_asset=#{user_asset,jdbcType=VARCHAR} where user_code=#{user_code,jdbcType=VARCHAR}    
+	    update realuser set user_asset=#{user_asset,jdbcType=DOUBLE} where user_code=#{user_code,jdbcType=VARCHAR}    
 	</update>
 	
 	<select id="selectAllUsercode" resultMap="BaseResultMap">

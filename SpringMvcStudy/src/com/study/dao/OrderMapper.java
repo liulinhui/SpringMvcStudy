@@ -14,4 +14,5 @@ public interface OrderMapper {
 	List<Order> selectAll(String user_code);
 	void deleteOrder(String id);
     void updateOrder(String id);
+    Order selectOrderById(String id);
 }

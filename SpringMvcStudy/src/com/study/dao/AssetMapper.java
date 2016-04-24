@@ -11,5 +11,6 @@ public interface AssetMapper {
 	List<Asset>selectAvaliable(String user_code);
 	Asset selectProductById(String id);
 	void updateStstus(String id);
+	void insertProduct(Asset asset);
 
 }

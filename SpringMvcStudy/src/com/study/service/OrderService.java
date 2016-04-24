@@ -28,5 +28,11 @@ public class OrderService {
 	public void updateOrder(String id){
 		orderMapper.updateOrder(id);
 	}
+	
+	public Order seleOrderById(String id){
+		Order order=new Order();
+		order=orderMapper.selectOrderById(id);
+		return order;
+	}
 
 }
