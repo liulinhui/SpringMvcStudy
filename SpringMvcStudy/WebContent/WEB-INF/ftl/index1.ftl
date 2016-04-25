@@ -182,27 +182,9 @@
 		<!--弹出层  -->
 
 		<div id="footer-nf">
-			<div class="f-inner">
-				<div class="logos">
-					<a target="_blank" href="http://www.csrc.gov.cn"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_1.png"></a>
-					<a target="_blank" href="http://www.sac.net.cn"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_2.png"></a>
-					<a target="_blank"
-						href="http://www.gtja.com/portal/channel/yyzz.jhtml"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_3.png"></a>
-					<a target="_blank"
-						href="https://ss.cnnic.cn/verifyseal.dll?sn=2010051900100001113"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_4.png"></a>
-					<a target="_blank"
-						href="https://seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=TRADE.GTJA.COM&lang=zh_cn"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_5.png"></a>
-					<a target="_blank"
-						href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action"><img
-						src="/SpringMvcStudy/resource/images/images/f_logos_6.png"></a>
-				</div>
-				<p class="copyright">哈哈哈哈 copyright © 2016 苗灿 大孙子</p>
-			</div>
+		<div>
+		<p class="footer-weiba">基于SpringMVC的理财产品转让系统设计</p>
+		</div>
 		</div>
 		<script>
 //  弹出隐藏层
