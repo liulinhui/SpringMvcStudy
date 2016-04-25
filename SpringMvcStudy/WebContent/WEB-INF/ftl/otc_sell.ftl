@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="/SpringMvcStudy/resource/css/table.css"/>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
-  <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/otc_cell.js"></script>
 </head>
 
@@ -62,8 +61,8 @@
 				<div class="rules">
 					<div class="content">
 						<h5>交易规则：</h5>
-						<p>1.<span style="font-family:kaiti;color: #F99325;font-size: 17px;font-weight: bold;">${asset.product_name!''}</span> 最小持有份额为20万份</p>
-						<p>2. 您转让后剩余的份额必须大于200,000份或者为0</p>
+						<p>1.<span style="font-family:kaiti;color: #F99325;font-size: 17px;font-weight: bold;">${asset.product_name!''}</span> 最小持有份额为1000份</p>
+						<p>2.转让后剩余的份额必须大于1000份或者为0</p>
 					</div>
 				</div>
 				<div class="exchange">
@@ -71,28 +70,25 @@
 						<ul class="input">
 							<li>
 								<span>委托数量</span>
-								<input name="amount" class="exchange"></input>
+								<input type="text" id="exchange_account" class="exchange" />
 								<span>份</span>&nbsp;&nbsp;
 								<a class="count_warn"><img src="/SpringMvcStudy/resource/images/images2/Sellerror.png"/>转让数量请大于1000</a>
+								<a class="count_warn1"><img src="/SpringMvcStudy/resource/images/images2/Sellerror.png"/>最小持有1000才可以转让</a>
+								<a class="count_warn2"><img src="/SpringMvcStudy/resource/images/images2/Sellerror.png"/>转让后份额剩余0或者大于1000份</a>
 								<p>转让份数至少为<span class="red">1000</span>份</p>
 							</li>
 							<li>
 								<span>委托价格</span>
-								<input name="price" class="exchange" type="number"></input>
-								<div id="selup"></div>
-								<div id="seldown"></div>
+								<input name="price" id="exchange_price" class="exchange" type="text"></input>
 								<span>元/份</span>&nbsp;&nbsp;
-		     					<a class="price_warn"><img src="/SpringMvcStudy/resource/images/images2/Sellerror.png"/>转让数量请大于1000</a>
+		     					<a class="price_warn"><img src="/SpringMvcStudy/resource/images/images2/Sellerror.png"/>最小报价1.00元</a>
 								<p>最小报价为<span class="red">1.00</span>元/份</p>
 							</li>
-							<li>
-								<input type="checkbox" class="hidden-input" checked="checked" />
-								<span class="checkbox" ></span>
+							<li style="margin-top: 76px;">
+								<input type="checkbox" class="hidden-input checkbox" />
 								<p class="read">我已阅读<a href="./protocol" target="_blank">相关协议</a>并同意开通OTC交易权限</p>
 							</li>
-							
-								<a href="./transfer_confirm"><div class="button"></div></a>
-							
+						<div id=${asset.id!''} style="cursor: pointer; " class="button transfer_confirm"></div>
 						</ul>
 						<div class="info" style="display: block;">
 							<h5>若本次转让成功</h5>

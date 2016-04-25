@@ -63,11 +63,6 @@ div.inner {
 	font-weight: bold;
 }
 
-.fengZi {
-	padding: 3px 5px;
-	margin: 9px -114px 0 84px;;
-	position: absolute
-}
 /* css for bill */
 div.inner div.blank {
 	height: 35px;
@@ -126,7 +121,11 @@ div.bill div.info div.rate h2 {
 
 div.bill div.info div.rate h2 span {
 	color: #999;
-	font-size: 20px;
+	font-size: 32px;
+	font-family: kaiti;
+	margin: 7px 4px;
+	position: absolute;
+	    
 }
 
 div.bill div.info div.rate h6 {
@@ -203,6 +202,7 @@ div.bill div.confirm div.amount h2 {
 div.bill div.confirm div.amount h2 span {
 	color: #999;
 	font-size: 31px;
+	font-family: kaiti;
 }
 
 div.bill div.confirm div.amount h5 {
@@ -383,4 +383,8 @@ div.instr div.pdf ul li {
 div.instr div.pdf ul li img {
 	padding-left: 25px;
 	float: right;
+}
+
+.fengZi {
+	    margin-left: 92px;
 }

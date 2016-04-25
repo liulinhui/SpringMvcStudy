@@ -100,7 +100,7 @@
 					</div>
 					<div class="rate">
 						<h2>
-							<input type="text" maxlength="8" class="fenge" id="s1" /> <span class="fengZi">份</span>
+							<input type="text" maxlength="8" class="fenge" id="s1" /> <span class="fengZi" style="margin-left: 92px;">份</span>
 						</h2>
 						<h6 style="margin-top: 47px;">转让份额</h6>
 						<p>
