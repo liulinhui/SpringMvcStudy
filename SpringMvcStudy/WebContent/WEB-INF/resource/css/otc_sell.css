@@ -62,7 +62,7 @@ div.bill div.header {
 
 div.bill h3 {
 	padding: 15px 0 0 20px;
-	font-size: 40px;
+	font-size: 23px;
 	font-family: kaiti;
 }
 
@@ -74,7 +74,7 @@ div.bill span#amount {
 
 div.bill span#product {
 	color: #f99325;
-	font-size: 16px;
+	font-size: 23px;
 }
 
 div.bill div.rules {

@@ -71,7 +71,7 @@
 			<div class="bill" style="-moz-user-select: -moz-none;"
 				onselectstart="return false;">
 				<div class="header" style="text-align: center; margin: 0 auto;">
-					<h3>您的订单详情</h3>
+					<h3 style="font-size: 40px;">您的订单详情</h3>
 				</div>
 				<table id="travel">
 					<thead>
