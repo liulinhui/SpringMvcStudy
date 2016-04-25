@@ -44,7 +44,7 @@
   bottom: 0;
   height: 100%;
   border-radius: 10px;
-  background-image: linear-gradient(to bottom, 	#F0F0F0, 	#F0F0F0 15%, transparent 60%, 	#F0F0F0);
+  background-image: linear-gradient(to bottom, 	#F0F0F0, #F0F0F0 15%, transparent 60%, 	#F0F0F0);
 }
 
 .container123 {

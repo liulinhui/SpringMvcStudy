@@ -108,38 +108,29 @@
 							<td>${item.buy_amount!''}</td>
 							<td>￥${item.price!''}</td>
 							<td>￥${item.total_money!''}</td>
-							<td>${item.buy_time!''}</td> 
-							<#if item.risk=='1'>
-							<td>低</td>
-							 </#if> 
-							<#if item.risk=='2'>
-							<td>高</td> 
-							</#if> 
-							<#if item.status=='2'>
+							<td>${item.buy_time!''}</td> <#if item.risk=='1'>
+							<td>低</td> </#if> <#if item.risk=='2'>
+							<td>高</td> </#if> <#if item.status=='2'>
 							<td><a id=${item.id!''} class="underline"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">已付</a></td>
 							<td><a id=${item.id!''} class="underline delete"
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
-							</#if>
-							 <#if item.status=='1'>
+							</#if> <#if item.status=='1'>
 							<td><a id=${item.id!''} class="underline payNow"
 								href="javascript:void(0)"
 								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">立即支付</a></td>
 							<td><a id=${item.id!''} class="underline delete"
 								href="javascript:void(0)"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">取消订单</a></td>
-							</#if>
-							<#if item.status=='3'>
+							</#if> <#if item.status=='3'>
 							<td><a id=${item.id!''} class="underline"
 								style="color: #FF0000; font-family: kaiti; font-size: 16px; font-weight: bold;">交易停止</a></td>
 							<td><a id=${item.id!''} class="underline"
 								style="font-size: 16px; font-weight: bold; font-family: kaiti;">删除记录</a></td>
 							</#if>
 						</tr>
-						</#list> 
-						</#if> 
-						<#if order?size==0>
+						</#list> </#if> <#if order?size==0>
 						<div style="margin: 276px; position: absolute;">
 							<div style="color: #666666;">
 								您暂时还没有任何产品,逛逛<a href="./otc" class="order"><img
@@ -155,124 +146,151 @@
 		<div class="blank"></div>
 	</div>
 	<!--弹出层  -->
-		<!--弹出层时背景层DIV-->
-		<div id="Myfade" class="black_overlay"></div>
-		<div id="MyDiv" class="white_content">
-			<div class="con">
-				<div class="content1">
-					<a class="content2">支&nbsp;付</a>
-				</div>
-			</div>
-			<hr />
-			<ul style="list-style: none;">
-				<li><a><h2>
-							产品代码:<span class="xiangxi1 xiangxi"></span>
-						</h2></a></li>
-				<li><a><h2>
-							产品名称:<span class="xiangxi2 xiangxi" style="font-size: 17px;"></span>
-						</h2></a></li>
-				<li><a><h2>
-							购买数量:<span class="xiangxi3 xiangxi"></span>
-						</h2></a></li>
-				<li><a><h2>
-							支付金额:<span class="xiangxi4 xiangxi"></span>
-						</h2></a></li>
-			</ul>
-			<hr />
-			<button id="" class="confirm_pay" ><a style="color:#FF8000;" href="javascript:void(0)">确认</a></button>
-			<button class="cancel_pay"><a style="color:#FF8000;" href="javascript:void(0)">取消</a></button>
-		</div>
-		<div class="white_content2">
-			<div>
-				<p class="jiazai1">正在支付，请稍等...</p>
-			</div>
-			<div class="container123">
-				<div class="warning123"></div>
+	<!--弹出层时背景层DIV-->
+	<div id="Myfade" class="black_overlay"></div>
+	<div id="MyDiv" class="white_content">
+		<div class="con">
+			<div class="content1">
+				<a class="content2">支&nbsp;付</a>
 			</div>
 		</div>
-		<div class="white_content3">
-             
+		<hr />
+		<ul style="list-style: none;">
+			<li><a><h2>
+						产品代码:<span class="xiangxi1 xiangxi"></span>
+					</h2></a></li>
+			<li><a><h2>
+						产品名称:<span class="xiangxi2 xiangxi" style="font-size: 17px;"></span>
+					</h2></a></li>
+			<li><a><h2>
+						购买数量:<span class="xiangxi3 xiangxi"></span>
+					</h2></a></li>
+			<li><a><h2>
+						支付金额:<span class="xiangxi4 xiangxi"></span>
+					</h2></a></li>
+		</ul>
+		<hr />
+		<button id="" class="confirm_pay">
+			<a style="color: #FF8000;" href="javascript:void(0)">确认</a>
+		</button>
+		<button class="cancel_pay">
+			<a style="color: #FF8000;" href="javascript:void(0)">取消</a>
+		</button>
+	</div>
+	<div class="white_content2">
+		<div>
+			<p class="jiazai1">正在支付，请稍等...</p>
 		</div>
+		<div class="container123">
+			<div class="warning123"></div>
+		</div>
+	</div>
+	<div class="white_content3">
+		<div class="content1">
+			<a class="content2">提&nbsp;醒</a>
+		</div>
+		<div class="lowemoney">
+		     <a>您的资金不足，请赶紧充钱吧！</a>
+		</div>
+		<button class="cancel_pay1">
+			<a style="color: #FF8000;" href="javascript:void(0)">确定</a>
+		</button>
+	</div>
 
-		<!--弹出层  -->
+	<!--弹出层  -->
 	<script>
 		$(document).ready(function() {
-		     //  弹出隐藏层
-			  function ShowDiv(){
-			  	$('#MyDiv').show();
-			  	$('#Myfade').show();
-			  	$('#Myfade').height($(document).height());
-			  };
-			  
+			//  弹出隐藏层
+			function ShowDiv() {
+				$('#MyDiv').show();
+				$('#Myfade').show();
+				$('#Myfade').height($(document).height());
+			}
+			;
+
 			$('tbody tr').hover(function() {
 				$(this).addClass('odd');
 			}, function() {
 				$(this).removeClass('odd');
 			});
-			$('.delete').click(function() {    //取消订单
+			$('.delete').click(function() { //取消订单
 				var id = $(this).attr("id");
+				$('#Myfade').show();
+				setTimeout(function(){
+					$.ajax({
+						url : "./deleteOrder",
+						datatype : "json",
+						async : false, //设置为同步进行
+						data : {
+							id : id
+						},
+						type : "POST",
+						success : function(data) {
+							$('#Myfade').hide();
+							window.location.reload();
+						}
+					});
+				},1000);
+			});
+			//获取支付产品信息
+			$('.payNow').click(function() {
+				var id = $(this).attr("id");
+				var product;
 				$.ajax({
-					url : "./deleteOrder",
+					url : "./pay",
 					datatype : "json",
-					async : false, //设置为同步进行
+					async : false,
 					data : {
 						id : id
 					},
 					type : "POST",
 					success : function(data) {
-						window.location.reload();
-					}
-				});
-			});
-			//获取支付产品信息
-			$('.payNow').click(function(){
-				var id=$(this).attr("id");
-				var product;
-				$.ajax({
-					url:"./pay",
-					datatype:"json",
-					async:false,
-					data:{id:id},
-					type:"POST",
-					success:function(data){
-						product=data.order;
+						product = data.order;
 						$('.xiangxi1').text(product.product_code);
 						$('.xiangxi2').text(product.product_name);
-						$('.xiangxi3').text(product.buy_amount);
-						$('.xiangxi4').text(product.total_money+"元");
-						$('.confirm_pay').attr("id",product.id);
+						$('.xiangxi3').text(product.buy_amount+"份");
+						$('.xiangxi4').text(product.total_money + "元");
+						$('.confirm_pay').attr("id", product.id);
 						ShowDiv();
 					}
 				})
 			});
 			//取消购买，关闭弹窗
-			$('.cancel_pay').click(function(){
+			$('.cancel_pay').click(function() {
 				$('#MyDiv').hide();
-			  	$('#Myfade').hide();
+				$('#Myfade').hide();
+			});
+			$('.cancel_pay1').click(function() {
+				$('.white_content3').hide();
+				$('#Myfade').hide();
 			});
 			//确认购买
-			$('.confirm_pay').click(function(){
+			$('.confirm_pay').click(function() {
 				$('#MyDiv').hide();
 				$('.white_content2').show();
-				var id=$(this).attr("id");
+				var id = $(this).attr("id");
 				var state;
 				$.ajax({
-					url:"./confirmPay",
-					datatype:"json",
-					async:false,
-					data:{id:id},
-					type:"POST",
-					success:function(data){
-						state=data.result;
-						if (state=="false") {
-							$('.white_content2').hide();
-							$('.white_content3').show();
-						}else{
-							setTimeout(function(){
+					url : "./confirmPay",
+					datatype : "json",
+					async : false,
+					data : {
+						id : id
+					},
+					type : "POST",
+					success : function(data) {
+						state = data.result;
+						if (state == "false") {
+							setTimeout(function() {
+								$('.white_content2').hide();
+								$('.white_content3').show();
+							}, 1500);
+						} else {
+							setTimeout(function() {
 								$('.white_content2').hide();
 								$('#Myfade').hide();
 								window.location.reload();
-							},2000);
+							}, 2000);
 						}
 					}
 				})

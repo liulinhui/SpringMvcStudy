@@ -13,7 +13,7 @@
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/script.headerfooter.js"></script>
   <script type="text/javascript" src="/SpringMvcStudy/resource/js/index.js"></script>
- 
+  <script type="text/javascript" src="/SpringMvcStudy/resource/js/otc_cell.js"></script>
 </head>
 
 <body>
@@ -94,8 +94,8 @@
 						<div class="info" style="display: block;">
 							<h5>若本次转让成功</h5>
 							<ul>
-								<li><img src="/SpringMvcStudy/resource/images/images2/buy_icon.png"></img><p><span>2,038,000</span>元</p><p>我将获得现金</p></li>
-								<li><img src="/SpringMvcStudy/resource/images/images2/sell_icon.png"></img><p><span>7.12</span>%</p><p>预计买家持有到期将获得年化收益率</p></li>
+								<li><img src="/SpringMvcStudy/resource/images/images2/buy_icon.png"></img><p><span>------</span>元</p><p>我将获得现金</p></li>
+								<li><img src="/SpringMvcStudy/resource/images/images2/sell_icon.png"></img><p><span>---</span>%</p><p>预计买家持有到期将获得年化收益率</p></li>
 							</ul>
 						</div>
 						<div class="read">

@@ -45,6 +45,6 @@
 		from product 
 	</select>
 	<update id="update" parameterType="com.study.bean.Product">
-	    update realuser set rest_account=#{rest_account,jdbcType=DECIMAL},state=#{state,dbcType=CHAR} where id=#{id,jdbcType=VARCHAR}    
+	    update product set rest_account=#{rest_account,jdbcType=DECIMAL},state=#{state,jdbcType=CHAR} where id=#{id,jdbcType=VARCHAR}    
 	</update>
 </mapper>

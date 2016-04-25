@@ -34,7 +34,8 @@ public class desToJs {
 
         int leng = data.length();
         String encData = "";
-        List firstKeyBt = null, secondKeyBt = null, thirdKeyBt = null;
+        @SuppressWarnings("rawtypes")
+		List firstKeyBt = null, secondKeyBt = null, thirdKeyBt = null;
         int firstLength = 0, secondLength = 0, thirdLength = 0;
         if (firstKey != null && firstKey != "") {
             firstKeyBt = getKeyBytes(firstKey);
@@ -210,7 +211,8 @@ public class desToJs {
             String thirdKey) {
         int leng = data.length();
         String decStr = "";
-        List firstKeyBt = null, secondKeyBt = null, thirdKeyBt = null;
+        @SuppressWarnings("rawtypes")
+		List firstKeyBt = null, secondKeyBt = null, thirdKeyBt = null;
         int firstLength = 0, secondLength = 0, thirdLength = 0;
         if (firstKey != null && firstKey != "") {
             firstKeyBt = getKeyBytes(firstKey);
@@ -286,7 +288,8 @@ public class desToJs {
      * 
      * return bit array(it's length % 64 = 0)
      */
-    public List getKeyBytes(String key) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public List getKeyBytes(String key) {
         List keyBytes = new ArrayList();
         int leng = key.length();
         int iterator = (leng / 4);
@@ -303,7 +306,7 @@ public class desToJs {
     }
 
     /*
-     * chang the string(it's length <= 4) into the bit array
+     * Change the string(it's length <= 4) into the bit array
      * 
      * return bit array(it's length = 64)
      */

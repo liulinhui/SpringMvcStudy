@@ -44,4 +44,24 @@
 	<select id="selectOrderById" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select * from user_order where id=#{id,jdbcType=VARCHAR}
 	</select>
+	<update id="updateOrderBuy" parameterType="com.study.bean.Order">
+	    update user_order set status=#{status,jdbcType=CHAR} where id=#{id,jdbcType=VARCHAR}    
+	</update>
+	<insert id="insertOldOrder" parameterType="com.study.bean.Order">
+		insert into order_cancel(id,user_code,product_name,product_code,reference_income,limit_time,buy_amount,price,total_money,buy_time,risk,status)
+		values (
+		#{id,jdbcType=VARCHAR},
+		#{user_code,jdbcType=VARCHAR},
+		#{product_name,jdbcType=VARCHAR},
+		#{product_code,jdbcType=VARCHAR},
+		#{reference_income,jdbcType=DOUBLE},
+		#{limit_time,jdbcType=VARCHAR},
+		#{buy_amount,jdbcType=DECIMAL},
+		#{price,jdbcType=DOUBLE},
+		#{total_money,jdbcType=DOUBLE},
+		#{buy_time,jdbcType=VARCHAR},
+		#{risk,jdbcType=CHAR},
+		#{status,jdbcType=CHAR}
+		)
+	</insert>
 </mapper>

@@ -34,5 +34,13 @@ public class OrderService {
 		order=orderMapper.selectOrderById(id);
 		return order;
 	}
+	
+	public void updateOrderBuy(Order order){
+		orderMapper.updateOrderBuy(order);
+	}
+	
+	public void insertOldOrder(Order order){
+		orderMapper.insertOldOrder(order);
+	}
 
 }

@@ -12,7 +12,7 @@ public class Asset implements Serializable{
 	private String limit_time;       //到期时间
 	private int account;       //数量
 	private char risk;               //风险    1:低风险   2:高风险
-	private char status;             //付款状态   1:正在收益     2:正在转让
+	private char status;             //付款状态   1:已经拥有  2：正在装让
 	private String buy_time;       //买入时间
 	private Double plan_income;            //年化收益率
 	

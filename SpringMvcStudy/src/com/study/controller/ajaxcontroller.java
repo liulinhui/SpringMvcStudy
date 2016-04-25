@@ -32,8 +32,7 @@ import com.study.service.RealUserService;
 
 @Controller
 public class ajaxcontroller {
-	private static final Logger logger = LoggerFactory
-			.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	MD5 MD5 = new MD5();
 	ControllerHelp controllerhellp = new ControllerHelp();
 	@Autowired
@@ -118,6 +117,10 @@ public class ajaxcontroller {
 		Double total_money=Double.parseDouble(request.getParameter("total_money"));
 		Product product = productService.selectById(id);
 		JSONObject jsonObject = new JSONObject();
+			if (orderservice.seleOrderById(id)!=null) {
+				jsonObject.put("result", "had");
+				return jsonObject;
+			}
 		if (allAccount > product.getRest_account()) {
 			jsonObject.put("result", "false");
 
@@ -151,8 +154,10 @@ public class ajaxcontroller {
 		String id=request.getParameter("id");
 		String result="true";
 		try {
+			orderservice.insertOldOrder(orderservice.seleOrderById(id));
 			orderservice.deleteOrder(id);
 		} catch (Exception e) {
+			e.printStackTrace();
 			result="false";
 		}
 		JSONObject jsonObject = new JSONObject();
@@ -244,7 +249,7 @@ public class ajaxcontroller {
 		String id=request.getParameter("id");
 		JSONObject jsonObject=new JSONObject();
 		String state="true";   
-		Order order=orderservice.seleOrderById(id);
+		Order order=orderservice.seleOrderById(id); 
 		BigDecimal TotalAccount=new BigDecimal(order.getTotal_money());   //需要支付的金额
 		BigDecimal Asset=new BigDecimal((double) realUserService.selectByCode(request.getSession().getAttribute("user_code").toString()).getUser_asset());  //用户拥有的金额
 		if (TotalAccount.compareTo(Asset)==1) {             //资金不足
@@ -257,10 +262,16 @@ public class ajaxcontroller {
 		if (product.getRest_account()==0) {      //买完了
 			product.setState('2');
 		}
-		RealUser realUser=realUserService.selectByCode(request.getSession().getAttribute("user_code").toString());
-		realUser.setUser_asset(realUser.getUser_asset()-order.getTotal_money());  //更新用户资产
+		RealUser realUser=realUserService.selectByCode(request.getSession().getAttribute("user_code").toString());//买家
+		RealUser realUser2=realUserService.selectByCode(product.getUser_code());      //卖家
+		realUser2.setUser_asset(realUser2.getUser_asset()+order.getTotal_money());  //计算卖家资产
+		realUserService.update(realUser2);               //更新卖家资产
+		logger.info("===============更新买家资产"+realUser2.getUser_asset());
+		realUser.setUser_asset(realUser.getUser_asset()-order.getTotal_money());  //计算买家资产
 		realUserService.update(realUser);    //更新用户资产
+		logger.info("================更新买家资产"+realUser);
 		productService.update(product);     //更新转让市场产品信息
+		logger.info("===============更新转让市场产品信息"+product.getRest_account());
 		//更新个人产品
 		Asset asset=new Asset(); 
 		asset.setId(MD5.GetMD5Code(Long.toString(System.currentTimeMillis())));
@@ -275,6 +286,11 @@ public class ajaxcontroller {
 		asset.setStatus('1');
 		asset.setPlan_income(product.getPlan_income());
 		assetService.insertProduct(asset);
+		logger.info("==================更新个人资产的产品表"+asset.getProduct_name());
+		//更新order列表的产品状态  1：为付款  2：已经支付了   3：过期了
+		order.setStatus('2');
+		orderservice.updateOrderBuy(order);
+		logger.info("==================更新订单相应的产品购买状态"+order.getStatus());
 		jsonObject.put("result", state);
 		return jsonObject;
 	}

@@ -159,7 +159,22 @@
 				<p>请重新选择购买数量</p>
 			</div>
 		</div>
-		<button class="confirm_buy" onclick="CloseDiv('MyDiv','Myfade')">确认</button>
+		<button class="confirm_buy" onclick="CloseDiv()">确认</button>
+	</div>
+	<div id="MyDiv1" class="white_content" style="position: fixed">
+		<div class="con">
+			<div class="content1">
+				<a class="content2">友情提示</a>
+			</div>
+		</div>
+		<div style="height: 197px;">
+			<div style="padding: 59px 69px;">
+				<a style="font-family: kaiti;font-weight: bold;font-size: 20px;">你的订单里已经存在:<span style="color:#FF8000">${product.product_name!}(${product.product_code!})</span>
+				</a>
+				<p>请选择其他理财产品</p>
+			</div>
+		</div>
+		<button class="confirm_buy" onclick="CloseDiv1()">确认</button>
 	</div>
 	<!--弹出层  -->
 
@@ -226,10 +241,18 @@
 				return false;
 			} else if (status == "true") {
 				window.location.href = './confirm';
+			}else if(status=="had"){
+				$('#Myfade').show();
+				$('#MyDiv1').show();
+				return false;
 			}
 		};
-		function CloseDiv(MyDiv,Myfade){
+		function CloseDiv(){
 			$('#MyDiv').hide();
+			$('#Myfade').hide();
+		}
+		function CloseDiv1(){
+			$('#MyDiv1').hide();
 			$('#Myfade').hide();
 		}
 	</script>

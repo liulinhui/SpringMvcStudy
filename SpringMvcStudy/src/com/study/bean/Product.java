@@ -15,7 +15,7 @@ public class Product implements Serializable {
 	private int transfer_capital;//转让金额
 	private char risk;//风险     1:低风险   2:高风险
 	private String public_date;//发布时间
-	private char state;//购买状态
+	private char state;//购买状态      //0:自己的产品  1：正在转让 2：买完了
 	private String id;  //id
 	private double transfer_price;  //单价
 	private String lastdate;  //剩余时间

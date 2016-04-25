@@ -132,7 +132,7 @@
 							</#if>
 							<#if item.status=="2">
 							<div class="footer">
-								<a href="#" class="action_button">马上撤单</a>
+								<a  class="action_button ">正在转让</a>
 							</div> 
 							</#if>
 						</li>

@@ -12,7 +12,7 @@ public class OrderCanceled implements Serializable {
 	private Double price;            //单价  
 	private String buy_time;           //购买时间
 	private char risk;               //风险    1:低风险   2:高风险
-	private char status;             //付款状态   1:未付款  2:已付款
+	private char status;             //付款状态   1:直接撤单  2：支付或者过期删除订单
 	private Double total_money;    //总价格
 
 	public Double getTotal_money() {

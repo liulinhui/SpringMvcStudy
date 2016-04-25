@@ -35,7 +35,7 @@ font-size: 22px;
 font-weight: bold;
 float: left;
 margin-right: 79px;
-margin-left: 160px;
+margin-left: 150px;
 border-radius: 28px;
 color: #FF8000;
 font-family: kaiti;
@@ -52,6 +52,10 @@ color: #FF8000;
 font-family: kaiti;
 }
 #MyDiv .con{
+height:37px;
+width: 390px;
+}
+#MyDiv1 .con{
 height:37px;
 width: 390px;
 }
@@ -78,6 +82,12 @@ font-weight: bold;
 font-family: kaiti;
 }
 #MyDiv p{
+padding: 21px;
+font-family: kaiti;
+font-size: 22px;
+font-weight: bold;
+}
+#MyDiv1 p{
 padding: 21px;
 font-family: kaiti;
 font-size: 22px;

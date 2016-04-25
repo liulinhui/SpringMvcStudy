@@ -17,7 +17,7 @@
 	<select id="selectAll" parameterType="java.lang.String"
 		resultMap="BaseResultMap">
 		select * from asset where
-		user_code=#{user_code,jdbcType=VARCHAR}
+		user_code=#{user_code,jdbcType=VARCHAR} order by status desc
 	</select>
 	<select id="selectAvaliable" parameterType="java.lang.String"
 		resultMap="BaseResultMap">
@@ -33,7 +33,7 @@
 	    update asset set status='1' where id=#{id,jdbcType=VARCHAR}    
 	</update>
 	<insert id="insertProduct" parameterType="com.study.bean.Asset">
-		insert into user_asset(id,user_name,user_code,product_name,product_code,limit_time,account,risk,status,buy_time,plan_income)
+		insert into asset(id,user_name,user_code,product_name,product_code,limit_time,account,risk,status,buy_time,plan_income)
 		values (
 		#{id,jdbcType=VARCHAR},
 		#{user_name,jdbcType=VARCHAR},

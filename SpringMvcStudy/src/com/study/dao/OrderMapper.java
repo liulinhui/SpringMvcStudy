@@ -15,4 +15,6 @@ public interface OrderMapper {
 	void deleteOrder(String id);
     void updateOrder(String id);
     Order selectOrderById(String id);
+    void updateOrderBuy(Order order);
+    void insertOldOrder(Order order);
 }
