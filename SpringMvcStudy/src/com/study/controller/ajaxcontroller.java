@@ -294,4 +294,34 @@ public class ajaxcontroller {
 		jsonObject.put("result", state);
 		return jsonObject;
 	}
+	
+	/**
+	 * 转让功能的实现
+	 */
+//	@RequestMapping(value = "/exchange")
+//	@ResponseBody
+//	public JSONObject exchange(Model model, HttpServletRequest request){
+//		String id=request.getParameter("id");
+//		int account=Integer.parseInt(request.getParameter("account"));
+//		double price=Double.parseDouble(request.getParameter("price"));
+//		double Account_income=Double.parseDouble(request.getParameter("Account_income"));
+//		double reference_income=Double.parseDouble(request.getParameter("reference_income"));
+//		Product product=new Product();
+//		Asset asset=assetService.selectProductById(id);
+//		product.setId(id);
+//		product.setUser_code(request.getSession().getAttribute("user_code").toString());
+//		product.setProduct_name(asset.getProduct_name());
+//		product.setProduct_code(asset.getProduct_code());
+//		product.setPlan_income(asset.getPlan_income());
+//		product.setReference_income(reference_income);
+//		product.setLimit_time(asset.getLimit_time());
+//		product.setTransfer_price(price);
+//		product.setTransfer_account(account);
+//		product.setTransfer_capital(account);
+//		product.setRisk(asset.getRisk());
+//		product.setState('1');
+//		product.setLastdate("");
+//		product.setPublic_date(controllerhellp.Reg_time_());
+//		product.setRest_account(account);
+//	}
 }

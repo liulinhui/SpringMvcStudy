@@ -47,4 +47,24 @@
 	<update id="update" parameterType="com.study.bean.Product">
 	    update product set rest_account=#{rest_account,jdbcType=DECIMAL},state=#{state,jdbcType=CHAR} where id=#{id,jdbcType=VARCHAR}    
 	</update>
+	<insert id="insert" parameterType="com.study.bean.Product">
+		insert into product(id,user_code,product_name,product_code,plan_income,reference_income,limit_time,transfer_price,transfer_account,account,transfer_capital,risk,state,lastdate,public_date,rest_account)
+		values (
+		#{id,jdbcType=VARCHAR},
+		#{user_code,jdbcType=VARCHAR},
+		#{product_name,jdbcType=VARCHAR},
+		#{product_code,jdbcType=VARCHAR},
+		#{plan_income,jdbcType=VARCHAR},
+		#{reference_income,jdbcType=VARCHAR},
+		#{limit_time,jdbcType=VARCHAR},
+		#{transfer_price,jdbcType=VARCHAR},
+		#{transfer_account,jdbcType=VARCHAR},
+		#{transfer_account,jdbcType=VARCHAR},
+		#{account,jdbcType=DECIMAL},
+		#{risk,jdbcType=CHAR},
+		#{status,jdbcType=CHAR},
+		#{buy_time,jdbcType=VARCHAR},
+		#{plan_income,jdbcType=DOUBLE}		
+		)
+	</insert>
 </mapper>

@@ -145,7 +145,6 @@
 		<!--弹出层时背景层DIV-->
 		<div id="Myfade" class="black_overlay"></div>
 		<div id="MyDiv" class="white_content" style="position: fixed">
-
 			<div class="con">
 				<div class="content1">
 					<a class="content2">撤&nbsp;单</a>
