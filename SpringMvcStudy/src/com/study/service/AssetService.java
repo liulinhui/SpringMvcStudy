@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.study.bean.Asset;
 import com.study.dao.AssetMapper;
 
@@ -33,6 +34,9 @@ public class AssetService {
 	
 	public void insertProduct(Asset asset){
 		assetMapper.insertProduct(asset);
+	}
+	public void updateAccount(Asset asset){
+		assetMapper.updateAccount(asset);
 	}
 
 }

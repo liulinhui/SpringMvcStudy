@@ -11,7 +11,7 @@
 		<result column="limit_time" jdbcType="DATE" property="limit_time" />
 		<result column="transfer_account" jdbcType="DECIMAL" property="transfer_account" />
 		<result column="rest_account" jdbcType="DECIMAL" property="rest_account" />
-		<result column="transfer_capital" jdbcType="DECIMAL" property="transfer_capital" />
+		<result column="transfer_capital" jdbcType="DOUBLE" property="transfer_capital" />
         <result column="risk" jdbcType="CHAR" property="risk" />     
         <result column="state" jdbcType="CHAR" property="state" />
         <result column="id" jdbcType="VARCHAR" property="id" />
@@ -48,23 +48,23 @@
 	    update product set rest_account=#{rest_account,jdbcType=DECIMAL},state=#{state,jdbcType=CHAR} where id=#{id,jdbcType=VARCHAR}    
 	</update>
 	<insert id="insert" parameterType="com.study.bean.Product">
-		insert into product(id,user_code,product_name,product_code,plan_income,reference_income,limit_time,transfer_price,transfer_account,account,transfer_capital,risk,state,lastdate,public_date,rest_account)
+		insert into product(id,user_code,product_name,product_code,plan_income,reference_income,limit_time,transfer_price,transfer_account,transfer_capital,risk,state,lastdate,public_date,rest_account)
 		values (
 		#{id,jdbcType=VARCHAR},
 		#{user_code,jdbcType=VARCHAR},
 		#{product_name,jdbcType=VARCHAR},
 		#{product_code,jdbcType=VARCHAR},
-		#{plan_income,jdbcType=VARCHAR},
-		#{reference_income,jdbcType=VARCHAR},
-		#{limit_time,jdbcType=VARCHAR},
-		#{transfer_price,jdbcType=VARCHAR},
-		#{transfer_account,jdbcType=VARCHAR},
-		#{transfer_account,jdbcType=VARCHAR},
-		#{account,jdbcType=DECIMAL},
+		#{plan_income,jdbcType=DOUBLE},
+		#{reference_income,jdbcType=DOUBLE},
+		#{limit_time,jdbcType=DATE},
+		#{transfer_price,jdbcType=DOUBLE},
+		#{transfer_account,jdbcType=DECIMAL},
+		#{transfer_capital,jdbcType=DOUBLE},
 		#{risk,jdbcType=CHAR},
-		#{status,jdbcType=CHAR},
-		#{buy_time,jdbcType=VARCHAR},
-		#{plan_income,jdbcType=DOUBLE}		
+		#{state,jdbcType=CHAR},
+		#{lastdate,jdbcType=VARCHAR},
+		#{public_date,jdbcType=DOUBLE},
+		#{rest_account,jdbcType=DECIMAL}		
 		)
 	</insert>
 </mapper>

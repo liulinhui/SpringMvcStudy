@@ -163,7 +163,7 @@
 		</ul>
 		<hr />
 		<button id="" class="confirm_buy">
-			<a style="color: #FF8000;" href="javascript:void(0)">确认</a>
+			<a style="color: #FF8000;" class="confirm_buy123" href="javascript:void(0)">确认</a>
 		</button>
 		<button class="cancel_buy" >
 			<a style="color: #FF8000;" href="javascript:void(0)">取消</a>

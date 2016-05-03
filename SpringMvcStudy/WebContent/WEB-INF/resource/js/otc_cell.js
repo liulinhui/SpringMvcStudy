@@ -104,7 +104,14 @@ $(document).ready(function() {
 			data:{id:id,account:account,price:price,Account_income:Account_income,reference_income:reference_income},
 			type : "POST",
 			success:function(data){
-				
+				if (data.result=="true") {
+					setTimeout(function(){
+						$('#Myfade').hide();
+						$('.white_content2').hide();},2000);
+//					$('.confirm_buy123').attr("target","_blank");
+//					$('.confirm_buy123').attr("href","./transfer_confirm");
+					location.href="./transfer_confirm"
+				}
 			}
 		});
 	});

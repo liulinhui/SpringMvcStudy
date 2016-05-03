@@ -72,10 +72,8 @@
 				<img src="/SpringMvcStudy/resource/images/images2/check_icon.png" id="check"></img>
 				<h3>您的转让产品发布成功</h3>
 				<div class="note">
-					<span>返回</span>
+					<span>回到</span>
 					<a href="./otc" class="excg"></a>
-					<span>或者查看</span>
-					<a href="./myOrder" class="order"><img src="/SpringMvcStudy/resource/images/images2/order_button.png"></img></a>
 				</div>
 			</div>
     </div>

@@ -12,5 +12,6 @@ public interface AssetMapper {
 	Asset selectProductById(String id);
 	void updateStstus(String id);
 	void insertProduct(Asset asset);
+	void updateAccount(Asset asset);
 
 }

@@ -12,7 +12,7 @@ public class Product implements Serializable {
 	private String limit_time;//剩余期限	
 	private int transfer_account;//转让份额
 	private int rest_account;//剩余份额
-	private int transfer_capital;//转让金额
+	private double transfer_capital;//转让金额
 	private char risk;//风险     1:低风险   2:高风险
 	private String public_date;//发布时间
 	private char state;//购买状态      //0:自己的产品  1：正在转让 2：买完了
@@ -20,6 +20,12 @@ public class Product implements Serializable {
 	private double transfer_price;  //单价
 	private String lastdate;  //剩余时间
 	
+	public double getTransfer_capital() {
+		return transfer_capital;
+	}
+	public void setTransfer_capital(double transfer_capital) {
+		this.transfer_capital = transfer_capital;
+	}
 	public double getTransfer_price() {
 		return transfer_price;
 	}
@@ -92,12 +98,6 @@ public class Product implements Serializable {
 	}
 	public void setTransfer_account(int transfer_account) {
 		this.transfer_account = transfer_account;
-	}
-	public int getTransfer_capital() {
-		return transfer_capital;
-	}
-	public void setTransfer_capital(int transfer_capital) {
-		this.transfer_capital = transfer_capital;
 	}
 	public char getRisk() {
 		return risk;
