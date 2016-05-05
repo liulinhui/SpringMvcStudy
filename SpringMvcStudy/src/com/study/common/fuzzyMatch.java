@@ -56,8 +56,7 @@ public class fuzzyMatch {
             }});  
     }  
     /** 
-     * 2个字符串错几个字符可以接受 
-     * @param errorNum 
+     * 封装所有，只需要传两个需要比较的字符串
      * @param src 
      * @param dest 
      * @return 
@@ -74,9 +73,9 @@ public class fuzzyMatch {
   
     /** 
      * 使用递归方法匹配字符串 
-     * @param csrc 
+     * @param csrc 输入的字符
      * @param i 
-     * @param cdest 
+     * @param cdest  用来匹配的字符模板
      * @param j 
      * @param hander 
      * @return 
@@ -95,8 +94,8 @@ public class fuzzyMatch {
             int temp2 = 0;  
             int temp3 = 0;  
             temp1 +=  cal(csrc, i, cdest, j+1, hander) ;  
-            temp2 +=  cal(csrc, i+1, cdest, j, hander) ;  
-            temp3 +=  cal(csrc, i+1, cdest, j+1, hander) ;  
+//            temp2 +=  cal(csrc, i+1, cdest, j, hander) ;  
+//            temp3 +=  cal(csrc, i+1, cdest, j+1, hander) ;  
             int temp4 = Math.max(temp1, temp2);  
             score += Math.max(temp3, temp4);  
         }  
