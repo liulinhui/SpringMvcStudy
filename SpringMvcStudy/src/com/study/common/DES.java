@@ -19,7 +19,7 @@ public class DES  {
 	protected final static Log logger = LogFactory.getLog(DES.class);
 	private final static int ITERATIONS = 20;
 	base64 des=new base64();
-
+	
 	class base64{
 		// base64 编码
 		public  byte[] encode(byte[] b) throws Exception {
