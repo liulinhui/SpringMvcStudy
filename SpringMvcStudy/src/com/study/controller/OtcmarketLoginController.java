@@ -200,11 +200,16 @@ public class OtcmarketLoginController {
 			String key1 = (String) request.getSession().getAttribute("key1"); // 取得密钥
 			String key2 = (String) request.getSession().getAttribute("key2");
 			String key3 = (String) request.getSession().getAttribute("key3");
-			System.out.println(key1 + key2 + key3);
+			System.out.println("key1:"+key1);
+			System.out.println("key2:"+key2);
+			System.out.println("key3:"+key3);
 			String Password = realuser.getUser_password(); // 数据库获取用户密码
+			System.out.println("页面传来的加密密码:"+user_password);
+			System.out.println("数据库内保存的密码:"+Password);
 			desToJs desToJs = new desToJs();
 			Password = desToJs.strEnc(Password, key1, key2, key3); // 密码加密
 			Password = MD5.GetMD5Iterator(Password, 100); // md5加密100次
+			System.out.println("数据内密码加密后:"+Password);
 			if (user_password.equals(Password)) {
 				logger.info("用户：" + user_code + " 已登录！");
 				request.getSession().setAttribute("user_code", user_code);
